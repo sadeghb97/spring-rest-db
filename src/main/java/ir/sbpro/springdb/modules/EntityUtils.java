@@ -14,10 +14,12 @@ public class EntityUtils<T> {
     }
 
     public boolean isDuplicate(){
+        if(entity.getPrimaryKey() == null) return false;
         return repository.existsById(entity.getPrimaryKey());
     }
 
     public static ResponseEntity<Object> getDuplicateResponse(String entityName){
-        return new ErrorsResponseMap("pk", entityName + " already exists!").getEntityResponse();
+        return new ErrorsResponseMap("pk",
+                "This " + entityName + " already exists!").getEntityResponse();
     }
 }

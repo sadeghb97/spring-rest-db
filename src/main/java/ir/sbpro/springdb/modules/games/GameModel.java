@@ -1,8 +1,6 @@
 package ir.sbpro.springdb.modules.games;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import ir.sbpro.springdb.modules.ModuleEntity;
 import ir.sbpro.springdb.modules.studios.StudioModel;
 import org.hibernate.annotations.CreationTimestamp;
@@ -84,6 +82,6 @@ public class GameModel extends ModuleEntity {
     }
 
     public Long getStudioPk(){
-        return pk;
+        return studio != null ? studio.getPk() : null;
     }
 }
