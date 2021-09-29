@@ -1,6 +1,7 @@
 package ir.sbpro.springdb.modules.studios;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public class StudioController {
     }
 
     @PostMapping(value = {"", "/"})
-    public StudioModel registerStudio(@RequestBody StudioModel studio){
+    public ResponseEntity<Object> registerStudio(@RequestBody StudioModel studio){
         return studioService.registerStudio(studio);
     }
 }

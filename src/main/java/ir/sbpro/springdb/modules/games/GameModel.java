@@ -1,7 +1,9 @@
 package ir.sbpro.springdb.modules.games;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import ir.sbpro.springdb.modules.ModuleEntity;
 import ir.sbpro.springdb.modules.studios.StudioModel;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -11,43 +13,34 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "games")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "pk")
-public class GameModel {
-    @Id
-    @GeneratedValue
-    private Long pk;
-
+public class GameModel extends ModuleEntity {
     @Column(nullable = false)
     private int year;
 
     @Column(nullable = false)
     private String name;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(referencedColumnName = "pk")
     private StudioModel studio;
 
     @CreationTimestamp
-    @Column(name = "created_at", insertable = false, updatable = false)
+    @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
     @UpdateTimestamp
-    @Column(name = "updated_at", insertable = false, updatable = false)
+    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    public GameModel(){}
+    public GameModel(){
+        super();
+    }
 
     public GameModel(int year, String name) {
+        super();
         this.year = year;
         this.name = name;
-    }
-
-    public Long getPk() {
-        return pk;
-    }
-
-    public void setPk(Long pk) {
-        this.pk = pk;
     }
 
     public int getYear() {
@@ -88,5 +81,9 @@ public class GameModel {
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public Long getStudioPk(){
+        return pk;
     }
 }

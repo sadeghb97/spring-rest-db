@@ -1,5 +1,6 @@
 package ir.sbpro.springdb.modules.games;
 
+import ir.sbpro.springdb.modules.EntityUtils;
 import ir.sbpro.springdb.modules.studios.StudioModel;
 import ir.sbpro.springdb.modules.studios.StudioRepository;
 import ir.sbpro.springdb.responses.ErrorsResponseMap;
@@ -29,8 +30,15 @@ public class GameService {
         return gameRepository.findAll();
     }
 
-    public GameModel registerGame(GameModel game){
-        return gameRepository.save(game);
+    public ResponseEntity<Object> registerGame(GameModel game){
+        EntityUtils<GameModel> entityUtils =
+                new EntityUtils<GameModel>(gameRepository, game);
+
+        if(entityUtils.isDuplicate()){
+            return EntityUtils.getDuplicateResponse("game");
+        }
+
+        return new ResponseEntity<Object>(gameRepository.save(game), HttpStatus.ACCEPTED);
     }
 
     public ResponseEntity<Object> patchGame(Long gamePk, Map<String, Object> gameMap){

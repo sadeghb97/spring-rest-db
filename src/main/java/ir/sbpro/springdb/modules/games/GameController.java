@@ -18,7 +18,7 @@ public class GameController {
     }
 
     @PostMapping(value = {"", "/"})
-    public GameModel registerGame(@RequestBody GameModel game){
+    public ResponseEntity<Object> registerGame(@RequestBody GameModel game){
         return gameService.registerGame(game);
     }
 
