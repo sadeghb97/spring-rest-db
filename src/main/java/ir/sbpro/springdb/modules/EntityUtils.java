@@ -1,9 +1,7 @@
 package ir.sbpro.springdb.modules;
 
-import ir.sbpro.springdb.modules.games.GameModel;
 import ir.sbpro.springdb.responses.ErrorsResponseMap;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -44,7 +42,7 @@ public class EntityUtils<T> {
     public static String saveFile(String outPath, MultipartFile file, String defSuffix,
                                 String oldFileName) throws Exception {
         File classPath =
-                ResourceUtils.getFile("classpath:");
+                ResourceUtils.getFile("classpath:static");
         File outDir = new File(classPath, outPath);
 
         if(outDir.exists() || outDir.mkdirs()) {

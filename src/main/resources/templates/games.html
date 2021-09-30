@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>My Games</title>
+
+    <div th:replace="fragments/header::head"></div>
+</head>
+
+<body>
+
+<div>
+    <div class="a-box" th:each="game : ${games}">
+        <div class="img-container">
+            <div class="img-inner">
+                <div class="inner-skew">
+                    <img th:src="'/img/covers/' + ${game.getCover()}">
+                </div>
+            </div>
+        </div>
+        <div class="text-container">
+            <h3 th:text="${game.getName()}"></h3>
+            <div th:text="${game.getDescription()}"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

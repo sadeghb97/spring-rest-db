@@ -20,6 +20,8 @@ public class GameModel extends ModuleEntity {
 
     private String cover;
 
+    private String description;
+
     @JsonBackReference
     @ManyToOne
     @JoinColumn(referencedColumnName = "pk")
@@ -89,6 +91,14 @@ public class GameModel extends ModuleEntity {
 
     public void setCover(String cover) {
         this.cover = cover;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Long getStudioPk(){
