@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Game</title>
+
+    <div th:replace="fragments/header::head"></div>
+    <link rel="stylesheet" th:href="@{/css/game_form.css}" />
+</head>
+
+<body>
+
+<div>
+    <form th:action="@{/insertgame}" th:object="${gameObject}" method="post"
+          class="form-style-9" enctype="multipart/form-data">
+        <ul>
+            <li>
+                <input type="text" class="field-style field-full align-left"
+                       placeholder="Name" th:field="*{name}" />
+
+                <input type="number" class="field-style field-full align-right"
+                       placeholder="Year" th:field="*{year}" />
+
+                <input type="file" name="cover_file" class="field-style field-full align-right"
+                       accept="image/*" placeholder="Cover" />
+            </li>
+            <li>
+                <textarea class="field-style"
+                          placeholder="Description" th:field="*{description}"></textarea>
+            </li>
+            <li>
+                <input type="submit" value="Patch Game" />
+            </li>
+        </ul>
+    </form>
+</div>
+
+</body>
+</html>

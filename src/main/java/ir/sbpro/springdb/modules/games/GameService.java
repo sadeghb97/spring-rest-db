@@ -32,13 +32,30 @@ public class GameService {
         return gameRepository.findAll();
     }
 
+    public Optional<GameModel> getGame(Long gamePk){
+        return gameRepository.findById(gamePk);
+    }
+
     public ResponseEntity<Object> registerGame(GameModel game){
+        return registerGame(game, null);
+    }
+
+    public ResponseEntity<Object> registerGame(GameModel game, MultipartFile file){
         EntityUtils<GameModel> entityUtils =
                 new EntityUtils<GameModel>(gameRepository, game);
 
         if(entityUtils.isDuplicate()){
             return EntityUtils.getDuplicateResponse("game");
         }
+
+        try {
+            if (file != null && file.getSize() > 0) {
+                String coverPath =
+                        EntityUtils.saveFile("img/covers/", file, ".jpg", null);
+                game.setCover(coverPath);
+            }
+        }
+        catch (Exception ex){}
 
         return new ResponseEntity<Object>(gameRepository.save(game), HttpStatus.ACCEPTED);
     }

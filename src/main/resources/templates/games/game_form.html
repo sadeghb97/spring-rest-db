@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Game</title>
+
+    <div th:replace="fragments/header::head"></div>
+    <link rel="stylesheet" th:href="@{/css/game_form.css}" />
+</head>
+
+<body>
+
+<div>
+    <form th:action="@{/insertgame}" th:object="${gameObject}" method="post"
+          class="form-style-9" enctype="multipart/form-data">
+        <ul>
+            <li>
+                <input type="text" class="field-style field-full align-left"
+                       placeholder="Name" th:field="*{name}" />
+
+                <!--
+                 az th field estefade nakardim ta meghdare sefr darune input gharar nagirad
+                 set kardane name va id mesle estefade haman estefade az th field hast
+                -->
+                <input type="number" class="field-style field-full align-right"
+                       placeholder="Year" name="year" id="year" />
+
+                <input type="file" name="cover_file" class="field-style field-full align-right"
+                       accept="image/*" placeholder="Cover" />
+            </li>
+            <li>
+                <textarea class="field-style"
+                          placeholder="Description" th:field="*{description}"></textarea>
+            </li>
+            <li>
+                <input type="submit" value="Add Game" />
+            </li>
+        </ul>
+    </form>
+</div>
+
+</body>
+</html>

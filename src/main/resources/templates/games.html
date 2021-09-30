@@ -13,9 +13,11 @@
     <div class="a-box" th:each="game : ${games}">
         <div class="img-container">
             <div class="img-inner">
-                <div class="inner-skew">
-                    <img th:src="'/img/covers/' + ${game.getCover()}">
-                </div>
+                <a th:href="'/showgame/' + ${game.getPk()} + '/'" target="_blank">
+                    <div class="inner-skew">
+                        <img th:src="'/img/covers/' + ${game.getCover()}">
+                    </div>
+                </a>
             </div>
         </div>
         <div class="text-container">
