@@ -3,6 +3,7 @@ package ir.sbpro.springdb.modules.games;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Map;
@@ -20,6 +21,12 @@ public class GameController {
     @PostMapping(value = {"", "/"})
     public ResponseEntity<Object> registerGame(@RequestBody GameModel game){
         return gameService.registerGame(game);
+    }
+
+    @PatchMapping(value = "upcover/{game_pk}/")
+    public ResponseEntity<Object> uploadGameCover(@PathVariable("game_pk") Long gamePk,
+                                                  @RequestParam("file") MultipartFile file){
+        return gameService.upGameCover(gamePk, file);
     }
 
     @GetMapping(value = {"", "/"})

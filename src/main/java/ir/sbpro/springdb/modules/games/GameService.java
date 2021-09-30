@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Map;
@@ -41,11 +43,31 @@ public class GameService {
         return new ResponseEntity<Object>(gameRepository.save(game), HttpStatus.ACCEPTED);
     }
 
+    public ResponseEntity<Object> upGameCover(Long gamePk, MultipartFile file){
+        Optional<GameModel> gameOptional = gameRepository.findById(gamePk);
+        if(gameOptional.isEmpty()){
+            return EntityUtils.entityNotFoundResponse("game");
+        }
+
+        try {
+            GameModel game = gameOptional.get();
+            String coverFileName = EntityUtils.saveFile(
+                    "img/covers/", file, ".jpg", game.getCover());
+
+            game.setCover(coverFileName);
+            return new ResponseEntity<Object>(gameRepository.save(game), HttpStatus.ACCEPTED);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Something goes wrong!");
+        }
+    }
+
     public ResponseEntity<Object> patchGame(Long gamePk, Map<String, Object> gameMap){
         Optional<GameModel> gameOptional = gameRepository.findById(gamePk);
         if(gameOptional.isEmpty()){
             //throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "game not found!");
-            return new ErrorsResponseMap("pk", "game not found!").getEntityResponse();
+            return EntityUtils.entityNotFoundResponse("game");
         }
 
         GameModel gameModel = gameOptional.get();
