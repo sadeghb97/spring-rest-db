@@ -15,14 +15,27 @@
           class="form-style-9" enctype="multipart/form-data">
         <ul>
             <li>
+                <input type="hidden" id="pk" name="pk" th:field="*{pk}">
+                <input type="hidden" id="cover" name="cover" th:field="*{cover}">
+
+                <img class="field-style field-full align-left" id="#coverbox"
+                     th:src="'/img/covers/' + ${gameObject.getCover()}" />
+
                 <input type="text" class="field-style field-full align-left"
                        placeholder="Name" th:field="*{name}" />
 
                 <input type="number" class="field-style field-full align-right"
                        placeholder="Year" th:field="*{year}" />
 
+                <select th:field="*{studio}" class="field-style field-full align-right">
+                    <option th:value="${null}" th:selected="gameObject.studio == null"> --- </option>
+
+                    <option th:each="studio : ${studios}" th:text="${studio.getName()}"
+                            th:value="${studio.getPk()}" th:selected="gameObject.studio == studio"></option>
+                </select>
+
                 <input type="file" name="cover_file" class="field-style field-full align-right"
-                       accept="image/*" placeholder="Cover" />
+                       accept="image/*" placeholder="Cover" onchange="readURL(this, '#coverbox');" />
             </li>
             <li>
                 <textarea class="field-style"
@@ -32,6 +45,11 @@
                 <input type="submit" value="Patch Game" />
             </li>
         </ul>
+    </form>
+
+    <form class="form-style-9" method="post">
+        <div style="color: #3d2200; font-weight: bold; margin-bottom: 8px;">Warning: Deleting Game!</div>
+        <input type="submit" value="Delete Game" />
     </form>
 </div>
 

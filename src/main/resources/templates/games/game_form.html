@@ -25,6 +25,13 @@
                 <input type="number" class="field-style field-full align-right"
                        placeholder="Year" name="year" id="year" />
 
+                <select th:field="*{studio}" class="field-style field-full align-right">
+                    <option th:value="${null}" th:selected="true"> --- </option>
+
+                    <option th:each="studio : ${studios}" th:text="${studio.getName()}"
+                            th:value="${studio.getPk()}"></option>
+                </select>
+
                 <input type="file" name="cover_file" class="field-style field-full align-right"
                        accept="image/*" placeholder="Cover" />
             </li>

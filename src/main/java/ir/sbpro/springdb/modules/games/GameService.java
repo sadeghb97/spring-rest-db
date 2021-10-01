@@ -41,10 +41,14 @@ public class GameService {
     }
 
     public ResponseEntity<Object> registerGame(GameModel game, MultipartFile file){
+        return registerGame(game, file, false);
+    }
+
+    public ResponseEntity<Object> registerGame(GameModel game, MultipartFile file, boolean duplicateAllowed){
         EntityUtils<GameModel> entityUtils =
                 new EntityUtils<GameModel>(gameRepository, game);
 
-        if(entityUtils.isDuplicate()){
+        if(!duplicateAllowed && entityUtils.isDuplicate()){
             return EntityUtils.getDuplicateResponse("game");
         }
 
