@@ -10,3 +10,7 @@ function readURL(input, targetId) {
         reader.readAsDataURL(input.files[0]);
     }
 }
+
+function areYouSure(){
+    return confirm('Are you sure?');
+}

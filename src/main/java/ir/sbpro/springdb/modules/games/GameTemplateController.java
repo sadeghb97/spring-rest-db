@@ -44,6 +44,12 @@ public class GameTemplateController {
         return "games/show_game";
     }
 
+    @PostMapping(value = "/delgame")
+    public String deleteGame(@RequestParam("delpk") Long gamePk){
+        gameService.gameRepository.deleteById(gamePk);
+        return "redirect:/";
+    }
+
     @PostMapping(value = "/insertgame")
     public String insertGameFromForm(@ModelAttribute GameModel game, @RequestParam("cover_file") MultipartFile file){
         ResponseEntity<Object> responseEntity = null;

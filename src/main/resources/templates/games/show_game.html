@@ -47,8 +47,10 @@
         </ul>
     </form>
 
-    <form class="form-style-9" method="post">
+    <form class="form-style-9" method="post" th:action="@{/delgame}" th:object="${gameObject}"
+          onsubmit="return areYouSure();">
         <div style="color: #3d2200; font-weight: bold; margin-bottom: 8px;">Warning: Deleting Game!</div>
+        <input type="hidden" name="delpk" id="delpk" th:value="${gameObject.getPk()}">
         <input type="submit" value="Delete Game" />
     </form>
 </div>
