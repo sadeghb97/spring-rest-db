@@ -25,7 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/")
+                .antMatchers("/", "/css/**", "/js/**", "/img/**")
                 .permitAll()
                 .antMatchers("/delgame","/newgame", "/insertgame")
                 .hasAuthority("ROLE_ADMIN")
