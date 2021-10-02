@@ -21,38 +21,70 @@
                 <img class="field-style field-full align-left" id="#coverbox"
                      th:src="'/img/covers/' + ${gameObject.getCover()}" />
 
-                <input type="text" class="field-style field-full align-left"
-                       placeholder="Name" th:field="*{name}" />
+                <div th:switch="${access}">
+                    <input th:case="'yes'" type="text" class="field-style field-full align-left"
+                           placeholder="Name" th:field="*{name}" />
+                    <input th:case="'no'" type="text" class="field-style field-full align-left"
+                           placeholder="Name" th:value="${gameObject.getName()}" readonly />
+                </div>
 
-                <input type="number" class="field-style field-full align-right"
-                       placeholder="Year" th:field="*{year}" />
+                <div th:switch="${access}">
+                    <input th:case="'yes'" type="number" class="field-style field-full align-right"
+                           placeholder="Year" th:field="*{year}" />
+                    <input th:case="*" type="number" class="field-style field-full align-right"
+                           placeholder="Year" th:value="${gameObject.getYear()}" readonly />
+                </div>
 
-                <select th:field="*{studio}" class="field-style field-full align-right">
-                    <option th:value="${null}" th:selected="gameObject.studio == null"> --- </option>
+                <div th:switch="${access}">
+                    <select th:case="'yes'" th:field="*{studio}" class="field-style field-full align-right">
+                        <option th:value="${null}" th:selected="gameObject.studio == null"> --- </option>
 
-                    <option th:each="studio : ${studios}" th:text="${studio.getName()}"
-                            th:value="${studio.getPk()}" th:selected="gameObject.studio == studio"></option>
-                </select>
+                        <option th:each="studio : ${studios}" th:text="${studio.getName()}"
+                                th:value="${studio.getPk()}" th:selected="gameObject.studio == studio"></option>
+                    </select>
 
-                <input type="file" name="cover_file" class="field-style field-full align-right"
-                       accept="image/*" placeholder="Cover" onchange="readURL(this, '#coverbox');" />
+                    <div th:case="*">
+                        <div th:switch="${gameObject.studio != null ? 'yes' : 'no'}">
+                            <input th:case="'yes'" type="text" class="field-style field-full align-right"
+                                   placeholder="Studio" th:value="${gameObject.studio.getName()}" readonly />
+                        </div>
+                    </div>
+                </div>
+
+                <div th:switch="${access}">
+                    <input th:case="'yes'" type="file" name="cover_file" class="field-style field-full align-right"
+                           accept="image/*" placeholder="Cover" onchange="readURL(this, '#coverbox');" />
+                </div>
             </li>
-            <li>
-                <textarea class="field-style"
-                          placeholder="Description" th:field="*{description}"></textarea>
-            </li>
-            <li>
-                <input type="submit" value="Patch Game" />
-            </li>
+
+            <div th:switch="${access}">
+                <li th:case="'yes'">
+                    <textarea class="field-style"
+                              placeholder="Description" th:field="*{description}"></textarea>
+                </li>
+
+                <li th:case="'no'">
+                    <textarea class="field-style"
+                              placeholder="Description" th:value="${gameObject.getDescription()}" readonly></textarea>
+                </li>
+            </div>
+
+            <div th:switch="${access}">
+                <li th:case="'yes'">
+                    <input type="submit" value="Patch Game" />
+                </li>
+            </div>
         </ul>
     </form>
 
-    <form class="form-style-9" method="post" th:action="@{/delgame}" th:object="${gameObject}"
-          onsubmit="return areYouSure();">
-        <div style="color: #3d2200; font-weight: bold; margin-bottom: 8px;">Warning: Deleting Game!</div>
-        <input type="hidden" name="delpk" id="delpk" th:value="${gameObject.getPk()}">
-        <input type="submit" value="Delete Game" />
-    </form>
+    <div th:switch="${access}">
+        <form th:case="'yes'" class="form-style-9" method="post" th:action="@{/delgame}" th:object="${gameObject}"
+              onsubmit="return areYouSure();">
+            <div style="color: #3d2200; font-weight: bold; margin-bottom: 8px;">Warning: Deleting Game!</div>
+            <input type="hidden" name="delpk" id="delpk" th:value="${gameObject.getPk()}">
+            <input type="submit" value="Delete Game" />
+        </form>
+    </div>
 </div>
 
 </body>

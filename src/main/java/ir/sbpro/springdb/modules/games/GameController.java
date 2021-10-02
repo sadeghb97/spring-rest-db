@@ -1,5 +1,6 @@
 package ir.sbpro.springdb.modules.games;
 
+import ir.sbpro.springdb.configs.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("games/")
+@RequestMapping(Constants.API_PREFIX + "games/")
 public class GameController {
     GameService gameService;
 

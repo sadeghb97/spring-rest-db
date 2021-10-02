@@ -1,8 +1,13 @@
 package ir.sbpro.springdb.modules.games;
 
+import ir.sbpro.springdb.enums.Role;
+import ir.sbpro.springdb.modules.Users.UserModel;
 import ir.sbpro.springdb.modules.studios.StudioService;
+import ir.sbpro.springdb.utils.PrimitiveWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -39,8 +44,13 @@ public class GameTemplateController {
         Optional<GameModel> gameOptional = gameService.getGame(gamePk);
         if(gameOptional.isEmpty()) return "redirect:/";
 
+        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        boolean access =
+                currentUser.getAuthorities().stream().anyMatch((role) -> role.getAuthority().equals("ROLE_ADMIN"));
+
         model.addAttribute("gameObject", gameOptional.get());
         model.addAttribute("studios", studioService.getAllStudios());
+        model.addAttribute("access", access ? "yes" : "no");
         return "games/show_game";
     }
 
