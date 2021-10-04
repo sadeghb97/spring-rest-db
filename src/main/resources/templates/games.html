@@ -8,24 +8,25 @@
 </head>
 
 <body>
+    <div th:replace="fragments/navbar::navbar"></div>
 
-<div>
-    <div class="a-box" th:each="game : ${games}">
-        <div class="img-container">
-            <div class="img-inner">
-                <a th:href="'/showgame/' + ${game.getPk()} + '/'" target="_blank">
-                    <div class="inner-skew">
-                        <img th:src="'/img/covers/' + ${game.getCover()}">
-                    </div>
-                </a>
+    <div style="padding: 30px;">
+        <div class="a-box" th:each="game : ${games}">
+            <div class="img-container">
+                <div class="img-inner">
+                    <a th:href="'/showgame/' + ${game.getPk()} + '/'" target="_blank">
+                        <div class="inner-skew">
+                            <img th:src="'/img/covers/' + ${game.getCover()}">
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="text-container">
+                <h3 th:text="${game.getName()}"></h3>
+                <div th:text="${game.getDescription()}"></div>
             </div>
         </div>
-        <div class="text-container">
-            <h3 th:text="${game.getName()}"></h3>
-            <div th:text="${game.getDescription()}"></div>
-        </div>
     </div>
-</div>
 
 </body>
 </html>

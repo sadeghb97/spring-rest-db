@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add User</title>
+
+    <div th:replace="fragments/header::head"></div>
+    <link rel="stylesheet" th:href="@{/css/game_form.css}" />
+</head>
+
+<body>
+
+<div>
+    <div th:replace="fragments/navbar::navbar"></div>
+
+    <form th:action="@{/insertuser}" th:object="${userObject}" method="post"
+          class="form-style-9" enctype="multipart/form-data" autocomplete="off">
+        <ul>
+            <li>
+                <input type="hidden" id="pk" name="pk" th:field="*{pk}">
+                <input type="hidden" id="cover" name="cover" th:field="*{cover}">
+
+                <div th:switch="${userObject.getCover() != null}">
+                    <img th:case="true" class="field-style field-full align-left" id="#coverbox"
+                         th:src="'/img/covers/' + ${userObject.getCover()}" />
+                </div>
+
+                <input type="text" class="field-style field-full align-left"
+                       placeholder="Username" th:field="*{username}" />
+
+                <!--
+                 az th field estefade nakardim ta meghdare sefr darune input gharar nagirad
+                 set kardane name va id mesle estefade haman estefade az th field hast
+                -->
+                <input type="email" class="field-style field-full align-right"
+                       placeholder="Email" th:field="*{email}" />
+
+                <input type="password" autocomplete="new-password" class="field-style field-full align-right"
+                       placeholder="Password" th:field="*{password}" />
+
+                <input type="file" name="cover_file" class="field-style field-full align-right"
+                       accept="image/*" placeholder="Cover" onchange="readURL(this, '#coverbox');" />
+            </li>
+            <li>
+                <input style="margin-top: 16px;" type="submit"
+                       th:value="${userObject.getPk() != null ? 'Patch User' : 'Add User'}" />
+            </li>
+        </ul>
+    </form>
+</div>
+
+</body>
+</html>

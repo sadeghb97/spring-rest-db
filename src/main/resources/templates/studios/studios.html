@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Studios</title>
+    <div th:replace="fragments/header::head"></div>
+</head>
+<body>
+    <div th:replace="fragments/navbar::navbar"></div>
+
+    <div class="w-full operation-buttons">
+        <a class="mb-2 btn btn-primary" style="width: 100px" th:href="@{/studioform}" target="_blank">
+            NEW
+        </a>
+    </div>
+
+    <table class="table" th:object="${studios}">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Operation</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="studio : ${studios}">
+            <th scope="row" th:text="${studio.getName()}"></th>
+            <td>
+                <a class="btn btn-success" style="width: 80px"
+                   th:href="@{/studios/edit/{id}(id=${studio.getPk()})}">Edit</a>
+
+                <a class="btn btn-danger"
+                   data-toggle="modal"
+                   href="#"
+                   style="width: 80px" th:data-target="'#delete'+${studio.getPk()}">
+                    Delete
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

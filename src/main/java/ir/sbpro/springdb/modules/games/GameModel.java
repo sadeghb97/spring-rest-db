@@ -1,17 +1,15 @@
 package ir.sbpro.springdb.modules.games;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import ir.sbpro.springdb.modules.HasCover;
 import ir.sbpro.springdb.modules.ModuleEntity;
 import ir.sbpro.springdb.modules.studios.StudioModel;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "games")
-public class GameModel extends ModuleEntity {
+public class GameModel extends ModuleEntity implements HasCover {
     @Column(nullable = false)
     private int year;
 

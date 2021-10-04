@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <div th:replace="fragments/header::head"></div>
+</head>
+<body>
+    <div th:replace="fragments/navbar::navbar"></div>
+
+    <div class="w-full operation-buttons">
+        <a class="mb-2 btn btn-primary" style="width: 100px" th:href="@{/userform}" target="_blank">
+            NEW
+        </a>
+    </div>
+
+    <table class="table" th:object="${users}">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">Operation</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${users}">
+            <th scope="row" th:text="${user.getUsername()}"></th>
+            <th scope="row" th:text="${user.getEmail()}"></th>
+            <td>
+                <a class="btn btn-success" style="width: 80px" target="_blank"
+                   th:href="@{/userform/{id}(id=${user.getPk()})}">Edit</a>
+
+                <a class="btn btn-danger"
+                   data-toggle="modal"
+                   href="#"
+                   style="width: 80px" th:data-target="'#delete'+${user.getPk()}">
+                    Delete
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

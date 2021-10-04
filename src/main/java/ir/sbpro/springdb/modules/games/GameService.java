@@ -45,23 +45,10 @@ public class GameService {
     }
 
     public ResponseEntity<Object> registerGame(GameModel game, MultipartFile file, boolean duplicateAllowed){
-        EntityUtils<GameModel> entityUtils =
-                new EntityUtils<GameModel>(gameRepository, game);
+        EntityUtils<GameModel, GameRepository> entityUtils =
+                new EntityUtils(gameRepository, game, "game");
 
-        if(!duplicateAllowed && entityUtils.isDuplicate()){
-            return EntityUtils.getDuplicateResponse("game");
-        }
-
-        try {
-            if (file != null && file.getSize() > 0) {
-                String coverPath =
-                        EntityUtils.saveFile("img/covers/", file, ".jpg", null);
-                game.setCover(coverPath);
-            }
-        }
-        catch (Exception ex){}
-
-        return new ResponseEntity<Object>(gameRepository.save(game), HttpStatus.ACCEPTED);
+        return entityUtils.patchEntity(file, duplicateAllowed);
     }
 
     public ResponseEntity<Object> upGameCover(Long gamePk, MultipartFile file){

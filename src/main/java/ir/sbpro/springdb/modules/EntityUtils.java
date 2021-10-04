@@ -1,7 +1,9 @@
 package ir.sbpro.springdb.modules;
 
+import ir.sbpro.springdb.modules.users.UserModel;
 import ir.sbpro.springdb.responses.ErrorsResponseMap;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -11,18 +13,56 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.UUID;
 
-public class EntityUtils<T> {
-    JpaRepository<T, Long> repository;
-    ModuleEntity entity;
+public class EntityUtils<U extends ModuleEntity, T extends JpaRepository<U, Long>> {
+    U entity;
+    T repository;
+    String entityName;
 
-    public EntityUtils(JpaRepository<T, Long> repository, ModuleEntity entity){
+    public EntityUtils(T repository, U entity, String entityName){
         this.repository = repository;
         this.entity = entity;
+        this.entityName = entityName;
     }
 
     public boolean isDuplicate(){
         if(entity.getPrimaryKey() == null) return false;
         return repository.existsById(entity.getPrimaryKey());
+    }
+
+    public ResponseEntity<Object> patchEntity(MultipartFile file, boolean duplicateAllowed){
+        boolean isDup = isDuplicate();
+        if(!duplicateAllowed && isDuplicate()){
+            return EntityUtils.getDuplicateResponse(entityName);
+        }
+
+        U oldEntity = null;
+        if(isDup){
+            oldEntity = repository.findById(entity.getPrimaryKey()).get();
+        }
+
+        try {
+            if (entity instanceof HasCover && file != null && file.getSize() > 0) {
+                String coverPath =
+                        EntityUtils.saveFile("img/covers/", file, ".jpg", null);
+                ((HasCover) entity).setCover(coverPath);
+            }
+
+            System.out.println(isDup);
+            System.out.println(entity instanceof HasPassword);
+            System.out.println(((HasPassword) entity).getPassword() == null);
+            boolean needRecoverPassword = isDup && entity instanceof HasPassword;
+            needRecoverPassword &= ((HasPassword) entity).getPassword() == null
+                    || ((HasPassword) entity).getPassword().isEmpty();
+
+            if(needRecoverPassword){
+                ((HasPassword) entity).setPassword(
+                        ((HasPassword) oldEntity).getPassword()
+                );
+            }
+        }
+        catch (Exception ex){}
+
+        return new ResponseEntity<Object>(repository.save(entity), HttpStatus.ACCEPTED);
     }
 
     public boolean hasPrimaryKey(){

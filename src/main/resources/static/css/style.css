@@ -1,6 +1,5 @@
 body {
     text-align: center;
-    padding: 30px;
     background: #f8f4f2;
     font-family: Arial;
 }
@@ -52,4 +51,10 @@ body {
     margin: 20px 0px 10px 0px;
     color: #04bcff;
     font-size: 18px;
+}
+
+.operation-buttons {
+    padding-left: 30px;
+    margin-bottom: 6px;
+    text-align: start;
 }

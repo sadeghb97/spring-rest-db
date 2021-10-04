@@ -22,13 +22,9 @@ public class StudioService {
     }
 
     public ResponseEntity<Object> registerStudio(StudioModel studio){
-        EntityUtils<StudioModel> entityUtils =
-                new EntityUtils<StudioModel>(studioRepository, studio);
+        EntityUtils<StudioModel, StudioRepository> entityUtils =
+                new EntityUtils(studioRepository, studio, "studio");
 
-        if(entityUtils.isDuplicate()){
-            return EntityUtils.getDuplicateResponse("studio");
-        }
-
-        return new ResponseEntity<Object>(studioRepository.save(studio), HttpStatus.ACCEPTED);
+        return entityUtils.patchEntity(null, false);
     }
 }
