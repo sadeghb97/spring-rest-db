@@ -21,7 +21,7 @@ public class GameController {
 
     @PostMapping(value = {"", "/"})
     public ResponseEntity<Object> registerGame(@RequestBody GameModel game){
-        return gameService.registerGame(game);
+        return gameService.registerRecord(game);
     }
 
     @PatchMapping(value = "upcover/{game_pk}/")
@@ -32,7 +32,7 @@ public class GameController {
 
     @GetMapping(value = {"", "/"})
     public List<GameModel> getAllGames(){
-        return gameService.getAllGames();
+        return gameService.getAllRecords();
     }
 
     @PatchMapping(value = "/{game_pk}/")

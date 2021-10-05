@@ -1,8 +1,8 @@
 package ir.sbpro.springdb.modules.games;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import ir.sbpro.springdb.modules.HasCover;
-import ir.sbpro.springdb.modules.ModuleEntity;
+import ir.sbpro.springdb.modules._interfaces.HasCover;
+import ir.sbpro.springdb.modules._interfaces.ModuleEntity;
 import ir.sbpro.springdb.modules.studios.StudioModel;
 
 import javax.persistence.*;

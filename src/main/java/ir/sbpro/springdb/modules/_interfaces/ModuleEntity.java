@@ -1,4 +1,4 @@
-package ir.sbpro.springdb.modules;
+package ir.sbpro.springdb.modules._interfaces;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;

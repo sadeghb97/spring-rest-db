@@ -2,9 +2,9 @@ package ir.sbpro.springdb.modules.users;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import ir.sbpro.springdb.enums.Role;
-import ir.sbpro.springdb.modules.HasCover;
-import ir.sbpro.springdb.modules.HasPassword;
-import ir.sbpro.springdb.modules.ModuleEntity;
+import ir.sbpro.springdb.modules._interfaces.HasCover;
+import ir.sbpro.springdb.modules._interfaces.HasPassword;
+import ir.sbpro.springdb.modules._interfaces.ModuleEntity;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;

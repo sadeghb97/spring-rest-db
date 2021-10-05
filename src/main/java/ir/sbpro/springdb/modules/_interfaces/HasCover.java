@@ -1,4 +1,4 @@
-package ir.sbpro.springdb.modules;
+package ir.sbpro.springdb.modules._interfaces;
 
 public interface HasCover {
     public String getCover();

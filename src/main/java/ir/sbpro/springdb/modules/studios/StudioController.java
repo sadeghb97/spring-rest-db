@@ -19,11 +19,11 @@ public class StudioController {
 
     @GetMapping(value = {"", "/"})
     public List<StudioModel> getAllStudios(){
-        return studioService.getAllStudios();
+        return studioService.getAllRecords();
     }
 
     @PostMapping(value = {"", "/"})
     public ResponseEntity<Object> registerStudio(@RequestBody StudioModel studio){
-        return studioService.registerStudio(studio);
+        return studioService.registerRecord(studio);
     }
 }

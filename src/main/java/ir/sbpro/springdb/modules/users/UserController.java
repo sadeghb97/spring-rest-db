@@ -18,6 +18,6 @@ public class UserController {
 
     @GetMapping(value = {"", "/"})
     public List<UserModel> getAllUsers(){
-        return userService.getAllUsers();
+        return userService.getAllRecords();
     }
 }

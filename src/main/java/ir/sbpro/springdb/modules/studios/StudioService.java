@@ -1,30 +1,19 @@
 package ir.sbpro.springdb.modules.studios;
 
-import ir.sbpro.springdb.modules.EntityUtils;
+import ir.sbpro.springdb.modules._interfaces.EntityUtils;
+import ir.sbpro.springdb.modules._interfaces.ModuleEntity;
+import ir.sbpro.springdb.modules._interfaces.ModuleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class StudioService {
-    StudioRepository studioRepository;
+public class StudioService extends ModuleService<StudioModel> {
 
     @Autowired
     public StudioService(StudioRepository studioRepository) {
-        this.studioRepository = studioRepository;
-    }
-
-    public List<StudioModel> getAllStudios(){
-        return studioRepository.findAll();
-    }
-
-    public ResponseEntity<Object> registerStudio(StudioModel studio){
-        EntityUtils<StudioModel, StudioRepository> entityUtils =
-                new EntityUtils(studioRepository, studio, "studio");
-
-        return entityUtils.patchEntity(null, false);
+        super(studioRepository);
     }
 }

@@ -1,6 +1,7 @@
 package ir.sbpro.springdb.modules.games;
 
-import ir.sbpro.springdb.modules.EntityUtils;
+import ir.sbpro.springdb.modules._interfaces.EntityUtils;
+import ir.sbpro.springdb.modules._interfaces.ModuleService;
 import ir.sbpro.springdb.modules.studios.StudioModel;
 import ir.sbpro.springdb.modules.studios.StudioRepository;
 import ir.sbpro.springdb.responses.ErrorsResponseMap;
@@ -18,52 +19,27 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 @Service
-public class GameService {
+public class GameService extends ModuleService<GameModel> {
     StudioRepository studioRepository;
-    GameRepository gameRepository;
 
     @Autowired
     public GameService(GameRepository gameRepository, StudioRepository studioRepository) {
-        this.gameRepository = gameRepository;
+        super(gameRepository);
         this.studioRepository = studioRepository;
     }
 
-    public List<GameModel> getAllGames(){
-        return gameRepository.findAll();
-    }
-
-    public Optional<GameModel> getGame(Long gamePk){
-        return gameRepository.findById(gamePk);
-    }
-
-    public ResponseEntity<Object> registerGame(GameModel game){
-        return registerGame(game, null);
-    }
-
-    public ResponseEntity<Object> registerGame(GameModel game, MultipartFile file){
-        return registerGame(game, file, false);
-    }
-
-    public ResponseEntity<Object> registerGame(GameModel game, MultipartFile file, boolean duplicateAllowed){
-        EntityUtils<GameModel, GameRepository> entityUtils =
-                new EntityUtils(gameRepository, game, "game");
-
-        return entityUtils.patchEntity(file, duplicateAllowed);
-    }
-
     public ResponseEntity<Object> upGameCover(Long gamePk, MultipartFile file){
-        Optional<GameModel> gameOptional = gameRepository.findById(gamePk);
+        Optional<GameModel> gameOptional = repository.findById(gamePk);
         if(gameOptional.isEmpty()){
             return EntityUtils.entityNotFoundResponse("game");
         }
 
         try {
             GameModel game = gameOptional.get();
-            String coverFileName = EntityUtils.saveFile(
-                    "img/covers/", file, ".jpg", game.getCover());
+            String coverFileName = EntityUtils.saveCover(file, game.getCover());
 
             game.setCover(coverFileName);
-            return new ResponseEntity<Object>(gameRepository.save(game), HttpStatus.ACCEPTED);
+            return new ResponseEntity<Object>(repository.save(game), HttpStatus.ACCEPTED);
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -72,7 +48,7 @@ public class GameService {
     }
 
     public ResponseEntity<Object> patchGame(Long gamePk, Map<String, Object> gameMap){
-        Optional<GameModel> gameOptional = gameRepository.findById(gamePk);
+        Optional<GameModel> gameOptional = repository.findById(gamePk);
         if(gameOptional.isEmpty()){
             //throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "game not found!");
             return EntityUtils.entityNotFoundResponse("game");
@@ -103,6 +79,6 @@ public class GameService {
             return new ErrorsResponseMap("studio", "studio not found!").getEntityResponse();
         }
 
-        return new ResponseEntity<Object>(gameRepository.save(gameModel), HttpStatus.ACCEPTED);
+        return new ResponseEntity<Object>(repository.save(gameModel), HttpStatus.ACCEPTED);
     }
 }

@@ -18,8 +18,7 @@ public class StudioTemplateController {
 
     @GetMapping(value = "/studios")
     public String getStudiosView(Model model){
-        List<StudioModel> studios = studioService.getAllStudios();
-        System.out.println("StudiosLen: " + studios.size());
+        List<StudioModel> studios = studioService.getAllRecords();
         model.addAttribute("studios", studios);
         return "studios/studios";
     }

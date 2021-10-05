@@ -1,6 +1,5 @@
-package ir.sbpro.springdb.modules;
+package ir.sbpro.springdb.modules._interfaces;
 
-import ir.sbpro.springdb.modules.users.UserModel;
 import ir.sbpro.springdb.responses.ErrorsResponseMap;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.http.HttpStatus;
@@ -42,14 +41,12 @@ public class EntityUtils<U extends ModuleEntity, T extends JpaRepository<U, Long
 
         try {
             if (entity instanceof HasCover && file != null && file.getSize() > 0) {
+                String oldFileName = ((HasCover) entity).getCover();
                 String coverPath =
-                        EntityUtils.saveFile("img/covers/", file, ".jpg", null);
+                        EntityUtils.saveCover(file, oldFileName);
                 ((HasCover) entity).setCover(coverPath);
             }
 
-            System.out.println(isDup);
-            System.out.println(entity instanceof HasPassword);
-            System.out.println(((HasPassword) entity).getPassword() == null);
             boolean needRecoverPassword = isDup && entity instanceof HasPassword;
             needRecoverPassword &= ((HasPassword) entity).getPassword() == null
                     || ((HasPassword) entity).getPassword().isEmpty();
@@ -77,6 +74,19 @@ public class EntityUtils<U extends ModuleEntity, T extends JpaRepository<U, Long
     public static ResponseEntity<Object> entityNotFoundResponse(String entityName){
         return new ErrorsResponseMap("pk",
                 entityName + " not found!").getEntityResponse();
+    }
+
+    public static boolean deleteFile(String outPath, String filename) throws Exception {
+        File classPath =
+                ResourceUtils.getFile("classpath:static");
+        File outDir = new File(classPath, outPath);
+
+        if (filename != null && !filename.isEmpty()) {
+            File oldFile = new File(outDir, filename);
+            if (oldFile.exists()) return oldFile.delete();
+        }
+
+        return false;
     }
 
     public static String saveFile(String outPath, MultipartFile file, String defSuffix,
@@ -107,5 +117,13 @@ public class EntityUtils<U extends ModuleEntity, T extends JpaRepository<U, Long
         }
 
         throw new Exception("Path not found!");
+    }
+
+    public static boolean deleteCover(String filename) throws Exception {
+        return deleteFile("img/covers/", filename);
+    }
+
+    public static String saveCover(MultipartFile file, String oldFileName) throws Exception {
+        return saveFile("img/covers/", file, ".jpg", oldFileName);
     }
 }
