@@ -14,7 +14,7 @@
         </a>
     </div>
 
-    <table class="table" th:object="${users}">
+    <table class="table" th:object="${records}">
         <thead class="thead-light">
         <tr>
             <th scope="col">Username</th>
@@ -23,19 +23,17 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="user : ${users}">
+        <tr th:each="user : ${records}">
             <th scope="row" th:text="${user.getUsername()}"></th>
             <th scope="row" th:text="${user.getEmail()}"></th>
             <td>
                 <a class="btn btn-success" style="width: 80px" target="_blank"
                    th:href="@{/userform/{id}(id=${user.getPk()})}">Edit</a>
 
-                <a class="btn btn-danger"
-                   data-toggle="modal"
-                   href="#"
-                   style="width: 80px" th:data-target="'#delete'+${user.getPk()}">
-                    Delete
-                </a>
+                <form style="display: inline" method="post" th:action="@{/deluser}" onsubmit="return areYouSure();">
+                    <input type="hidden" name="delpk" id="delpk" th:value="${user.getPk()}">
+                    <input type="submit" class="btn btn-danger" value="Delete" />
+                </form>
             </td>
         </tr>
         </tbody>

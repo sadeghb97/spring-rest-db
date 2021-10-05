@@ -14,7 +14,7 @@
         </a>
     </div>
 
-    <table class="table" th:object="${studios}">
+    <table class="table" th:object="${records}">
         <thead class="thead-light">
         <tr>
             <th scope="col">Name</th>
@@ -22,18 +22,16 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="studio : ${studios}">
+        <tr th:each="studio : ${records}">
             <th scope="row" th:text="${studio.getName()}"></th>
             <td>
-                <a class="btn btn-success" style="width: 80px"
-                   th:href="@{/studios/edit/{id}(id=${studio.getPk()})}">Edit</a>
+                <a class="btn btn-success" style="width: 80px" target="_blank"
+                   th:href="@{/studioform/{id}(id=${studio.getPk()})}">Edit</a>
 
-                <a class="btn btn-danger"
-                   data-toggle="modal"
-                   href="#"
-                   style="width: 80px" th:data-target="'#delete'+${studio.getPk()}">
-                    Delete
-                </a>
+                <form style="display: inline" method="post" th:action="@{/delstudio}" onsubmit="return areYouSure();">
+                    <input type="hidden" name="delpk" id="delpk" th:value="${studio.getPk()}">
+                    <input type="submit" class="btn btn-danger" value="Delete" />
+                </form>
             </td>
         </tr>
         </tbody>

@@ -2,14 +2,10 @@ package ir.sbpro.springdb.modules.users;
 
 import ir.sbpro.springdb.modules._interfaces.ModuleTemplateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class UserTemplateController {
@@ -23,29 +19,31 @@ public class UserTemplateController {
     }
 
     @GetMapping(value = "/users")
-    public String getUsersView(Model model){
-        List<UserModel> users = userService.getAllRecords();
-        model.addAttribute("users", users);
+    public String getRecordsView(Model model){
+        templateUtils.bindAllRecords(model);
         return "users/users";
     }
 
     @GetMapping(value = "/userform")
-    public String getNewUserView(Model model){
-        model.addAttribute("userObject", new UserModel());
+    public String getNewRecordView(Model model){
+        model.addAttribute("record", new UserModel());
         return "users/user_form";
     }
 
     @GetMapping(value = "/userform/{user_pk}")
-    public String getShowUserView(Model model, @PathVariable("user_pk") Long userPk){
-        Optional<UserModel> userOptional = userService.getRecord(userPk);
-        if(userOptional.isEmpty()) return "redirect:/users";
-
-        model.addAttribute("userObject", userOptional.get());
-        return "users/user_form";
+    public String getShowRecordView(Model model, @PathVariable("user_pk") Long userPk){
+        boolean found = templateUtils.bindSingleRecord(model, userPk);
+        if(found) return "users/user_form";
+        return "redirect:/users";
     }
 
     @PostMapping(value = "/insertuser")
-    public String insertUserFromForm(@ModelAttribute UserModel user, @RequestParam("cover_file") MultipartFile file){
+    public String insertRecordFromForm(@ModelAttribute UserModel user, @RequestParam("cover_file") MultipartFile file){
         return templateUtils.getInsertRecord(user, file, "userform", "userform");
+    }
+
+    @PostMapping(value = "/deluser")
+    public String deleteRecord(@RequestParam("delpk") Long recordPk){
+        return templateUtils.deleteRecord("/users", recordPk);
     }
 }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <div th:switch="${record.getPk() == null}">
+        <title th:case="true">Add Studio</title>
+        <title th:case="*">Patch Studio</title>
+    </div>
+
+    <div th:replace="fragments/header::head"></div>
+    <link rel="stylesheet" th:href="@{/css/game_form.css}" />
+</head>
+
+<body>
+
+<div>
+    <div th:replace="fragments/navbar::navbar"></div>
+
+    <form th:action="@{/insertstudio}" th:object="${record}" method="post"
+          class="form-style-9" enctype="multipart/form-data" autocomplete="off">
+        <ul>
+            <li>
+                <input type="hidden" id="pk" name="pk" th:field="*{pk}">
+
+                <input type="text" class="field-style field-full align-left"
+                       placeholder="Name" th:field="*{name}" />
+            </li>
+            <li>
+                <input style="margin-top: 16px;" type="submit"
+                       th:value="${record.getPk() != null ? 'Patch Studio' : 'Add Studio'}" />
+            </li>
+        </ul>
+    </form>
+</div>
+
+</body>
+</html>

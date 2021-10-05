@@ -13,7 +13,7 @@
 <div>
     <div th:replace="fragments/navbar::navbar"></div>
 
-    <form th:action="@{/insertgame}" th:object="${gameObject}" method="post"
+    <form th:action="@{/insertgame}" th:object="${record}" method="post"
           class="form-style-9" enctype="multipart/form-data">
         <ul>
             <li>

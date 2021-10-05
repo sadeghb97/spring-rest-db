@@ -27,13 +27,13 @@ public class GameTemplateController {
 
     @GetMapping(value = {"", "/"})
     public String getGamesView(Model model){
-        model.addAttribute("games", gameService.getAllRecords());
+        templateUtils.bindAllRecords(model);
         return "games";
     }
 
     @GetMapping(value = "/newgame")
     public String getNewGameView(Model model){
-        model.addAttribute("gameObject", new GameModel());
+        model.addAttribute("record", new GameModel());
         model.addAttribute("studios", studioService.getAllRecords());
         return "games/game_form";
     }
@@ -54,8 +54,8 @@ public class GameTemplateController {
     }
 
     @PostMapping(value = "/delgame")
-    public String deleteGame(@RequestParam("delpk") Long gamePk){
-        return templateUtils.deleteRecord("/", gamePk);
+    public String deleteGame(@RequestParam("delpk") Long recordPk){
+        return templateUtils.deleteRecord("/", recordPk);
     }
 
     @PostMapping(value = "/insertgame")

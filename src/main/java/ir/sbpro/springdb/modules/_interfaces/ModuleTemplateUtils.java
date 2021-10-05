@@ -1,8 +1,11 @@
 package ir.sbpro.springdb.modules._interfaces;
 
+import ir.sbpro.springdb.modules.users.UserModel;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
 import java.util.Optional;
 
 public class ModuleTemplateUtils<T extends ModuleEntity> {
@@ -10,6 +13,11 @@ public class ModuleTemplateUtils<T extends ModuleEntity> {
 
     public ModuleTemplateUtils(ModuleService<T> service) {
         this.service = service;
+    }
+
+    public void bindAllRecords(Model model){
+        List<T> records = service.getAllRecords();
+        model.addAttribute("records", records);
     }
 
     public String getInsertRecord(T model, MultipartFile file, String success, String fail){
@@ -27,6 +35,14 @@ public class ModuleTemplateUtils<T extends ModuleEntity> {
         }
 
         return "redirect:/" + fail;
+    }
+
+    public boolean bindSingleRecord(Model model, Long userPk){
+        Optional<T> recordOptional = service.getRecord(userPk);
+        if(recordOptional.isEmpty()) return false;
+
+        model.addAttribute("record", recordOptional.get());
+        return true;
     }
 
     public String deleteRecord(String redirect, Long recordPk){

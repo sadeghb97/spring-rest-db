@@ -2,7 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add User</title>
+    <div th:switch="${record.getPk() == null}">
+        <title th:case="true">Add User</title>
+        <title th:case="*">Patch User</title>
+    </div>
 
     <div th:replace="fragments/header::head"></div>
     <link rel="stylesheet" th:href="@{/css/game_form.css}" />
@@ -13,16 +16,16 @@
 <div>
     <div th:replace="fragments/navbar::navbar"></div>
 
-    <form th:action="@{/insertuser}" th:object="${userObject}" method="post"
+    <form th:action="@{/insertuser}" th:object="${record}" method="post"
           class="form-style-9" enctype="multipart/form-data" autocomplete="off">
         <ul>
             <li>
                 <input type="hidden" id="pk" name="pk" th:field="*{pk}">
                 <input type="hidden" id="cover" name="cover" th:field="*{cover}">
 
-                <div th:switch="${userObject.getCover() != null}">
+                <div th:switch="${record.getPk() != null}">
                     <img th:case="true" class="field-style field-full align-left" id="#coverbox"
-                         th:src="'/img/covers/' + ${userObject.getCover()}" />
+                         th:src="'/img/covers/' + ${record.getCover()}" />
                 </div>
 
                 <input type="text" class="field-style field-full align-left"
@@ -43,7 +46,7 @@
             </li>
             <li>
                 <input style="margin-top: 16px;" type="submit"
-                       th:value="${userObject.getPk() != null ? 'Patch User' : 'Add User'}" />
+                       th:value="${record.getPk() != null ? 'Patch User' : 'Add User'}" />
             </li>
         </ul>
     </form>

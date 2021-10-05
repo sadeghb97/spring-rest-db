@@ -11,7 +11,7 @@
     <div th:replace="fragments/navbar::navbar"></div>
 
     <div style="padding: 30px;">
-        <div class="a-box" th:each="game : ${games}">
+        <div class="a-box" th:each="game : ${records}">
             <div class="img-container">
                 <div class="img-inner">
                     <a th:href="'/showgame/' + ${game.getPk()} + '/'" target="_blank">
