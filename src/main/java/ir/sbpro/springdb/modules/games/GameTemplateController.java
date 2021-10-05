@@ -45,6 +45,8 @@ public class GameTemplateController {
         Optional<GameModel> gameOptional = gameService.getRecord(gamePk);
         if(gameOptional.isEmpty()) return "redirect:/";
 
+        //mitavan principal ro dorost shabihe model dar ghesmate argoman ha gereft
+        //vali dar an surat ghabeliate cast kardan be user ra nadarad
         User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         boolean access =
                 currentUser.getAuthorities().stream().anyMatch((role) -> role.getAuthority().equals("ROLE_ADMIN"));
