@@ -4,8 +4,11 @@ import ir.sbpro.springdb.modules._interfaces.ModuleTemplateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import javax.validation.Valid;
 
 @Controller
 public class UserTemplateController {
@@ -38,7 +41,11 @@ public class UserTemplateController {
     }
 
     @PostMapping(value = "/insertuser")
-    public String insertRecordFromForm(@ModelAttribute UserModel user, @RequestParam("cover_file") MultipartFile file){
+    public String insertRecordFromForm(@Valid @ModelAttribute(name = "record") UserModel user,
+                                       final BindingResult bindingResult,
+                                       @RequestParam("cover_file") MultipartFile file){
+
+        if(bindingResult.hasErrors()) return "users/user_form";
         return templateUtils.getInsertRecord(user, file, "userform", "userform");
     }
 

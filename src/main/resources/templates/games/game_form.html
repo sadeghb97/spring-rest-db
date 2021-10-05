@@ -19,6 +19,7 @@
             <li>
                 <input type="text" class="field-style field-full align-left"
                        placeholder="Name" th:field="*{name}" />
+                <p class="validation" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
 
                 <!--
                  az th field estefade nakardim ta meghdare sefr darune input gharar nagirad

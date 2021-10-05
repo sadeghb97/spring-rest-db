@@ -26,6 +26,8 @@
                 <div th:switch="${access}">
                     <input th:case="'yes'" type="text" class="field-style field-full align-left"
                            placeholder="Name" th:field="*{name}" />
+                    <p class="validation" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+
                     <input th:case="'no'" type="text" class="field-style field-full align-left"
                            placeholder="Name" th:value="${gameObject.getName()}" readonly />
                 </div>

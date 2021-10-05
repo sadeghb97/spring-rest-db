@@ -7,7 +7,9 @@ import ir.sbpro.springdb.modules._interfaces.HasPassword;
 import ir.sbpro.springdb.modules._interfaces.ModuleEntity;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,10 +17,11 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 public class UserModel extends ModuleEntity implements Serializable, HasCover, HasPassword {
+    @NotBlank(message = "Username is blank")
     @Column(nullable = false, unique = true)
     private String username;
 
-    @Email
+    @Email(message = "Wrong email!")
     @Column(nullable = false, unique = true)
     private String email;
 
@@ -35,7 +38,7 @@ public class UserModel extends ModuleEntity implements Serializable, HasCover, H
     @Enumerated(EnumType.STRING)
     private List<Role> roles;
 
-    UserModel(){
+    public UserModel(){
         roles = new ArrayList<>();
         roles.add(Role.ROLE_USER);
     }

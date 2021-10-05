@@ -6,6 +6,7 @@ import ir.sbpro.springdb.modules._interfaces.ModuleEntity;
 import ir.sbpro.springdb.modules.studios.StudioModel;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "games")
@@ -13,6 +14,7 @@ public class GameModel extends ModuleEntity implements HasCover {
     @Column(nullable = false)
     private int year;
 
+    @NotBlank(message = "Name is blank!")
     @Column(nullable = false)
     private String name;
 

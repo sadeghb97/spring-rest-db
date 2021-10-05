@@ -37,6 +37,7 @@
                 -->
                 <input type="email" class="field-style field-full align-right"
                        placeholder="Email" th:field="*{email}" />
+                <div class="validation" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
 
                 <input type="password" autocomplete="new-password" class="field-style field-full align-right"
                        placeholder="Password" th:field="*{password}" />

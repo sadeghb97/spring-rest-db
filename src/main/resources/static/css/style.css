@@ -58,3 +58,14 @@ body {
     margin-bottom: 6px;
     text-align: start;
 }
+
+.validation {
+    margin-top: 10px;
+    color: #e8200e;
+    font-size: 14px;
+}
+
+.validation:before {
+    content: '*';
+    margin-right: 3px;
+}

@@ -7,9 +7,11 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
@@ -59,7 +61,18 @@ public class GameTemplateController {
     }
 
     @PostMapping(value = "/insertgame")
-    public String insertGameFromForm(@ModelAttribute GameModel game, @RequestParam("cover_file") MultipartFile file){
+    public String insertGameFromForm(@Valid @ModelAttribute(name = "record") GameModel game,
+                                     final BindingResult bindingResult,
+                                     @RequestParam("cover_file") MultipartFile file){
+
+        if(bindingResult.hasErrors()){
+            //return "games/game_form";
+            //ba code bala dar safhe ghabli mande va error ra mitavanim namayesh dahim
+            //vali object haye pas daded shode be form khahad parid
+
+            if(game.getPk() == null) return "redirect:/newgame";
+            return "redirect:/showgame/" + game.getPk() + "/";
+        }
         return templateUtils.getInsertRecord(game, file, "showgame", "newgame");
     }
 }
