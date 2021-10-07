@@ -1,6 +1,8 @@
 package ir.sbpro.springdb.modules._interfaces;
 
 import ir.sbpro.springdb.modules.users.UserModel;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,6 +19,11 @@ public class ModuleTemplateUtils<T extends ModuleEntity> {
 
     public void bindAllRecords(Model model){
         List<T> records = service.getAllRecords();
+        model.addAttribute("records", records);
+    }
+
+    public void bindPagingRecords(Model model, Pageable pageable){
+        Page<T> records = service.getPagingRecords(pageable);
         model.addAttribute("records", records);
     }
 

@@ -2,6 +2,8 @@ package ir.sbpro.springdb.modules.studios;
 
 import ir.sbpro.springdb.modules._interfaces.ModuleTemplateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -17,9 +19,15 @@ public class StudioTemplateController {
         templateUtils = new ModuleTemplateUtils<StudioModel>(studioService);
     }
 
-    @GetMapping(value = "/studios")
-    public String getRecordsView(Model model){
+    @GetMapping(value = "/allstudios")
+    public String getAllRecordsView(Model model){
         templateUtils.bindAllRecords(model);
+        return "studios/studios";
+    }
+
+    @GetMapping(value = "/studios")
+    public String getRecordsView(Model model, @PageableDefault(size = 5) Pageable pageable){
+        templateUtils.bindPagingRecords(model, pageable);
         return "studios/studios";
     }
 

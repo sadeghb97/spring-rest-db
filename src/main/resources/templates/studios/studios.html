@@ -8,10 +8,12 @@
 <body>
     <div th:replace="fragments/navbar::navbar"></div>
 
-    <div class="w-full operation-buttons">
-        <a class="mb-2 btn btn-primary" style="width: 100px" th:href="@{/studioform}" target="_blank">
+    <div style="padding-left: 30px; padding-right: 30px;">
+        <a class="mb-2 btn btn-primary" style="width: 100px; float: left" th:href="@{/studioform}" target="_blank">
             NEW
         </a>
+
+        <div th:replace="fragments/pagination::pagination"></div>
     </div>
 
     <table class="table" th:object="${records}">

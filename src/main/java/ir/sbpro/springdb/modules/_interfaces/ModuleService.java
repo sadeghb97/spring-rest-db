@@ -1,8 +1,7 @@
 package ir.sbpro.springdb.modules._interfaces;
 
-import ir.sbpro.springdb.modules.games.GameModel;
-import ir.sbpro.springdb.modules.users.UserModel;
-import ir.sbpro.springdb.modules.users.UserRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.multipart.MultipartFile;
@@ -23,6 +22,10 @@ public class ModuleService<T extends ModuleEntity> {
 
     public List<T> getAllRecords(){
         return repository.findAll();
+    }
+
+    public Page<T> getPagingRecords(Pageable pageable){
+        return repository.findAll(pageable);
     }
 
     public ResponseEntity<Object> registerRecord(T model){
