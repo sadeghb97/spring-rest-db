@@ -13,7 +13,9 @@
             NEW
         </a>
 
-        <div th:replace="fragments/pagination::pagination"></div>
+        <div style="float: right">
+            <div th:replace="fragments/pagination::pagination"></div>
+        </div>
     </div>
 
     <table class="table" th:object="${records}">

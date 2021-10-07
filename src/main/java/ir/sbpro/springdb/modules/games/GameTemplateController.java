@@ -3,6 +3,8 @@ package ir.sbpro.springdb.modules.games;
 import ir.sbpro.springdb.modules._interfaces.ModuleTemplateUtils;
 import ir.sbpro.springdb.modules.studios.StudioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
@@ -28,8 +30,12 @@ public class GameTemplateController {
     }
 
     @GetMapping(value = {"", "/"})
-    public String getGamesView(Model model){
-        templateUtils.bindAllRecords(model);
+    public String getGamesView(Model model,
+                               @ModelAttribute("gsearch") GameModel gameModel,
+                               @PageableDefault(size = 4) Pageable pageable){
+
+        model.addAttribute("records",
+                gameService.findBySearchQuery(pageable, gameModel));
         return "games";
     }
 

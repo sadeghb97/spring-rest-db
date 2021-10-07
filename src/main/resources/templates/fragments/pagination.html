@@ -6,11 +6,16 @@
 
     <div th:replace="fragments/header::head"></div>
 </head>
-<body th:fragment="pagination">
-    <nav aria-label="Page navigation" style="float: right">
-        <ul class="pagination">
+<body>
+    <nav th:fragment="pagination" aria-label="Page navigation" style="display: flex">
+        <ul class="pagination"
+            th:with="url=${T(org.springframework.web.servlet.support.ServletUriComponentsBuilder).fromCurrentRequest()}"
+            style="margin: auto">
+
             <li class="page-item" th:classappend="${records.first} ? disabled">
-                <a class="page-link" href="#" aria-label="Previous">
+                <a class="page-link"
+                   th:href="@{${url.replaceQueryParam('page').toUriString()}(page=${records.number - 1})}"
+                   aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
@@ -18,10 +23,13 @@
             <li class="page-item"
                 th:classappend="${records.number == i} ? active"
                 th:each="i : ${#numbers.sequence(0, records.totalPages - 1)}">
-                <a class="page-link" th:href="@{/studios(page=${i})}">[[${i + 1}]]</a></li>
+                <a class="page-link"
+                   th:href="@{${url.replaceQueryParam('page').toUriString()}(page=${i})}">[[${i + 1}]]</a></li>
 
             <li class="page-item" th:classappend="${records.last} ? disabled">
-                <a class="page-link" href="#" aria-label="Next">
+                <a class="page-link"
+                   th:href="@{${url.replaceQueryParam('page').toUriString()}(page=${records.number + 1})}"
+                   aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>
