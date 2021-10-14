@@ -1,6 +1,6 @@
 package ir.sbpro.springdb.modules.users;
 
-import ir.sbpro.springdb.modules._interfaces.ModuleTemplateUtils;
+import ir.sbpro.springdb._module_interfaces.ModuleTemplateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,6 +1,6 @@
 package ir.sbpro.springdb.modules.studios;
 
-import ir.sbpro.springdb.modules._interfaces.ModuleService;
+import ir.sbpro.springdb._module_interfaces.ModuleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

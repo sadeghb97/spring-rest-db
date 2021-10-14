@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>My Games</title>
+
+    <div th:replace="fragments/header::head"></div>
+</head>
+
+<body>
+    <div th:replace="fragments/navbar::navbar"></div>
+
+    <div class="container">
+        <form th:action="@{/platgames/}" method="get">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-md-6">
+                    <div class="search">
+                        <i class="fa fa-search"></i>
+                        <input type="text" class="form-control"
+                               placeholder="Search in games by title, ..."
+                                th:field="${gsearch.name}">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div style="padding-top: 20px; padding-bottom: 15px;">
+        <div th:replace="fragments/pagination::pagination"></div>
+    </div>
+
+    <div class="container" style="margin-bottom: 32px;">
+        <div class="a-box" th:each="game : ${records}">
+            <div class="img-container">
+                <div class="img-inner">
+                    <a th:href="'/platgames/showgame/' + ${game.getId()} + '/'" target="_blank">
+                        <div class="inner-skew">
+                            <img th:src="${game.getImage()}">
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="text-container">
+                <h3 th:text="${game.getName()}"></h3>
+                <div th:text="${game.getOwners() + ' Owners | ' + game.getRecent() + ' Recent'}"></div>
+
+                <div th:switch="${game.getStoreGame() != null}">
+                    <div th:case="true" th:text="${game.getStoreGame().getPriceSummary()}"></div>
+                </div>
+
+                <div th:switch="${game.getHlGame() != null}">
+                    <div th:case="true" th:text="${game.getHlGame().getDurationsSummary()}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

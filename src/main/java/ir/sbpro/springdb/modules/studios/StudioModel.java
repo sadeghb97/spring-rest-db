@@ -1,7 +1,7 @@
 package ir.sbpro.springdb.modules.studios;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import ir.sbpro.springdb.modules._interfaces.ModuleEntity;
+import ir.sbpro.springdb._module_interfaces.ModuleEntity;
 import ir.sbpro.springdb.modules.games.GameModel;
 
 import javax.persistence.*;

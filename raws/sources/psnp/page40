@@ -1,0 +1,3757 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        
+        <meta name="google-site-verification" content="uW2HyUEEEOe2y9gqeUvsMVElb6WPs4jvZ6SIN487SXg" />
+        <meta http-equiv="content-language" content="en" />
+        
+        
+        <link rel="preconnect" href="https://tags.bkrtx.com/">
+        <link rel="preconnect" href="https://securepubads.g.doubleclick.net/" crossorigin>
+        <link rel="preconnect" href="https://cdn.consentmanager.mgr.consensu.org/" crossorigin>
+        
+        <link href='https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,400,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
+        
+        <link rel="stylesheet" type="text/css" href="/lib/css/psnprofiles.css?24" />
+
+		<link rel="stylesheet" type="text/css" href="/lib/css/flexboxgrid.min.css">
+		<link rel="stylesheet" type="text/css" href="/lib/css/forms.css">
+		<link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+        <script type="text/javascript" src="/lib/js/jquery.min.js"></script>  
+        <script type="text/javascript" src="/lib/js/PSNProfiles.js?10"></script>  
+        <script type="text/javascript" src="/lib/js/jquery.waitforimages.min.js"></script> 
+        <script type="text/javascript" src="/lib/js/modal.js?1"></script>
+        <script type="text/javascript" src="/lib/js/jquery.tipTip.min.js"></script>  
+        <script type="text/javascript" src="/lib/js/toastr.js"></script>
+        <script type="text/javascript" src="/lib/js/loadingoverlay.min.js"></script>  
+		<script type="text/javascript" src="/lib/js/jquery.scrollTo.min.js?2"></script>
+		<script type="text/javascript" src="/lib/js/jquery.sticky.js"></script>
+		<script type="text/javascript" src="/lib/js/sticky-kit.min.js"></script>
+
+		<!--[if lt IE 10]>
+			<script src="/lib/js/jquery.placeholder.min.js"></script>
+		<![endif]-->		
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="/lib/js/forms-ie8.js"></script>
+			<link rel="stylesheet" href="/lib/css/forms-ie8.css">
+		<![endif]-->
+		<!--[if IE]>
+			<link rel="stylesheet" type="text/css" href="/lib/css/ie.css" />
+		<![endif]-->
+
+
+        
+        
+        			                <script>window.AdSlots = window.AdSlots || {cmd: [], disableScripts: ['gpt','bk']};</script>
+                <script async src="https://tags.bkrtx.com/js/bk-coretag.js"></script>
+                <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+                <script async src="https://kumo.network-n.com/dist/app.js" site="psn-profiles"></script>
+
+				<script>
+				$(function(){
+					if ($("#nn_skinl").length) {
+						$("#leftAd > div").stick_in_parent({spacer: false});
+					}
+					if ($("#nn_skinr").length) {
+						$("#rightAd > div").stick_in_parent({spacer: false});
+					}
+				})
+				</script>
+					
+		
+        <title>PlayStation Games  • PSNProfiles.com</title>
+
+		
+        <meta name="csrf-token" content="vBNd3TSo7gY6XVCtNM9CU1tOFZY1gOky12eLfEa2">
+
+    </head>
+	<body class="app  ">
+		<!--Google Tag Manager Body code (Please place this as close to the opening body tag as possible)-->
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PNNMW4P"
+		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!--End of Google Tag Manager Body code-->
+	
+	
+
+	<!--[if lte IE 10]>
+	    <div id="ie-notice" style="display: none;">
+			You are using an unsupported and unsecure version of Internet Explorer. <a href="http://browsehappy.com/" target="_blank">Update your browser</a>
+			<a href="" onclick="hideIeBar(); return false;" /><i class="fa fa-times-circle"></i></a>
+	    </div>
+	    <script type="text/javascript">
+			function hideIeBar()
+			{
+				setCookie('hideIeBar', true, 10);
+				$('#ie-notice').slideUp();
+			}
+
+			$(function()
+			{
+				if (!readCookie('hideIeBar'))
+				{
+					$('#ie-notice').show();
+				}
+			});
+	    </script>
+	<![endif]-->
+
+
+
+
+
+	
+
+	
+
+				<div id="header" class="">
+			<div class="header-border"></div>
+				<div class="header width">
+
+					<!--<div class="search-button">
+						<i class="fa fa-search" onclick="openSearch();"></i>
+					</div>-->
+
+					<div class="logo">
+						<a href="/"><img src="/lib/img/layout/spacer.png" alt="PSNProfiles" /></a>
+					</div>
+
+					<div class="navigation md-show">
+						<ul>
+							<li  class="md-show"><a href="/">Home</a></li>
+							<li><a href="https://forum.psnprofiles.com">Forums</a></li>
+							<li ><a href="/guides">Guides</a></li>
+							<li ><a href="/leaderboard">Leaderboard</a></li>
+							<li class="active" ><a href="/games">Games</a></li>
+							<li ><a href="/trophies">Trophies</a></li>
+														<li class="xs-hide lg-show "><a href="/sessions"><ul id="gamingSessions"><li class="active">Gaming</li><li>Boosting</li><li>Competitive</li><li>Just for Fun</li><li>Cooperative</li></ul> Sessions</a></li>
+							<li class="xs-show lg-hide "><a href="/sessions">Sessions</a></li>
+						</ul>
+					</div>
+
+					<div class="user-menu md-show">
+													<div id="subnav" class="subnav">
+								<ul>
+									<li>
+										<a class="signin button" href="/login">Log In <span style="padding: 0 5px; font-size: 12px">or</span> Create Account</a>
+									</li>
+								</ul>
+							</div>
+						
+											</div>
+					
+					<div class="menu-toggle md-hide">
+						<i class="fa fa-bars" onclick="$('#header > .header .navigation').toggleClass('big')"></i>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+	
+	<div id="modal" style="display:none;">
+		<div id="modal_content">
+			<div style="margin:20px"><center><div id="" class="loading-indicator flex v-align center"><div class="dark large"><img class="cross" src="/lib/img/icons/ps-cross.svg" /><img class="circle" src="/lib/img/icons/ps-circle.svg" /><img class="triangle" src="/lib/img/icons/ps-triangle.svg" /><img class="square" src="/lib/img/icons/ps-square.svg" /></div></div><br /><small>Please Wait</small></center></div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		var GSNavCurrent;
+		var GSNavCurrentNo = 1;
+		var GSNav;
+		var GSNavInterval;
+
+		function rotateGSVav()
+		{
+			GSNavCurrent.removeClass('active');
+
+			if (GSNavCurrentNo == 5)
+			{
+				GSNavCurrent = $('#gamingSessions > li:first-child');
+				GSNavCurrentNo = 1;
+				clearInterval(GSNavInterval);
+			}
+			else
+			{
+				GSNavCurrent = GSNavCurrent.next();
+				GSNavCurrentNo++;
+			}
+
+			GSNavCurrent.addClass('active');
+			GSNav.css('width', GSNavCurrent.width()+5);
+		}
+
+					$(function()
+			{
+				GSNav = $('#gamingSessions');
+
+				GSNavCurrent = $('#gamingSessions > li:first-child');
+
+				GSNav.css('width', GSNavCurrent.width()+5);
+
+				GSNavInterval = setInterval(function()
+				{
+					rotateGSVav();
+				}, 1500);
+
+			});
+			</script>
+
+	<div id="banner" class="banner small">
+
+					<div id="slider" class="slider">
+				<div id="banner-placeholder" class="active" style="background-image: linear-gradient(to right, #2a2a25 30%,#212524 70%)" />
+					<div class="img" style="background-image: url(https://i.psnprofiles.com/games/be839d/XSH116db4.png)"></div>
+				</div>
+							</div>
+		
+
+
+
+		<script type="text/javascript">
+			var bgInterval, cardInterval, mainBannerReady;
+
+			$('#first-banner').waitForImages(
+			{
+			    finished: function()
+			    {
+			    	mainBannerReady = 1;
+			        slideSwitch('#slider');
+
+			        			    },
+			    each: function() {},
+			    waitForAll: true
+			});
+
+		</script>
+
+		<div class="banner-overlay flex v-align ">
+			<div class="width">
+													<div class="title-bar flex v-align no-banner description">
+		<div class="grow">
+			<h3>PlayStation Games</h3>
+							<br />
+				<span>Ordered by Average Completion</span>
+					</div>
+
+		<div class="no-shrink">
+			<div class="navigation">
+				<li class="active"><a href="/games">Games</a></li>
+				<li class=""><a href="/games/dlc">DLC</a></li>
+			</div>
+		</div>
+
+		<div class="no-shrink">
+			<div class="search focus">
+				<a class="search-button" href="" onclick="location = '/search/games?q='+encodeURIComponent($('#search').val()); return false;">
+					<i class="fa fa-search"></i>
+				</a>
+				<input type="text" id="search" name="search" placeholder="Search for a game..." />
+
+			</div>
+
+			<script>
+			$(function()
+			{
+				$('#search').focus();
+			});
+
+			$('#search').keypress(function(e)
+			{
+				if(e.which == 13) {
+					$('.search-button').click();
+				}
+			});
+			</script>
+		</div>
+	</div>
+
+			            <div class="wide-ad">
+                <center>
+                    <div id="nn_lb1"></div>
+                </center>
+                            </div>
+        
+								</div>
+		</div>
+	</div>
+
+
+	<div class="flex">
+		<div style="-webkit-order: 1; -ms-flex-order: 1; order: 1; position: relative; overflow: hidden;" class="grow md-show">
+			<div id="leftAd"><div><div id="nn_skinl"></div></div></div>
+		</div>
+
+		<div style="-webkit-order: 3; -ms-flex-order: 3; order: 3; position: relative; overflow: hidden;" class="grow md-show">
+			<div id="rightAd"><div><div id="nn_skinr"></div></div></div>
+		</div>
+
+		<div style="-webkit-order: 2; -ms-flex-order: 2; order: 2;" class="width">
+				<div id="content" class="page higher">
+	
+		<div class="row">
+
+			<div class="col-xs-8">
+
+				<div id="search_notice"></div>
+
+				<div class="title flex v-align">
+					<div class="grow">
+						<h3>Games</h3>
+					</div>
+
+					<div class="no-shrink">
+
+						<div class="dropdown buttons" style="margin-right: 0;">
+							<a class="dropdown-toggle platform" data-toggle="dropdown" href="">Platform (All)</a>
+							<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+								<li><a href="/games?order=average&amp;platform=ps5" rel="nofollow">PlayStation 5</a></li>
+								<li><a href="/games?order=average&amp;platform=ps4" rel="nofollow">PlayStation 4</a></li>
+								<li><a href="/games?order=average&amp;platform=ps3" rel="nofollow">PlayStation 3</a></li>
+								<li><a href="/games?order=average&amp;platform=psvita" rel="nofollow">PlayStation Vita</a></li>
+								<li><a href="/games?order=average&amp;platform=psvr" rel="nofollow">PlayStation VR</a></li>
+								<li><a href="/games?order=average" rel="nofollow">All</a></li>
+							</ul>
+						</div>
+
+						<div class="dropdown buttons">
+							<a class="dropdown-toggle order" data-toggle="dropdown" href="">Order (Average Completion)</a>
+							<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+								<li><a href="/games?order=a-z" rel="nofollow">Alphabetical</a></li>
+								<li><a href="/games?order=average" rel="nofollow">Average Completion</a></li>
+								<li><a href="/games?order=owners" rel="nofollow">Owners</a></li>
+								<li><a href="/games?order=points" rel="nofollow">Points</a></li>
+								<li><a href="/games?order=popular" rel="nofollow">Popular Now</a></li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+
+
+									<div class="box no-bottom-border">
+						<div class="row center-xs">
+							<div class="col-xs-12">
+								<ul class="pagination small">
+									<li><a class="typo-button small" href="/games?order=a-z&amp;letter=0-9">0-9</a></li><!--
+
+																			--><li><a class="typo-button small" href="/games?order=a-z&amp;letter=A">A</a></li><!--
+																			--><li><a class="typo-button small" href="/games?order=a-z&amp;letter=B">B</a></li><!--
+																			--><li><a class="typo-button small" href="/games?order=a-z&amp;letter=C">C</a></li><!--
+																			--><li><a class="typo-button small" href="/games?order=a-z&amp;letter=D">D</a></li><!--
+																			--><li><a class="typo-button small" href="/games?order=a-z&amp;letter=E">E</a></li><!--
+																			--><li><a class="typo-button small" href="/games?order=a-z&amp;letter=F">F</a></li><!--
+																			--><li><a class="typo-button small" href="/games?order=a-z&amp;letter=G">G</a></li><!--
+																			--><li><a class="typo-button small" href="/games?order=a-z&amp;letter=H">H</a></li><!--
+																			--><li><a class="typo-button small" href="/games?order=a-z&amp;letter=I">I</a></li><!--
+																			--><li><a class="typo-button small" href="/games?order=a-z&amp;letter=J">J</a></li><!--
+																			--><li><a class="typo-button small" href="/games?order=a-z&amp;letter=K">K</a></li><!--
+																			--><li><a class="typo-button small" href="/games?order=a-z&amp;letter=L">L</a></li><!--
+																			--><li><a class="typo-button small" href="/games?order=a-z&amp;letter=M">M</a></li><!--
+																			--><li><a class="typo-button small" href="/games?order=a-z&amp;letter=N">N</a></li><!--
+																			--><li><a class="typo-button small" href="/games?order=a-z&amp;letter=O">O</a></li><!--
+																			--><li><a class="typo-button small" href="/games?order=a-z&amp;letter=P">P</a></li><!--
+																			--><li><a class="typo-button small" href="/games?order=a-z&amp;letter=Q">Q</a></li><!--
+																			--><li><a class="typo-button small" href="/games?order=a-z&amp;letter=R">R</a></li><!--
+																			--><li><a class="typo-button small" href="/games?order=a-z&amp;letter=S">S</a></li><!--
+																			--><li><a class="typo-button small" href="/games?order=a-z&amp;letter=T">T</a></li><!--
+																			--><li><a class="typo-button small" href="/games?order=a-z&amp;letter=U">U</a></li><!--
+																			--><li><a class="typo-button small" href="/games?order=a-z&amp;letter=V">V</a></li><!--
+																			--><li><a class="typo-button small" href="/games?order=a-z&amp;letter=W">W</a></li><!--
+																			--><li><a class="typo-button small" href="/games?order=a-z&amp;letter=X">X</a></li><!--
+																			--><li><a class="typo-button small" href="/games?order=a-z&amp;letter=Y">Y</a></li><!--
+																			--><li><a class="typo-button small" href="/games?order=a-z&amp;letter=Z">Z</a></li><!--
+									
+									--><li><a class="typo-button small" href="/games?order=a-z&amp;letter=other">Other</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				
+
+									<div class="box no-bottom-border">
+						        <div class="row center-xs">
+            <div class="col-xs-12">
+                <ul class="pagination">
+                    <li class="button "><a rel="nofollow" href="/games?order=average&amp;page=39">‹</a></li><li><a rel="nofollow" href="/games?order=average" class="typo-button">1</a></li><li class="dots">•</li><li><a rel="nofollow" href="/games?order=average&amp;page=37" class="typo-button ">37</a></li><li><a rel="nofollow" href="/games?order=average&amp;page=38" class="typo-button ">38</a></li><li><a rel="nofollow" href="/games?order=average&amp;page=39" class="typo-button ">39</a></li><li><a rel="nofollow" href="/games?order=average&amp;page=40" class="typo-button active">40</a></li><li><a rel="nofollow" href="/games?order=average&amp;page=41" class="typo-button ">41</a></li><li><a rel="nofollow" href="/games?order=average&amp;page=42" class="typo-button ">42</a></li><li><a rel="nofollow" href="/games?order=average&amp;page=43" class="typo-button ">43</a></li><li class="dots">•</li><li><a rel="nofollow" href="/games?order=average&amp;page=273" class="typo-button">273</a></li><li class="button "><a rel="nofollow" href="/games?order=average&amp;page=41">›</a></li>                </ul>
+            </div>
+        </div>
+        
+					</div>
+				
+
+				<div class="box">
+					<table class="zebra" id="game_list">
+																		<tr>
+	
+	<td>
+		<a href="/trophies/9085-back-in-1995">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/be839d/S478200.png, https://i.psnprofiles.com/games/be839d/Ma9a805.png 2x">
+				<img src="https://i.psnprofiles.com/games/be839d/S478200.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/9085-back-in-1995">Back in 1995</a> <bullet>•</bullet> AS</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>587</b> Owners <bullet>•</bullet> <b>1</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>11</span>
+					<span class="icon-sprite silver"></span><span>1</span>
+					<span class="icon-sprite bronze"></span><span>0</span>
+				</div>
+				<span class="small-info">
+					<b>13</b> Trophies <bullet>•</bullet> <b>1,320</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.73%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/8855-十三機兵防衛圏">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/1c81aa/S26fe6f.png, https://i.psnprofiles.com/games/1c81aa/M587f6e.png 2x">
+				<img src="https://i.psnprofiles.com/games/1c81aa/S26fe6f.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/8855-十三機兵防衛圏">十三機兵防衛圏</a> <bullet>•</bullet> JP</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>2,959</b> Owners <bullet>•</bullet> <b>2</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+										<span class="icon-sprite gold"></span><span>1</span>
+					<span class="icon-sprite silver"></span><span>1</span>
+					<span class="icon-sprite bronze"></span><span>13</span>
+				</div>
+				<span class="small-info">
+					<b>15</b> Trophies <bullet>•</bullet> <b>315</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.73%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/13214-arkan-the-dog-adventurer">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/c77b0e/Sfa4d5e.png, https://i.psnprofiles.com/games/c77b0e/M84dbe2.png 2x">
+				<img src="https://i.psnprofiles.com/games/c77b0e/Sfa4d5e.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/13214-arkan-the-dog-adventurer">Arkan: The Dog Adventurer</a> <bullet>•</bullet> EU</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>143</b> Owners <bullet>•</bullet> <b>1</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps5">PS5</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>9</span>
+					<span class="icon-sprite silver"></span><span>5</span>
+					<span class="icon-sprite bronze"></span><span>3</span>
+				</div>
+				<span class="small-info">
+					<b>18</b> Trophies <bullet>•</bullet> <b>1,305</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.72%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/12008-kauils-treasure">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/57ae1a/S507cc0.png, https://i.psnprofiles.com/games/57ae1a/Maa1900.png 2x">
+				<img src="https://i.psnprofiles.com/games/57ae1a/S507cc0.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/12008-kauils-treasure">Kauil&#039;s Treasure</a> <bullet>•</bullet> EU</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>467</b> Owners <bullet>•</bullet> <b>15</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>9</span>
+					<span class="icon-sprite silver"></span><span>8</span>
+					<span class="icon-sprite bronze"></span><span>0</span>
+				</div>
+				<span class="small-info">
+					<b>18</b> Trophies <bullet>•</bullet> <b>1,350</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.66%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/7504-inksplosion">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/9a3186/S841217.png, https://i.psnprofiles.com/games/9a3186/Me84562.png 2x">
+				<img src="https://i.psnprofiles.com/games/9a3186/S841217.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/7504-inksplosion">InkSplosion</a> <bullet>•</bullet> EU</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>6,235</b> Owners <bullet>•</bullet> <b>10</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform psvita">Vita</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>11</span>
+					<span class="icon-sprite silver"></span><span>2</span>
+					<span class="icon-sprite bronze"></span><span>0</span>
+				</div>
+				<span class="small-info">
+					<b>14</b> Trophies <bullet>•</bullet> <b>1,350</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.66%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/8081-donut-county">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/6e8678/S8955c2.png, https://i.psnprofiles.com/games/6e8678/M48bb07.png 2x">
+				<img src="https://i.psnprofiles.com/games/6e8678/S8955c2.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/8081-donut-county">Donut County</a> <bullet>•</bullet> EU</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>10,267</b> Owners <bullet>•</bullet> <b>68</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>8</span>
+					<span class="icon-sprite silver"></span><span>5</span>
+					<span class="icon-sprite bronze"></span><span>7</span>
+				</div>
+				<span class="small-info">
+					<b>21</b> Trophies <bullet>•</bullet> <b>1,275</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.65%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/6008-dying-reborn">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/61a976/Sa23add.png, https://i.psnprofiles.com/games/61a976/M500c7e.png 2x">
+				<img src="https://i.psnprofiles.com/games/61a976/Sa23add.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/6008-dying-reborn">Dying: Reborn</a> <bullet>•</bullet> EU</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>1,752</b> Owners <bullet>•</bullet> <b>1</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform psvita">Vita</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>9</span>
+					<span class="icon-sprite silver"></span><span>8</span>
+					<span class="icon-sprite bronze"></span><span>0</span>
+				</div>
+				<span class="small-info">
+					<b>18</b> Trophies <bullet>•</bullet> <b>1,350</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.62%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/13485-ultra-mission">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/7bd6c4/Se607d5.png, https://i.psnprofiles.com/games/7bd6c4/M8d8f3e.png 2x">
+				<img src="https://i.psnprofiles.com/games/7bd6c4/Se607d5.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/13485-ultra-mission">Ultra Mission</a> <bullet>•</bullet> NA</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>131</b> Owners <bullet>•</bullet> <b>1</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform psvita">Vita</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>11</span>
+					<span class="icon-sprite silver"></span><span>0</span>
+					<span class="icon-sprite bronze"></span><span>0</span>
+				</div>
+				<span class="small-info">
+					<b>12</b> Trophies <bullet>•</bullet> <b>1,290</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.58%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/7571-hex-tunnel-touch">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/f58834/Sf9ca09.png, https://i.psnprofiles.com/games/f58834/M39dee7.png 2x">
+				<img src="https://i.psnprofiles.com/games/f58834/Sf9ca09.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/7571-hex-tunnel-touch">Hex Tunnel Touch</a> <bullet>•</bullet> EU</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>2,315</b> Owners <bullet>•</bullet> <b>1</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>9</span>
+					<span class="icon-sprite silver"></span><span>4</span>
+					<span class="icon-sprite bronze"></span><span>2</span>
+				</div>
+				<span class="small-info">
+					<b>16</b> Trophies <bullet>•</bullet> <b>1,260</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.56%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/9069-my-big-sister">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/f21697/S9f8759.png, https://i.psnprofiles.com/games/f21697/M56395c.png 2x">
+				<img src="https://i.psnprofiles.com/games/f21697/S9f8759.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/9069-my-big-sister">My Big Sister</a> <bullet>•</bullet> NA</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>1,914</b> Owners <bullet>•</bullet> <b>7</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>5</span>
+					<span class="icon-sprite silver"></span><span>17</span>
+					<span class="icon-sprite bronze"></span><span>6</span>
+				</div>
+				<span class="small-info">
+					<b>29</b> Trophies <bullet>•</bullet> <b>1,350</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.55%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/9561-pacific-wings">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/9d12b4/S490db4.png, https://i.psnprofiles.com/games/9d12b4/M4ce9a1.png 2x">
+				<img src="https://i.psnprofiles.com/games/9d12b4/S490db4.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/9561-pacific-wings">Pacific Wings</a></span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>676</b> Owners <bullet>•</bullet> <b>2</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+										<span class="icon-sprite gold"></span><span>3</span>
+					<span class="icon-sprite silver"></span><span>0</span>
+					<span class="icon-sprite bronze"></span><span>1</span>
+				</div>
+				<span class="small-info">
+					<b>4</b> Trophies <bullet>•</bullet> <b>285</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.52%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/2206-家族計画-re紡ぐ糸">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/0e989b/S40c1ed.png, https://i.psnprofiles.com/games/0e989b/M3cb8b5.png 2x">
+				<img src="https://i.psnprofiles.com/games/0e989b/S40c1ed.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/2206-家族計画-re紡ぐ糸">家族計画 Re:紡ぐ糸</a> <bullet>•</bullet> JP</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>897</b> Owners <bullet>•</bullet> <b>1</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps3">PS3</span><span class="tag platform psvita">Vita</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>9</span>
+					<span class="icon-sprite silver"></span><span>6</span>
+					<span class="icon-sprite bronze"></span><span>1</span>
+				</div>
+				<span class="small-info">
+					<b>17</b> Trophies <bullet>•</bullet> <b>1,305</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.51%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/2388-rozen-maiden-wechseln-sie-welt-ab">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/33540e/Sa7bb39.png, https://i.psnprofiles.com/games/33540e/Mcd2320.png 2x">
+				<img src="https://i.psnprofiles.com/games/33540e/Sa7bb39.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/2388-rozen-maiden-wechseln-sie-welt-ab">Rozen Maiden: Wechseln sie welt ab</a></span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>1,344</b> Owners <bullet>•</bullet> <b>1</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps3">PS3</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>4</span>
+					<span class="icon-sprite silver"></span><span>10</span>
+					<span class="icon-sprite bronze"></span><span>24</span>
+				</div>
+				<span class="small-info">
+					<b>39</b> Trophies <bullet>•</bullet> <b>1,320</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.48%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/7111-psychedelica-of-the-black-butterfly">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/5dd731/S2b4e89.png, https://i.psnprofiles.com/games/5dd731/Ma5597b.png 2x">
+				<img src="https://i.psnprofiles.com/games/5dd731/S2b4e89.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/7111-psychedelica-of-the-black-butterfly">Psychedelica of the Black Butterfly</a> <bullet>•</bullet> AS</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>545</b> Owners <bullet>•</bullet> <b>2</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform psvita">Vita</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>3</span>
+					<span class="icon-sprite silver"></span><span>17</span>
+					<span class="icon-sprite bronze"></span><span>13</span>
+				</div>
+				<span class="small-info">
+					<b>34</b> Trophies <bullet>•</bullet> <b>1,275</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.46%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/3500-xblaze-lost-memories">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/57231b/S2a329a.png, https://i.psnprofiles.com/games/57231b/Mbbf653.png 2x">
+				<img src="https://i.psnprofiles.com/games/57231b/S2a329a.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/3500-xblaze-lost-memories">XBlaze Lost: Memories</a> <bullet>•</bullet> JP</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>986</b> Owners <bullet>•</bullet> <b>1</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps3">PS3</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>5</span>
+					<span class="icon-sprite silver"></span><span>5</span>
+					<span class="icon-sprite bronze"></span><span>29</span>
+				</div>
+				<span class="small-info">
+					<b>40</b> Trophies <bullet>•</bullet> <b>1,335</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.46%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/3364-薄桜鬼-随想録-面影げ花">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/d7efb0/S65003e.png, https://i.psnprofiles.com/games/d7efb0/M7b22e2.png 2x">
+				<img src="https://i.psnprofiles.com/games/d7efb0/S65003e.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/3364-薄桜鬼-随想録-面影げ花">薄桜鬼 随想録 面影げ花</a> <bullet>•</bullet> JP</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>436</b> Owners <bullet>•</bullet> <b>2</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform psvita">Vita</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>4</span>
+					<span class="icon-sprite silver"></span><span>19</span>
+					<span class="icon-sprite bronze"></span><span>7</span>
+				</div>
+				<span class="small-info">
+					<b>31</b> Trophies <bullet>•</bullet> <b>1,335</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.45%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/4148-love-quiz-恋する乙女のファイナルアンサー">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/b31a85/Se55a4f.png, https://i.psnprofiles.com/games/b31a85/Mca64b0.png 2x">
+				<img src="https://i.psnprofiles.com/games/b31a85/Se55a4f.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/4148-love-quiz-恋する乙女のファイナルアンサー">Love: Quiz ～恋する乙女のファイナルアンサー～</a> <bullet>•</bullet> JP</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>417</b> Owners <bullet>•</bullet> <b>1</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform psvita">Vita</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>6</span>
+					<span class="icon-sprite silver"></span><span>14</span>
+					<span class="icon-sprite bronze"></span><span>5</span>
+				</div>
+				<span class="small-info">
+					<b>26</b> Trophies <bullet>•</bullet> <b>1,335</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.44%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/14262-lord-of-the-click-ii">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/4f5a65/S05852d.png, https://i.psnprofiles.com/games/4f5a65/M3e6bdf.png 2x">
+				<img src="https://i.psnprofiles.com/games/4f5a65/S05852d.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/14262-lord-of-the-click-ii">Lord of the Click II</a> <bullet>•</bullet> EU</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>82</b> Owners <bullet>•</bullet> <b>87</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>8</span>
+					<span class="icon-sprite silver"></span><span>9</span>
+					<span class="icon-sprite bronze"></span><span>4</span>
+				</div>
+				<span class="small-info">
+					<b>22</b> Trophies <bullet>•</bullet> <b>1,350</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.42%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/2064-グリザイアの果実-le-fruit-de-la-grisaia">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/080f8a/S799cde.png, https://i.psnprofiles.com/games/080f8a/M417d2f.png 2x">
+				<img src="https://i.psnprofiles.com/games/080f8a/S799cde.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/2064-グリザイアの果実-le-fruit-de-la-grisaia">グリザイアの果実 -LE FRUIT DE LA GRISAIA-</a> <bullet>•</bullet> JP</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>3,823</b> Owners <bullet>•</bullet> <b>4</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform psvita">Vita</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>7</span>
+					<span class="icon-sprite silver"></span><span>6</span>
+					<span class="icon-sprite bronze"></span><span>10</span>
+				</div>
+				<span class="small-info">
+					<b>24</b> Trophies <bullet>•</bullet> <b>1,260</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.42%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/10502-the-secret-order-shadow-breach">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/cf6534/Sd9e1dd.png, https://i.psnprofiles.com/games/cf6534/Ma9379c.png 2x">
+				<img src="https://i.psnprofiles.com/games/cf6534/Sd9e1dd.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/10502-the-secret-order-shadow-breach">The Secret Order: Shadow Breach</a></span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>866</b> Owners <bullet>•</bullet> <b>4</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>5</span>
+					<span class="icon-sprite silver"></span><span>8</span>
+					<span class="icon-sprite bronze"></span><span>18</span>
+				</div>
+				<span class="small-info">
+					<b>32</b> Trophies <bullet>•</bullet> <b>1,260</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.41%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/7500-psychedelica-of-the-ashen-hawk">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/f61922/S34a54d.png, https://i.psnprofiles.com/games/f61922/Me2fa56.png 2x">
+				<img src="https://i.psnprofiles.com/games/f61922/S34a54d.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/7500-psychedelica-of-the-ashen-hawk">Psychedelica of the Ashen Hawk</a> <bullet>•</bullet> AS</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>379</b> Owners <bullet>•</bullet> <b>1</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform psvita">Vita</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>3</span>
+					<span class="icon-sprite silver"></span><span>18</span>
+					<span class="icon-sprite bronze"></span><span>14</span>
+				</div>
+				<span class="small-info">
+					<b>36</b> Trophies <bullet>•</bullet> <b>1,320</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.40%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/12384-ジンキリザレクション">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/ff3b7e/S4d6a69.png, https://i.psnprofiles.com/games/ff3b7e/Mcb1320.png 2x">
+				<img src="https://i.psnprofiles.com/games/ff3b7e/S4d6a69.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/12384-ジンキリザレクション">ジンキ・リザレクション</a> <bullet>•</bullet> JP</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>101</b> Owners <bullet>•</bullet> <b>1</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>10</span>
+					<span class="icon-sprite silver"></span><span>3</span>
+					<span class="icon-sprite bronze"></span><span>4</span>
+				</div>
+				<span class="small-info">
+					<b>18</b> Trophies <bullet>•</bullet> <b>1,350</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.37%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/9725-just-ignore-them">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/13b674/Sd433db.png, https://i.psnprofiles.com/games/13b674/Mfa13b9.png 2x">
+				<img src="https://i.psnprofiles.com/games/13b674/Sd433db.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/9725-just-ignore-them">Just Ignore Them</a> <bullet>•</bullet> NA</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>1,023</b> Owners <bullet>•</bullet> <b>2</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform psvita">Vita</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>6</span>
+					<span class="icon-sprite silver"></span><span>7</span>
+					<span class="icon-sprite bronze"></span><span>20</span>
+				</div>
+				<span class="small-info">
+					<b>34</b> Trophies <bullet>•</bullet> <b>1,350</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.37%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/4380-god-eater-off-shot-シオ編">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/2603e6/S8926b5.png, https://i.psnprofiles.com/games/2603e6/M908fbc.png 2x">
+				<img src="https://i.psnprofiles.com/games/2603e6/S8926b5.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/4380-god-eater-off-shot-シオ編">God Eater Off Shot ＜シオ編＞</a></span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>490</b> Owners <bullet>•</bullet> <b>1</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span><span class="tag platform psvita">Vita</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+										<span class="icon-sprite gold"></span><span>1</span>
+					<span class="icon-sprite silver"></span><span>3</span>
+					<span class="icon-sprite bronze"></span><span>7</span>
+				</div>
+				<span class="small-info">
+					<b>11</b> Trophies <bullet>•</bullet> <b>285</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.35%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/11396-big-dipper">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/7397c0/S0df53d.png, https://i.psnprofiles.com/games/7397c0/Meee3a2.png 2x">
+				<img src="https://i.psnprofiles.com/games/7397c0/S0df53d.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/11396-big-dipper">Big Dipper</a> <bullet>•</bullet> NA</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>259</b> Owners <bullet>•</bullet> <b>3</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform psvita">Vita</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+										<span class="icon-sprite gold"></span><span>2</span>
+					<span class="icon-sprite silver"></span><span>3</span>
+					<span class="icon-sprite bronze"></span><span>1</span>
+				</div>
+				<span class="small-info">
+					<b>6</b> Trophies <bullet>•</bullet> <b>285</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.32%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/1512-アイドルマスターグラビアフォーユー-vol9">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/d841e8/S7e5cef.png, https://i.psnprofiles.com/games/d841e8/M394e09.png 2x">
+				<img src="https://i.psnprofiles.com/games/d841e8/S7e5cef.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/1512-アイドルマスターグラビアフォーユー-vol9">アイドルマスターグラビアフォーユー！ VOL.9</a> <bullet>•</bullet> JP</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>2,082</b> Owners <bullet>•</bullet> <b>1</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps3">PS3</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+										<span class="icon-sprite gold"></span><span>1</span>
+					<span class="icon-sprite silver"></span><span>1</span>
+					<span class="icon-sprite bronze"></span><span>13</span>
+				</div>
+				<span class="small-info">
+					<b>15</b> Trophies <bullet>•</bullet> <b>315</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.32%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/6011-blackwood-crossing">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/68b9a7/S7dca25.png, https://i.psnprofiles.com/games/68b9a7/M5764eb.png 2x">
+				<img src="https://i.psnprofiles.com/games/68b9a7/S7dca25.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/6011-blackwood-crossing">Blackwood Crossing</a> <bullet>•</bullet> NA</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>2,897</b> Owners <bullet>•</bullet> <b>1</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>8</span>
+					<span class="icon-sprite silver"></span><span>5</span>
+					<span class="icon-sprite bronze"></span><span>9</span>
+				</div>
+				<span class="small-info">
+					<b>23</b> Trophies <bullet>•</bullet> <b>1,305</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.31%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/10808-thy-sword">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/07dbe4/Sc026d6.png, https://i.psnprofiles.com/games/07dbe4/M8deb89.png 2x">
+				<img src="https://i.psnprofiles.com/games/07dbe4/Sc026d6.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/10808-thy-sword">Thy Sword</a> <bullet>•</bullet> EU</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>897</b> Owners <bullet>•</bullet> <b>2</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>10</span>
+					<span class="icon-sprite silver"></span><span>2</span>
+					<span class="icon-sprite bronze"></span><span>4</span>
+				</div>
+				<span class="small-info">
+					<b>17</b> Trophies <bullet>•</bullet> <b>1,320</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.30%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/11623-a-tale-of-paper">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/11dbe2/S97aab3.png, https://i.psnprofiles.com/games/11dbe2/M8e79a9.png 2x">
+				<img src="https://i.psnprofiles.com/games/11dbe2/S97aab3.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/11623-a-tale-of-paper">A Tale Of Paper</a></span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>548</b> Owners <bullet>•</bullet> <b>4</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>9</span>
+					<span class="icon-sprite silver"></span><span>2</span>
+					<span class="icon-sprite bronze"></span><span>6</span>
+				</div>
+				<span class="small-info">
+					<b>18</b> Trophies <bullet>•</bullet> <b>1,260</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.29%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/8269-ワンド-オブ-フォーチュン-ｒ２-ｆｄ-君に捧げるエピローグ">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/f1c145/Sd06372.png, https://i.psnprofiles.com/games/f1c145/Mc65a52.png 2x">
+				<img src="https://i.psnprofiles.com/games/f1c145/Sd06372.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/8269-ワンド-オブ-フォーチュン-ｒ２-ｆｄ-君に捧げるエピローグ">ワンド オブ フォーチュン Ｒ２ ＦＤ ～君に捧げるエピローグ～</a> <bullet>•</bullet> JP</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>143</b> Owners <bullet>•</bullet> <b>1</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform psvita">Vita</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>5</span>
+					<span class="icon-sprite silver"></span><span>10</span>
+					<span class="icon-sprite bronze"></span><span>19</span>
+				</div>
+				<span class="small-info">
+					<b>35</b> Trophies <bullet>•</bullet> <b>1,335</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.29%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/12544-acalesia">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/6de6b5/Scc7cd5.png, https://i.psnprofiles.com/games/6de6b5/M6ea315.png 2x">
+				<img src="https://i.psnprofiles.com/games/6de6b5/Scc7cd5.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/12544-acalesia">Acalesia</a> <bullet>•</bullet> EU</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>295</b> Owners <bullet>•</bullet> <b>3</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>11</span>
+					<span class="icon-sprite silver"></span><span>0</span>
+					<span class="icon-sprite bronze"></span><span>0</span>
+				</div>
+				<span class="small-info">
+					<b>12</b> Trophies <bullet>•</bullet> <b>1,290</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.27%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/3881-源氏恋絵巻">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/65521b/Sb73b0a.png, https://i.psnprofiles.com/games/65521b/M07514e.png 2x">
+				<img src="https://i.psnprofiles.com/games/65521b/Sb73b0a.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/3881-源氏恋絵巻">源氏恋絵巻</a> <bullet>•</bullet> JP</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>398</b> Owners <bullet>•</bullet> <b>1</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform psvita">Vita</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>9</span>
+					<span class="icon-sprite silver"></span><span>7</span>
+					<span class="icon-sprite bronze"></span><span>1</span>
+				</div>
+				<span class="small-info">
+					<b>18</b> Trophies <bullet>•</bullet> <b>1,335</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.26%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/4289-god-eater-off-shot-ソーマ編">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/1f42ba/S4509f3.png, https://i.psnprofiles.com/games/1f42ba/M465952.png 2x">
+				<img src="https://i.psnprofiles.com/games/1f42ba/S4509f3.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/4289-god-eater-off-shot-ソーマ編">God Eater Off Shot ＜ソーマ編＞</a></span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>502</b> Owners <bullet>•</bullet> <b>1</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span><span class="tag platform psvita">Vita</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+										<span class="icon-sprite gold"></span><span>1</span>
+					<span class="icon-sprite silver"></span><span>3</span>
+					<span class="icon-sprite bronze"></span><span>7</span>
+				</div>
+				<span class="small-info">
+					<b>11</b> Trophies <bullet>•</bullet> <b>285</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.25%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/11910-my-aunt-is-a-witch">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/d264e3/S4945bf.png, https://i.psnprofiles.com/games/d264e3/M98230b.png 2x">
+				<img src="https://i.psnprofiles.com/games/d264e3/S4945bf.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/11910-my-aunt-is-a-witch">My Aunt is a Witch</a> <bullet>•</bullet> EU</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>346</b> Owners <bullet>•</bullet> <b>1</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>8</span>
+					<span class="icon-sprite silver"></span><span>9</span>
+					<span class="icon-sprite bronze"></span><span>1</span>
+				</div>
+				<span class="small-info">
+					<b>19</b> Trophies <bullet>•</bullet> <b>1,305</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.24%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/12289-glittering-sword">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/f6a16b/Scae18c.png, https://i.psnprofiles.com/games/f6a16b/M0e6602.png 2x">
+				<img src="https://i.psnprofiles.com/games/f6a16b/Scae18c.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/12289-glittering-sword">Glittering Sword</a> <bullet>•</bullet> NA</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>229</b> Owners <bullet>•</bullet> <b>1</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>8</span>
+					<span class="icon-sprite silver"></span><span>10</span>
+					<span class="icon-sprite bronze"></span><span>2</span>
+				</div>
+				<span class="small-info">
+					<b>21</b> Trophies <bullet>•</bullet> <b>1,350</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.23%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/9083-devious-dungeon-2">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/c4776d/Sce9375.png, https://i.psnprofiles.com/games/c4776d/Mf240aa.png 2x">
+				<img src="https://i.psnprofiles.com/games/c4776d/Sce9375.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/9083-devious-dungeon-2">Devious Dungeon 2</a> <bullet>•</bullet> NA</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>1,672</b> Owners <bullet>•</bullet> <b>9</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>8</span>
+					<span class="icon-sprite silver"></span><span>5</span>
+					<span class="icon-sprite bronze"></span><span>12</span>
+				</div>
+				<span class="small-info">
+					<b>26</b> Trophies <bullet>•</bullet> <b>1,350</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.21%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/1119-sam-max-beyond-time-space-episode-4-chariots-of-the-dogs">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/6cce8c/S3bca31.png, https://i.psnprofiles.com/games/6cce8c/M35b01f.png 2x">
+				<img src="https://i.psnprofiles.com/games/6cce8c/S3bca31.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/1119-sam-max-beyond-time-space-episode-4-chariots-of-the-dogs">Sam &amp; Max: Beyond Time &amp; Space Episode 4 - Chariots of the Dogs</a></span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>3,909</b> Owners <bullet>•</bullet> <b>1</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps3">PS3</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+										<span class="icon-sprite gold"></span><span>1</span>
+					<span class="icon-sprite silver"></span><span>3</span>
+					<span class="icon-sprite bronze"></span><span>8</span>
+				</div>
+				<span class="small-info">
+					<b>12</b> Trophies <bullet>•</bullet> <b>300</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.16%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/12554-mine-my-mind">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/d28681/S661373.png, https://i.psnprofiles.com/games/d28681/M3fc47b.png 2x">
+				<img src="https://i.psnprofiles.com/games/d28681/S661373.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/12554-mine-my-mind">Mine My Mind</a> <bullet>•</bullet> EU</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>299</b> Owners <bullet>•</bullet> <b>5</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>1</span>
+					<span class="icon-sprite silver"></span><span>1</span>
+					<span class="icon-sprite bronze"></span><span>71</span>
+				</div>
+				<span class="small-info">
+					<b>74</b> Trophies <bullet>•</bullet> <b>1,485</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.15%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/1473-アイドルマスターグラビアフォーユー-vol8">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/cc0f26/S550dae.png, https://i.psnprofiles.com/games/cc0f26/M4c3156.png 2x">
+				<img src="https://i.psnprofiles.com/games/cc0f26/S550dae.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/1473-アイドルマスターグラビアフォーユー-vol8">アイドルマスターグラビアフォーユー！ VOL.8</a> <bullet>•</bullet> JP</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>2,046</b> Owners <bullet>•</bullet> <b>1</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps3">PS3</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+										<span class="icon-sprite gold"></span><span>1</span>
+					<span class="icon-sprite silver"></span><span>1</span>
+					<span class="icon-sprite bronze"></span><span>13</span>
+				</div>
+				<span class="small-info">
+					<b>15</b> Trophies <bullet>•</bullet> <b>315</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.13%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/11432-active-neurons-2">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/9bca9f/S4e2bc7.png, https://i.psnprofiles.com/games/9bca9f/Mb6c3e9.png 2x">
+				<img src="https://i.psnprofiles.com/games/9bca9f/S4e2bc7.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/11432-active-neurons-2">Active Neurons 2</a> <bullet>•</bullet> NA</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>748</b> Owners <bullet>•</bullet> <b>8</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>11</span>
+					<span class="icon-sprite silver"></span><span>1</span>
+					<span class="icon-sprite bronze"></span><span>0</span>
+				</div>
+				<span class="small-info">
+					<b>13</b> Trophies <bullet>•</bullet> <b>1,320</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.10%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/5617-clockwork-tales-of-glass-and-ink">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/f0da18/S82f7dc.png, https://i.psnprofiles.com/games/f0da18/Mc47060.png 2x">
+				<img src="https://i.psnprofiles.com/games/f0da18/S82f7dc.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/5617-clockwork-tales-of-glass-and-ink">Clockwork Tales: Of Glass and Ink</a></span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>11,731</b> Owners <bullet>•</bullet> <b>17</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>8</span>
+					<span class="icon-sprite silver"></span><span>6</span>
+					<span class="icon-sprite bronze"></span><span>4</span>
+				</div>
+				<span class="small-info">
+					<b>19</b> Trophies <bullet>•</bullet> <b>1,260</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.10%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/6504-tachyon-project">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/9023df/S1e69ba.png, https://i.psnprofiles.com/games/9023df/M5d8855.png 2x">
+				<img src="https://i.psnprofiles.com/games/9023df/S1e69ba.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/6504-tachyon-project">Tachyon Project</a> <bullet>•</bullet> PH</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>215</b> Owners <bullet>•</bullet> <b>1</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>6</span>
+					<span class="icon-sprite silver"></span><span>13</span>
+					<span class="icon-sprite bronze"></span><span>5</span>
+				</div>
+				<span class="small-info">
+					<b>25</b> Trophies <bullet>•</bullet> <b>1,305</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.09%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/2610-arcade-archives-crazy-climber">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/47cb4e/Sfd797c.png, https://i.psnprofiles.com/games/47cb4e/Me8de2f.png 2x">
+				<img src="https://i.psnprofiles.com/games/47cb4e/Sfd797c.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/2610-arcade-archives-crazy-climber">Arcade Archives: Crazy Climber</a></span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>2,156</b> Owners <bullet>•</bullet> <b>1</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+										<span class="icon-sprite gold"></span><span>2</span>
+					<span class="icon-sprite silver"></span><span>0</span>
+					<span class="icon-sprite bronze"></span><span>7</span>
+				</div>
+				<span class="small-info">
+					<b>9</b> Trophies <bullet>•</bullet> <b>285</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.09%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/11066-lanternium">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/8c206a/Sabe6e2.png, https://i.psnprofiles.com/games/8c206a/M99bf06.png 2x">
+				<img src="https://i.psnprofiles.com/games/8c206a/Sabe6e2.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/11066-lanternium">Lanternium</a> <bullet>•</bullet> NA</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>299</b> Owners <bullet>•</bullet> <b>1</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>11</span>
+					<span class="icon-sprite silver"></span><span>2</span>
+					<span class="icon-sprite bronze"></span><span>0</span>
+				</div>
+				<span class="small-info">
+					<b>14</b> Trophies <bullet>•</bullet> <b>1,350</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.08%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/10718-guard-duty">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/0c5dc9/S955fea.png, https://i.psnprofiles.com/games/0c5dc9/M3f3b06.png 2x">
+				<img src="https://i.psnprofiles.com/games/0c5dc9/S955fea.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/10718-guard-duty">Guard Duty</a> <bullet>•</bullet> EU</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>361</b> Owners <bullet>•</bullet> <b>2</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform psvita">Vita</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>9</span>
+					<span class="icon-sprite silver"></span><span>5</span>
+					<span class="icon-sprite bronze"></span><span>6</span>
+				</div>
+				<span class="small-info">
+					<b>21</b> Trophies <bullet>•</bullet> <b>1,350</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.08%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/10697-探偵-神宮寺三郎-プリズムオブアイズ-果断の一手">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/9ea84b/S501e98.png, https://i.psnprofiles.com/games/9ea84b/M1a3d6f.png 2x">
+				<img src="https://i.psnprofiles.com/games/9ea84b/S501e98.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/10697-探偵-神宮寺三郎-プリズムオブアイズ-果断の一手">探偵 神宮寺三郎 プリズム・オブ・アイズ ～果断の一手～</a> <bullet>•</bullet> JP</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>101</b> Owners <bullet>•</bullet> <b>1</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+										<span class="icon-sprite gold"></span><span>2</span>
+					<span class="icon-sprite silver"></span><span>2</span>
+					<span class="icon-sprite bronze"></span><span>3</span>
+				</div>
+				<span class="small-info">
+					<b>7</b> Trophies <bullet>•</bullet> <b>285</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.08%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/10709-探偵-神宮寺三郎-プリズムオブアイズ-虚飾の夜">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/59e2b6/Se4413c.png, https://i.psnprofiles.com/games/59e2b6/Mdcafc7.png 2x">
+				<img src="https://i.psnprofiles.com/games/59e2b6/Se4413c.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/10709-探偵-神宮寺三郎-プリズムオブアイズ-虚飾の夜">探偵 神宮寺三郎 プリズム・オブ・アイズ ～虚飾の夜～</a> <bullet>•</bullet> JP</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>94</b> Owners <bullet>•</bullet> <b>1</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+										<span class="icon-sprite gold"></span><span>2</span>
+					<span class="icon-sprite silver"></span><span>2</span>
+					<span class="icon-sprite bronze"></span><span>3</span>
+				</div>
+				<span class="small-info">
+					<b>7</b> Trophies <bullet>•</bullet> <b>285</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.07%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/12529-synergia">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/f4d8b5/Sa2e1ef.png, https://i.psnprofiles.com/games/f4d8b5/M5fc92e.png 2x">
+				<img src="https://i.psnprofiles.com/games/f4d8b5/Sa2e1ef.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/12529-synergia">Synergia</a> <bullet>•</bullet> AS</span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>206</b> Owners <bullet>•</bullet> <b>1</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform psvita">Vita</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>9</span>
+					<span class="icon-sprite silver"></span><span>5</span>
+					<span class="icon-sprite bronze"></span><span>0</span>
+				</div>
+				<span class="small-info">
+					<b>15</b> Trophies <bullet>•</bullet> <b>1,260</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.04%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/4607-god-eater-off-shot-サクヤ編">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/a23fcc/Sae4fab.png, https://i.psnprofiles.com/games/a23fcc/Mad571b.png 2x">
+				<img src="https://i.psnprofiles.com/games/a23fcc/Sae4fab.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/4607-god-eater-off-shot-サクヤ編">God Eater Off Shot ＜サクヤ編＞</a></span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>449</b> Owners <bullet>•</bullet> <b>1</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span><span class="tag platform psvita">Vita</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+										<span class="icon-sprite gold"></span><span>1</span>
+					<span class="icon-sprite silver"></span><span>3</span>
+					<span class="icon-sprite bronze"></span><span>7</span>
+				</div>
+				<span class="small-info">
+					<b>11</b> Trophies <bullet>•</bullet> <b>285</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.04%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>													<tr>
+	
+	<td>
+		<a href="/trophies/7470-enigmatis-3-the-shadow-of-karkhala">
+			<picture class="game">
+				<source srcset="https://i.psnprofiles.com/games/f4be7e/Sf5fa1d.png, https://i.psnprofiles.com/games/f4be7e/Mb1cd97.png 2x">
+				<img src="https://i.psnprofiles.com/games/f4be7e/Sf5fa1d.png" />
+			</picture>
+		</a>
+	</td>
+
+	<td style="width: 100%;" colspan="-2">
+		<div class="ellipsis">
+			<span><a class="title" href="/trophies/7470-enigmatis-3-the-shadow-of-karkhala">Enigmatis 3: The Shadow of Karkhala</a></span>
+		</div>
+		<span class="small-info" style="margin-top: 4px;">
+			<b>2,617</b> Owners <bullet>•</bullet> <b>5</b> Recent
+		</span>				
+	</td>
+
+	<td>
+					<span class="separator right">
+				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+			</span>
+			</td>
+
+	<td style="">
+		<span class="separator right">
+			<div class="trophy-count center no-pad">
+				
+				<div class="flex v-align center">
+											<span class="icon-sprite platinum"></span><span>1</span>
+										<span class="icon-sprite gold"></span><span>5</span>
+					<span class="icon-sprite silver"></span><span>9</span>
+					<span class="icon-sprite bronze"></span><span>21</span>
+				</div>
+				<span class="small-info">
+					<b>36</b> Trophies <bullet>•</bullet> <b>1,335</b> Points
+				</span>
+			</div>
+		</span>
+	</td>
+
+	
+			<td>
+			<span class="separator">
+				<span class="typo-top">87.03%</span><br/><span class="typo-bottom">Average</span>
+			</span>
+		</td>
+	
+	
+</tr>															
+				</table>
+			</div>
+
+							<div class="box no-top-border">
+					        <div class="row center-xs">
+            <div class="col-xs-12">
+                <ul class="pagination">
+                    <li class="button "><a rel="nofollow" href="/games?order=average&amp;page=39">‹</a></li><li><a rel="nofollow" href="/games?order=average" class="typo-button">1</a></li><li class="dots">•</li><li><a rel="nofollow" href="/games?order=average&amp;page=37" class="typo-button ">37</a></li><li><a rel="nofollow" href="/games?order=average&amp;page=38" class="typo-button ">38</a></li><li><a rel="nofollow" href="/games?order=average&amp;page=39" class="typo-button ">39</a></li><li><a rel="nofollow" href="/games?order=average&amp;page=40" class="typo-button active">40</a></li><li><a rel="nofollow" href="/games?order=average&amp;page=41" class="typo-button ">41</a></li><li><a rel="nofollow" href="/games?order=average&amp;page=42" class="typo-button ">42</a></li><li><a rel="nofollow" href="/games?order=average&amp;page=43" class="typo-button ">43</a></li><li class="dots">•</li><li><a rel="nofollow" href="/games?order=average&amp;page=273" class="typo-button">273</a></li><li class="button "><a rel="nofollow" href="/games?order=average&amp;page=41">›</a></li>                </ul>
+            </div>
+        </div>
+        
+				</div>
+					</div>
+
+
+		<div class="col-xs-4 sidebar">
+						
+							            <div class="side-ad">
+                <center>
+                    <div id="nn_mpu1"></div>
+                </center>
+                            </div>
+        
+			
+							<div class="title flex v-align">
+					<div class="grow">
+						<h3>Popular Games</h3>
+					</div>
+					<div class="no-shrink">
+						<a href="/games?order=owners">More</a>
+					</div>
+				</div>
+				<table class="box zebra">
+											<tr>
+							<td width="1%">
+								<a href="/trophies/436-call-of-duty-black-ops" title="Call of Duty: Black Ops">
+									<picture class="game">
+										<source srcset="https://i.psnprofiles.com/games/ad0a8e/S14d5f8.png, https://i.psnprofiles.com/games/ad0a8e/M1b10e9.png 2x">
+										<img src="https://i.psnprofiles.com/games/ad0a8e/S14d5f8.png" />
+									</picture>
+								</a>
+							</td>
+
+							<td>
+								<div class="ellipsis">
+									<a class="small-title" href="/trophies/436-call-of-duty-black-ops" title="Call of Duty: Black Ops">Call of Duty: Black Ops</a>
+								</div>
+								<div class="platforms" ><span class="tag platform ps3">PS3</span></div>				
+							</td>
+
+							<td style="width: 1%; padding: 5px 10px;">
+								<center><span class="typo-top">1,339,506</span><br /><span class="typo-bottom">Owners</span></center>
+							</td>
+						</tr>
+											<tr>
+							<td width="1%">
+								<a href="/trophies/3147-grand-theft-auto-v" title="Grand Theft Auto V">
+									<picture class="game">
+										<source srcset="https://i.psnprofiles.com/games/bdb66f/S686730.png, https://i.psnprofiles.com/games/bdb66f/M70d3c2.png 2x">
+										<img src="https://i.psnprofiles.com/games/bdb66f/S686730.png" />
+									</picture>
+								</a>
+							</td>
+
+							<td>
+								<div class="ellipsis">
+									<a class="small-title" href="/trophies/3147-grand-theft-auto-v" title="Grand Theft Auto V">Grand Theft Auto V</a>
+								</div>
+								<div class="platforms" ><span class="tag platform ps4">PS4</span></div>				
+							</td>
+
+							<td style="width: 1%; padding: 5px 10px;">
+								<center><span class="typo-top">1,328,049</span><br /><span class="typo-bottom">Owners</span></center>
+							</td>
+						</tr>
+											<tr>
+							<td width="1%">
+								<a href="/trophies/2093-grand-theft-auto-v" title="Grand Theft Auto V">
+									<picture class="game">
+										<source srcset="https://i.psnprofiles.com/games/ab2999/Scb02e9.png, https://i.psnprofiles.com/games/ab2999/M66630a.png 2x">
+										<img src="https://i.psnprofiles.com/games/ab2999/Scb02e9.png" />
+									</picture>
+								</a>
+							</td>
+
+							<td>
+								<div class="ellipsis">
+									<a class="small-title" href="/trophies/2093-grand-theft-auto-v" title="Grand Theft Auto V">Grand Theft Auto V</a>
+								</div>
+								<div class="platforms" ><span class="tag platform ps3">PS3</span></div>				
+							</td>
+
+							<td style="width: 1%; padding: 5px 10px;">
+								<center><span class="typo-top">1,274,568</span><br /><span class="typo-bottom">Owners</span></center>
+							</td>
+						</tr>
+											<tr>
+							<td width="1%">
+								<a href="/trophies/175-call-of-duty-modern-warfare-2" title="Call of Duty: Modern Warfare 2">
+									<picture class="game">
+										<source srcset="https://i.psnprofiles.com/games/54fad6/S202572.png, https://i.psnprofiles.com/games/54fad6/M339bb0.png 2x">
+										<img src="https://i.psnprofiles.com/games/54fad6/S202572.png" />
+									</picture>
+								</a>
+							</td>
+
+							<td>
+								<div class="ellipsis">
+									<a class="small-title" href="/trophies/175-call-of-duty-modern-warfare-2" title="Call of Duty: Modern Warfare 2">Call of Duty: Modern Warfare 2</a>
+								</div>
+								<div class="platforms" ><span class="tag platform ps3">PS3</span></div>				
+							</td>
+
+							<td style="width: 1%; padding: 5px 10px;">
+								<center><span class="typo-top">1,162,069</span><br /><span class="typo-bottom">Owners</span></center>
+							</td>
+						</tr>
+											<tr>
+							<td width="1%">
+								<a href="/trophies/2166-the-playroom" title="The Playroom">
+									<picture class="game">
+										<source srcset="https://i.psnprofiles.com/games/f86427/S8b192a.png, https://i.psnprofiles.com/games/f86427/Mb4c299.png 2x">
+										<img src="https://i.psnprofiles.com/games/f86427/S8b192a.png" />
+									</picture>
+								</a>
+							</td>
+
+							<td>
+								<div class="ellipsis">
+									<a class="small-title" href="/trophies/2166-the-playroom" title="The Playroom">The Playroom</a>
+								</div>
+								<div class="platforms" ><span class="tag platform ps4">PS4</span></div>				
+							</td>
+
+							<td style="width: 1%; padding: 5px 10px;">
+								<center><span class="typo-top">1,161,025</span><br /><span class="typo-bottom">Owners</span></center>
+							</td>
+						</tr>
+									</table>
+			
+
+							<div class="title flex v-align">
+					<div class="grow">
+						<h3>Easy Games</h3>
+					</div>
+					<div class="no-shrink">
+						<a href="/games?order=average">More</a>
+					</div>
+				</div>
+				<table class="box zebra">
+											<tr>
+							<td width="1%">
+								<a href="/trophies/14136-bff-or-die" title="BFF or Die">
+									<picture class="game">
+										<source srcset="https://i.psnprofiles.com/games/5c2b4d/S998fb4.png, https://i.psnprofiles.com/games/5c2b4d/Mc3d93f.png 2x">
+										<img src="https://i.psnprofiles.com/games/5c2b4d/S998fb4.png" />
+									</picture>
+								</a>
+							</td>
+
+							<td>
+								<div class="ellipsis">
+									<a class="small-title" href="/trophies/14136-bff-or-die" title="BFF or Die">BFF or Die</a>
+								</div>
+								<div class="platforms" ><span class="tag platform ps4">PS4</span></div>				
+							</td>
+
+							<td style="width: 1%; padding: 5px 10px;">
+								<center><span class="typo-top">100.00%</span><br /><span class="typo-bottom">Average</span></center>
+							</td>
+						</tr>
+											<tr>
+							<td width="1%">
+								<a href="/trophies/14005-delicious-pretty-girls-mahjong-solitaire" title="Delicious! Pretty Girls Mahjong Solitaire">
+									<picture class="game">
+										<source srcset="https://i.psnprofiles.com/games/d6d98e/S5f196f.png, https://i.psnprofiles.com/games/d6d98e/Mb73d0d.png 2x">
+										<img src="https://i.psnprofiles.com/games/d6d98e/S5f196f.png" />
+									</picture>
+								</a>
+							</td>
+
+							<td>
+								<div class="ellipsis">
+									<a class="small-title" href="/trophies/14005-delicious-pretty-girls-mahjong-solitaire" title="Delicious! Pretty Girls Mahjong Solitaire">Delicious! Pretty Girls Mahjong Solitaire</a>
+								</div>
+								<div class="platforms" ><span class="tag platform ps5">PS5</span></div>				
+							</td>
+
+							<td style="width: 1%; padding: 5px 10px;">
+								<center><span class="typo-top">100.00%</span><br /><span class="typo-bottom">Average</span></center>
+							</td>
+						</tr>
+											<tr>
+							<td width="1%">
+								<a href="/trophies/13992-アママネ2" title="アママネ2">
+									<picture class="game">
+										<source srcset="https://i.psnprofiles.com/games/dd5c41/S46f5f1.png, https://i.psnprofiles.com/games/dd5c41/Mc8c835.png 2x">
+										<img src="https://i.psnprofiles.com/games/dd5c41/S46f5f1.png" />
+									</picture>
+								</a>
+							</td>
+
+							<td>
+								<div class="ellipsis">
+									<a class="small-title" href="/trophies/13992-アママネ2" title="アママネ2">アママネ2</a>
+								</div>
+								<div class="platforms" ><span class="tag platform ps4">PS4</span></div>				
+							</td>
+
+							<td style="width: 1%; padding: 5px 10px;">
+								<center><span class="typo-top">100.00%</span><br /><span class="typo-bottom">Average</span></center>
+							</td>
+						</tr>
+											<tr>
+							<td width="1%">
+								<a href="/trophies/13648-zero-strain" title="Zero Strain">
+									<picture class="game">
+										<source srcset="https://i.psnprofiles.com/games/6e4796/S947747.png, https://i.psnprofiles.com/games/6e4796/M28dba3.png 2x">
+										<img src="https://i.psnprofiles.com/games/6e4796/S947747.png" />
+									</picture>
+								</a>
+							</td>
+
+							<td>
+								<div class="ellipsis">
+									<a class="small-title" href="/trophies/13648-zero-strain" title="Zero Strain">Zero Strain</a>
+								</div>
+								<div class="platforms" ><span class="tag platform ps5">PS5</span></div>				
+							</td>
+
+							<td style="width: 1%; padding: 5px 10px;">
+								<center><span class="typo-top">100.00%</span><br /><span class="typo-bottom">Average</span></center>
+							</td>
+						</tr>
+											<tr>
+							<td width="1%">
+								<a href="/trophies/13253-サクラサキュバス３-魔性の支配者" title="サクラ･サキュバス３ ～魔性の支配者～">
+									<picture class="game">
+										<source srcset="https://i.psnprofiles.com/games/b952fc/S62171e.png, https://i.psnprofiles.com/games/b952fc/Mb73ab3.png 2x">
+										<img src="https://i.psnprofiles.com/games/b952fc/S62171e.png" />
+									</picture>
+								</a>
+							</td>
+
+							<td>
+								<div class="ellipsis">
+									<a class="small-title" href="/trophies/13253-サクラサキュバス３-魔性の支配者" title="サクラ･サキュバス３ ～魔性の支配者～">サクラ･サキュバス３ ～魔性の支配者～</a>
+								</div>
+								<div class="platforms" ><span class="tag platform ps5">PS5</span></div>				
+							</td>
+
+							<td style="width: 1%; padding: 5px 10px;">
+								<center><span class="typo-top">100.00%</span><br /><span class="typo-bottom">Average</span></center>
+							</td>
+						</tr>
+									</table>
+			
+							<div class="title flex v-align">
+					<div class="grow">
+						<h3>Hard Games</h3>
+					</div>
+				</div>
+				<table class="box zebra">
+											<tr>
+							<td width="1%">
+								<a href="/trophies/5578-attacking-zegeta-2" title="Attacking Zegeta 2">
+									<picture class="game">
+										<source srcset="https://i.psnprofiles.com/games/645b25/S7f4938.png, https://i.psnprofiles.com/games/645b25/M600f76.png 2x">
+										<img src="https://i.psnprofiles.com/games/645b25/S7f4938.png" />
+									</picture>
+								</a>
+							</td>
+
+							<td>
+								<div class="ellipsis">
+									<a class="small-title" href="/trophies/5578-attacking-zegeta-2" title="Attacking Zegeta 2">Attacking Zegeta 2</a>
+								</div>
+								<div class="platforms" ><span class="tag platform ps4">PS4</span></div>				
+							</td>
+
+							<td style="width: 1%; padding: 5px 10px;">
+								<center><span class="typo-top">0.00%</span><br /><span class="typo-bottom">Average</span></center>
+							</td>
+						</tr>
+											<tr>
+							<td width="1%">
+								<a href="/trophies/7039-audio-beats" title="Audio Beats">
+									<picture class="game">
+										<source srcset="https://i.psnprofiles.com/games/ccd70e/S6ba223.png, https://i.psnprofiles.com/games/ccd70e/M1bf00b.png 2x">
+										<img src="https://i.psnprofiles.com/games/ccd70e/S6ba223.png" />
+									</picture>
+								</a>
+							</td>
+
+							<td>
+								<div class="ellipsis">
+									<a class="small-title" href="/trophies/7039-audio-beats" title="Audio Beats">Audio Beats</a>
+								</div>
+								<div class="platforms" ><span class="tag platform ps4">PS4</span><span class="tag platform psvr">VR</span></div>				
+							</td>
+
+							<td style="width: 1%; padding: 5px 10px;">
+								<center><span class="typo-top">0.00%</span><br /><span class="typo-bottom">Average</span></center>
+							</td>
+						</tr>
+											<tr>
+							<td width="1%">
+								<a href="/trophies/11973-nostos" title="Nostos">
+									<picture class="game">
+										<source srcset="https://i.psnprofiles.com/games/412c86/S6d8765.png, https://i.psnprofiles.com/games/412c86/Mc5ed5c.png 2x">
+										<img src="https://i.psnprofiles.com/games/412c86/S6d8765.png" />
+									</picture>
+								</a>
+							</td>
+
+							<td>
+								<div class="ellipsis">
+									<a class="small-title" href="/trophies/11973-nostos" title="Nostos">Nostos</a>
+								</div>
+								<div class="platforms" ><span class="tag platform ps4">PS4</span></div>				
+							</td>
+
+							<td style="width: 1%; padding: 5px 10px;">
+								<center><span class="typo-top">0.00%</span><br /><span class="typo-bottom">Average</span></center>
+							</td>
+						</tr>
+											<tr>
+							<td width="1%">
+								<a href="/trophies/12704-atomicrops" title="Atomicrops">
+									<picture class="game">
+										<source srcset="https://i.psnprofiles.com/games/71e161/S921cf4.png, https://i.psnprofiles.com/games/71e161/M10839f.png 2x">
+										<img src="https://i.psnprofiles.com/games/71e161/S921cf4.png" />
+									</picture>
+								</a>
+							</td>
+
+							<td>
+								<div class="ellipsis">
+									<a class="small-title" href="/trophies/12704-atomicrops" title="Atomicrops">Atomicrops</a>
+								</div>
+								<div class="platforms" ><span class="tag platform ps4">PS4</span></div>				
+							</td>
+
+							<td style="width: 1%; padding: 5px 10px;">
+								<center><span class="typo-top">0.00%</span><br /><span class="typo-bottom">Average</span></center>
+							</td>
+						</tr>
+											<tr>
+							<td width="1%">
+								<a href="/trophies/5581-virzoom-arcade" title="VirZOOM Arcade">
+									<picture class="game">
+										<source srcset="https://i.psnprofiles.com/games/1ca7d9/S55a56a.png, https://i.psnprofiles.com/games/1ca7d9/M6fe8be.png 2x">
+										<img src="https://i.psnprofiles.com/games/1ca7d9/S55a56a.png" />
+									</picture>
+								</a>
+							</td>
+
+							<td>
+								<div class="ellipsis">
+									<a class="small-title" href="/trophies/5581-virzoom-arcade" title="VirZOOM Arcade">VirZOOM Arcade</a>
+								</div>
+								<div class="platforms" ><span class="tag platform ps4">PS4</span><span class="tag platform psvr">VR</span></div>				
+							</td>
+
+							<td style="width: 1%; padding: 5px 10px;">
+								<center><span class="typo-top">0.21%</span><br /><span class="typo-bottom">Average</span></center>
+							</td>
+						</tr>
+									</table>
+			
+
+							<div class="title flex v-align">
+					<div class="grow">
+						<h3>Most Rewarding</h3>
+					</div>
+					<div class="no-shrink">
+						<a href="/games?order=points">More</a>
+					</div>
+				</div>
+				<table class="box zebra">
+											<tr>
+							<td width="1%">
+								<a href="/trophies/13711-train-sim-world-2" title="Train Sim World 2">
+									<picture class="game">
+										<source srcset="https://i.psnprofiles.com/games/7190b2/Sc80c40.png, https://i.psnprofiles.com/games/7190b2/M2455f9.png 2x">
+										<img src="https://i.psnprofiles.com/games/7190b2/Sc80c40.png" />
+									</picture>
+								</a>
+							</td>
+
+							<td>
+								<div class="ellipsis">
+									<a class="small-title" href="/trophies/13711-train-sim-world-2" title="Train Sim World 2">Train Sim World 2</a>
+								</div>
+								<div class="platforms" ><span class="tag platform ps5">PS5</span></div>				
+							</td>
+
+							<td style="width: 1%; padding: 5px 10px;">
+								<center><span class="typo-top">6,840</span><br /><span class="typo-bottom">Points</span></center>
+							</td>
+						</tr>
+											<tr>
+							<td width="1%">
+								<a href="/trophies/13184-the-elder-scrolls-online" title="The Elder Scrolls Online">
+									<picture class="game">
+										<source srcset="https://i.psnprofiles.com/games/1c51a1/S473b75.png, https://i.psnprofiles.com/games/1c51a1/M92f232.png 2x">
+										<img src="https://i.psnprofiles.com/games/1c51a1/S473b75.png" />
+									</picture>
+								</a>
+							</td>
+
+							<td>
+								<div class="ellipsis">
+									<a class="small-title" href="/trophies/13184-the-elder-scrolls-online" title="The Elder Scrolls Online">The Elder Scrolls Online</a>
+								</div>
+								<div class="platforms" ><span class="tag platform ps5">PS5</span></div>				
+							</td>
+
+							<td style="width: 1%; padding: 5px 10px;">
+								<center><span class="typo-top">5,055</span><br /><span class="typo-bottom">Points</span></center>
+							</td>
+						</tr>
+											<tr>
+							<td width="1%">
+								<a href="/trophies/2924-driveclub" title="Driveclub">
+									<picture class="game">
+										<source srcset="https://i.psnprofiles.com/games/b591c0/Sed1892.png, https://i.psnprofiles.com/games/b591c0/M61be7a.png 2x">
+										<img src="https://i.psnprofiles.com/games/b591c0/Sed1892.png" />
+									</picture>
+								</a>
+							</td>
+
+							<td>
+								<div class="ellipsis">
+									<a class="small-title" href="/trophies/2924-driveclub" title="Driveclub">Driveclub</a>
+								</div>
+								<div class="platforms" ><span class="tag platform ps4">PS4</span></div>				
+							</td>
+
+							<td style="width: 1%; padding: 5px 10px;">
+								<center><span class="typo-top">4,860</span><br /><span class="typo-bottom">Points</span></center>
+							</td>
+						</tr>
+											<tr>
+							<td width="1%">
+								<a href="/trophies/3620-payday-2-crimewave-edition" title="Payday 2: Crimewave Edition">
+									<picture class="game">
+										<source srcset="https://i.psnprofiles.com/games/80503c/S62499d.png, https://i.psnprofiles.com/games/80503c/Mdcd815.png 2x">
+										<img src="https://i.psnprofiles.com/games/80503c/S62499d.png" />
+									</picture>
+								</a>
+							</td>
+
+							<td>
+								<div class="ellipsis">
+									<a class="small-title" href="/trophies/3620-payday-2-crimewave-edition" title="Payday 2: Crimewave Edition">Payday 2: Crimewave Edition</a>
+								</div>
+								<div class="platforms" ><span class="tag platform ps4">PS4</span></div>				
+							</td>
+
+							<td style="width: 1%; padding: 5px 10px;">
+								<center><span class="typo-top">4,095</span><br /><span class="typo-bottom">Points</span></center>
+							</td>
+						</tr>
+											<tr>
+							<td width="1%">
+								<a href="/trophies/3610-the-elder-scrolls-online" title="The Elder Scrolls Online">
+									<picture class="game">
+										<source srcset="https://i.psnprofiles.com/games/bf4712/S2147bf.png, https://i.psnprofiles.com/games/bf4712/Maa6018.png 2x">
+										<img src="https://i.psnprofiles.com/games/bf4712/S2147bf.png" />
+									</picture>
+								</a>
+							</td>
+
+							<td>
+								<div class="ellipsis">
+									<a class="small-title" href="/trophies/3610-the-elder-scrolls-online" title="The Elder Scrolls Online">The Elder Scrolls Online</a>
+								</div>
+								<div class="platforms" ><span class="tag platform ps4">PS4</span></div>				
+							</td>
+
+							<td style="width: 1%; padding: 5px 10px;">
+								<center><span class="typo-top">4,095</span><br /><span class="typo-bottom">Points</span></center>
+							</td>
+						</tr>
+									</table>
+			
+
+							<div class="title flex v-align">
+					<div class="grow">
+						<h3>Least Rewarding</h3>
+					</div>
+				</div>
+				<table class="box zebra">
+											<tr>
+							<td width="1%">
+								<a href="/trophies/10675-nekketsu-renegade-kunio-kun" title="Nekketsu Renegade Kunio-kun">
+									<picture class="game">
+										<source srcset="https://i.psnprofiles.com/games/4cb815/S467bba.png, https://i.psnprofiles.com/games/4cb815/M27fc16.png 2x">
+										<img src="https://i.psnprofiles.com/games/4cb815/S467bba.png" />
+									</picture>
+								</a>
+							</td>
+
+							<td>
+								<div class="ellipsis">
+									<a class="small-title" href="/trophies/10675-nekketsu-renegade-kunio-kun" title="Nekketsu Renegade Kunio-kun">Nekketsu Renegade Kunio-kun</a>
+								</div>
+								<div class="platforms" ><span class="tag platform ps4">PS4</span></div>				
+							</td>
+
+							<td style="width: 1%; padding: 5px 10px;">
+								<center><span class="typo-top">45</span><br /><span class="typo-bottom">Points</span></center>
+							</td>
+						</tr>
+											<tr>
+							<td width="1%">
+								<a href="/trophies/10679-double-dragon-ii-the-revenge" title="Double Dragon II: The Revenge">
+									<picture class="game">
+										<source srcset="https://i.psnprofiles.com/games/de0b6a/Sb3c633.png, https://i.psnprofiles.com/games/de0b6a/M524fe3.png 2x">
+										<img src="https://i.psnprofiles.com/games/de0b6a/Sb3c633.png" />
+									</picture>
+								</a>
+							</td>
+
+							<td>
+								<div class="ellipsis">
+									<a class="small-title" href="/trophies/10679-double-dragon-ii-the-revenge" title="Double Dragon II: The Revenge">Double Dragon II: The Revenge</a>
+								</div>
+								<div class="platforms" ><span class="tag platform ps4">PS4</span></div>				
+							</td>
+
+							<td style="width: 1%; padding: 5px 10px;">
+								<center><span class="typo-top">45</span><br /><span class="typo-bottom">Points</span></center>
+							</td>
+						</tr>
+											<tr>
+							<td width="1%">
+								<a href="/trophies/10680-nekketsu-high-school-dodgeball-club" title="Nekketsu High School Dodgeball Club">
+									<picture class="game">
+										<source srcset="https://i.psnprofiles.com/games/ca3568/S63571b.png, https://i.psnprofiles.com/games/ca3568/M6aa132.png 2x">
+										<img src="https://i.psnprofiles.com/games/ca3568/S63571b.png" />
+									</picture>
+								</a>
+							</td>
+
+							<td>
+								<div class="ellipsis">
+									<a class="small-title" href="/trophies/10680-nekketsu-high-school-dodgeball-club" title="Nekketsu High School Dodgeball Club">Nekketsu High School Dodgeball Club</a>
+								</div>
+								<div class="platforms" ><span class="tag platform ps4">PS4</span></div>				
+							</td>
+
+							<td style="width: 1%; padding: 5px 10px;">
+								<center><span class="typo-top">45</span><br /><span class="typo-bottom">Points</span></center>
+							</td>
+						</tr>
+											<tr>
+							<td width="1%">
+								<a href="/trophies/10683-crashn-the-boys-street-challenge" title="Crash&#039;n the Boys Street Challenge">
+									<picture class="game">
+										<source srcset="https://i.psnprofiles.com/games/1d07fb/Sb9f614.png, https://i.psnprofiles.com/games/1d07fb/M7b4bd7.png 2x">
+										<img src="https://i.psnprofiles.com/games/1d07fb/Sb9f614.png" />
+									</picture>
+								</a>
+							</td>
+
+							<td>
+								<div class="ellipsis">
+									<a class="small-title" href="/trophies/10683-crashn-the-boys-street-challenge" title="Crash&#039;n the Boys Street Challenge">Crash&#039;n the Boys Street Challenge</a>
+								</div>
+								<div class="platforms" ><span class="tag platform ps4">PS4</span></div>				
+							</td>
+
+							<td style="width: 1%; padding: 5px 10px;">
+								<center><span class="typo-top">45</span><br /><span class="typo-bottom">Points</span></center>
+							</td>
+						</tr>
+											<tr>
+							<td width="1%">
+								<a href="/trophies/10684-double-dragon-iii-the-sacred-stones" title="Double Dragon III: The Sacred Stones">
+									<picture class="game">
+										<source srcset="https://i.psnprofiles.com/games/c5cbf7/S44300c.png, https://i.psnprofiles.com/games/c5cbf7/Mef3553.png 2x">
+										<img src="https://i.psnprofiles.com/games/c5cbf7/S44300c.png" />
+									</picture>
+								</a>
+							</td>
+
+							<td>
+								<div class="ellipsis">
+									<a class="small-title" href="/trophies/10684-double-dragon-iii-the-sacred-stones" title="Double Dragon III: The Sacred Stones">Double Dragon III: The Sacred Stones</a>
+								</div>
+								<div class="platforms" ><span class="tag platform ps4">PS4</span></div>				
+							</td>
+
+							<td style="width: 1%; padding: 5px 10px;">
+								<center><span class="typo-top">45</span><br /><span class="typo-bottom">Points</span></center>
+							</td>
+						</tr>
+									</table>
+					</div>
+	</div>
+</div>
+
+		</div>
+
+	</div>
+
+	
+        							<div style="margin: 10px auto -10px auto; max-width: 800px;">
+					            <div class="">
+                <center>
+                    <div id="nn_player"></div>
+                </center>
+                            </div>
+        
+				</div>
+					
+		<div class="footer">
+			<div class="width">
+				<div class="row">
+
+					<div class="col-xs-8">
+
+						<div class="logo">
+							<img src="/lib/img/layout/spacer.png" alt="PSNProfiles">
+						</div>
+
+						<ul class="social-links">
+							<li><a href="https://twitter.com/PSNProfiles" target="_blank" rel="nofollow"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="https://www.facebook.com/PSNProfiles/" target="_blank" rel="nofollow"><i class="fa fa-facebook"></i></a></li>
+						</ul>
+
+						PSNProfiles is not affiliated with Sony or PlayStation in any way
+						<br />&copy; 2021 <!--<a href="" target="_blank">-->Gaming Profiles Ltd<!--</a>-->
+						
+											</div>
+
+					<div class="col-xs-4 center">
+						<a href="" class="contact-us">Contact Us</a>
+						<bullet>•</bullet> <a href="/about/terms">Terms & Conditions</a>
+						<bullet>•</bullet> <a href="/about/privacy">Privacy Policy</a>
+						<br />
+						<a href="" onclick="modal('misc/advertising'); return false;">Advertising</a>
+						<bullet>•</bullet> <a href="/account/delete">Delete/Restore Profile</a>
+						<bullet>•</bullet> <a href="" class="nn-cmp-show">Cookie Settings</a>
+						<script>
+							var a = 'contact';
+							var b = 'psnprofiles.com';
+							$('a.contact-us').each(function(i) {
+								$(this).attr("href", 'mailto:'+a+'@'+b);
+							});
+						</script>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+							ga('create', 'UA-23645670-1', 'auto');
+			            
+            
+							ga('send', 'pageview');
+			
+			var doSlideAd;
+			var currAdOffset;
+			var skinWidth;
+
+			function recalcSideAds()
+			{
+				if (!doSlideAd)
+				{
+					doSlideAd = true;
+				}
+
+				var offset = $('#content').offset();
+
+				var leftWidth = Math.ceil(offset.left);
+				var rightWidth = ($(window).width() - offset.left - $('#content').outerWidth());
+
+				var leftBGOffset = leftWidth - ((skinWidth / 2) - 495);
+				var rightBGOffset = ((skinWidth / 2) + 495);
+
+				$('#leftAd').css('width', leftWidth+'px').css('background-position', leftBGOffset+'px top');
+				$('#rightAd').css('width', rightWidth+'px').css('background-position', -rightBGOffset+'px top');
+			}
+
+			function setUpSkin(img, color, url)
+			{
+				$('<img />').attr('src', img).appendTo('body').hide().one("load", function()
+				{
+					$('body').addClass('hasSkin');
+
+					skinWidth = $(this).width();
+
+					$('#leftAd').css('background', color+" url('"+img+"') no-repeat").show().click(function()
+					{
+						var ad=window.open(url);
+					});
+					$('#rightAd').css('background', color+" url('"+img+"') no-repeat").show().click(function()
+					{
+						var ad=window.open(url);
+					});
+
+					$('.title-bar h3.ellipsis').css('width', $('.title-bar h3.ellipsis').width() - 131+'px');
+
+					recalcSideAds();
+
+					$(window).resize(function()
+					{
+						recalcSideAds();
+					});
+				}
+				).each(function()
+				{
+					if(this.complete) $(this).load();
+				});
+			}
+
+							$(document).ready(function()
+				{
+					if ($('#slider'))
+					{
+						var lastScrollTop;
+						var lastScrollDir;
+
+						$(window).scroll(function(e)
+						{
+						 	var scrollTop = $(this).scrollTop();
+						 	var screenWidth = $(window).width();
+
+						 	var topMargin = 0;
+
+							(scrollTop > 500 ? $('.scroll-top').addClass('st-is-visible') : $('.scroll-top').removeClass('st-is-visible cd-fade-out'));
+
+							if (doSlideAd)
+							{
+								if (scrollTop <= topMargin)
+								{
+									currAdOffset = scrollTop;
+
+									$('#leftAd').css('-webkit-transform', 'translate3d(0,'+Math.floor(-scrollTop)+'px, 0)').css('-moz-transform', 'translate3d(0,'+Math.floor(-scrollTop)+'px, 0)');
+									$('#rightAd').css('-webkit-transform', 'translate3d(0,'+Math.floor(-scrollTop)+'px, 0)').css('-moz-transform', 'translate3d(0,'+Math.floor(-scrollTop)+'px, 0)');
+								}
+								else
+								{
+									if (currAdOffset != topMargin)
+									{
+										currAdOffset = topMargin;
+
+										$('#leftAd').css('-webkit-transform', 'translate3d(0, -'+topMargin+'px, 0)').css('-moz-transform', 'translate3d(0, -'+topMargin+'px, 0)');
+										$('#rightAd').css('-webkit-transform', 'translate3d(0, -'+topMargin+'px, 0)').css('-moz-transform', 'translate3d(0, -'+topMargin+'px, 0)');
+									}
+								}
+							}
+
+						 	if (scrollTop <= 641)
+						 	{
+								//$('#slider').css('-webkit-transform', 'translate3d(0,'+Math.floor((scrollTop-60)/2)+'px, 0)').css('-moz-transform', 'translate3d(0,'+Math.floor((scrollTop-60)/2)+'px, 0)');
+						 	}
+
+						 	if (scrollTop > lastScrollTop)
+						 	{
+						 		// Scrolling down
+						 		if (lastScrollDir == 'U')
+						 		{
+						 			//$('#header').removeClass('fixed');
+						 		}
+
+						 		lastScrollDir = 'D';
+						 	}
+						 	else
+						 	{
+						 		// Scrolling up
+						 		if (lastScrollDir == 'D')
+						 		{
+						 			//$('#header').addClass('fixed');
+						 		}
+
+						 		lastScrollDir = 'U';
+						 	}
+
+						 	lastScrollTop = scrollTop;
+						});
+					}
+					else
+					{/*
+						$(window).scroll(function(e)
+						{
+							if (doSlideAd)
+							{
+							 	var scrollTop = $(this).scrollTop();
+							 	if (scrollTop <= 60)
+							 	{
+									$('#leftAd').css('-webkit-transform', 'translate3d(0,'+Math.floor(-scrollTop)+'px, 0)').css('-moz-transform', 'translate3d(0,'+Math.floor(-scrollTop)+'px, 0)');
+									$('#rightAd').css('-webkit-transform', 'translate3d(0,'+Math.floor(-scrollTop)+'px, 0)').css('-moz-transform', 'translate3d(0,'+Math.floor(-scrollTop)+'px, 0)');
+							 	}
+							}
+						});*/
+					}
+				});
+			
+
+		</script>
+
+		<a href="#" class="scroll-top"><i class="fa fa-chevron-up"></i></a>
+
+		
+		
+		<form id="logoutForm" action="/auth/logout" method="POST">
+			<input type="hidden" name="_token" value="vBNd3TSo7gY6XVCtNM9CU1tOFZY1gOky12eLfEa2">
+		</form>
+
+				<script src="https://checkout.stripe.com/checkout.js"></script>
+		<script src="https://js.braintreegateway.com/web/3.3.0/js/client.min.js"></script>
+		<script src="https://js.braintreegateway.com/web/3.3.0/js/paypal.min.js"></script>
+
+					<script>
+				$('body > a.scroll-top').click(function(e) {
+					e.preventDefault();
+					$(document).scrollTo(0, 500);
+				});
+			</script>
+		
+	</body>
+	</html>

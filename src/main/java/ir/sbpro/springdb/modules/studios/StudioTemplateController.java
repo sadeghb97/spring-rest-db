@@ -1,6 +1,6 @@
 package ir.sbpro.springdb.modules.studios;
 
-import ir.sbpro.springdb.modules._interfaces.ModuleTemplateUtils;
+import ir.sbpro.springdb._module_interfaces.ModuleTemplateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;

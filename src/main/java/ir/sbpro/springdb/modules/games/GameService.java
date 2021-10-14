@@ -1,7 +1,7 @@
 package ir.sbpro.springdb.modules.games;
 
-import ir.sbpro.springdb.modules._interfaces.EntityUtils;
-import ir.sbpro.springdb.modules._interfaces.ModuleService;
+import ir.sbpro.springdb._module_interfaces.EntityUtils;
+import ir.sbpro.springdb._module_interfaces.ModuleService;
 import ir.sbpro.springdb.modules.studios.StudioModel;
 import ir.sbpro.springdb.modules.studios.StudioRepository;
 import ir.sbpro.springdb.responses.ErrorsResponseMap;
@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Stream;

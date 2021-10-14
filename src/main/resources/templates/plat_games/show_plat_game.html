@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Game</title>
+
+    <div th:replace="fragments/header::head"></div>
+    <link rel="stylesheet" th:href="@{/css/game_form.css}" />
+</head>
+
+<body>
+
+<div>
+    <div th:replace="fragments/navbar::navbar"></div>
+
+    <form th:object="${record}" method="post" style="width: 80%; max-width: 650px;"
+          class="form-style-9" enctype="multipart/form-data">
+        <ul>
+            <li>
+                <img class="field-style field-full align-left" id="#coverbox"
+                     th:src="${record.getImage()}" />
+            </li>
+
+            <div th:each="item: ${record.getSummary()}" th:text="${item}"></div>
+        </ul>
+    </form>
+</div>
+
+</body>
+</html>
