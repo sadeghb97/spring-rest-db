@@ -28,7 +28,7 @@ public class InitController {
         this.platGameService = platGameService;
     }
 
-    /*@GetMapping("init/")
+    @GetMapping("init/")
     ResponseEntity<Object> initPlatGames() {
         DBInitializer dbInitializer = new DBInitializer(
                 psnGamesService, hltbGamesService, platGameService);
@@ -39,5 +39,5 @@ public class InitController {
         HashMap<String, Integer> out = new HashMap<>();
         out.put("count", count);
         return new ResponseEntity<Object>(out, HttpStatus.ACCEPTED);
-    }*/
+    }
 }

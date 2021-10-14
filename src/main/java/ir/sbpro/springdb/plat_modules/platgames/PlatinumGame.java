@@ -174,6 +174,25 @@ public class PlatinumGame {
     }
 
     @JsonIgnore
+    public String getTrophiesSummary(){
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Trophies: ");
+        stringBuilder.append(platCount);
+        stringBuilder.append("-");
+        stringBuilder.append(goldCount);
+        stringBuilder.append("-");
+        stringBuilder.append(silverCount);
+        stringBuilder.append("-");
+        stringBuilder.append(bronzeCount);
+        stringBuilder.append("-");
+        stringBuilder.append(allTrophiesCount);
+        stringBuilder.append(" (");
+        stringBuilder.append(points);
+        stringBuilder.append(")");
+        return stringBuilder.toString();
+    }
+
+    @JsonIgnore
     public String[] getSummary(){
         String lineDelimiter = "\n";
 

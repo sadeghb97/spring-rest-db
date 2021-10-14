@@ -1,14 +1,13 @@
 package ir.sbpro.springdb.plat_modules.platgames;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -27,8 +26,13 @@ public class PlatGTemplateController {
                                @ModelAttribute("gsearch") PlatinumGame platGame,
                                @PageableDefault(size = 20) Pageable pageable){
 
+        String sort = null;
+        Optional<Sort.Order> orderOptional = pageable.getSort().get().findFirst();
+        if(orderOptional.isPresent()) sort = orderOptional.get().getProperty();
+
+        PageRequest pageRequest = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize());
         model.addAttribute("records",
-                platGameService.findBySearchQuery(pageable, platGame));
+                platGameService.findBySearchQuery(pageRequest, platGame, sort));
         return "plat_games/plat_games";
     }
 

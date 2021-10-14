@@ -8,6 +8,7 @@ import ir.sbpro.springdb.responses.ErrorsResponseMap;
 import ir.sbpro.springdb.utils.PrimitiveWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,7 +33,8 @@ public class GameService extends ModuleService<GameModel> {
     public Page<GameModel> findBySearchQuery(Pageable pageable, GameModel gameModel){
         GameRepository gameRepository = (GameRepository) repository;
         if(gameModel.getName() == null) gameModel.setName("");
-        return gameRepository.findBySearchQuery(pageable, gameModel);
+        return gameRepository.findBySearchQuery(
+                PageRequest.of(pageable.getPageNumber(), pageable.getPageSize()), gameModel);
     }
 
     public ResponseEntity<Object> upGameCover(Long gamePk, MultipartFile file){

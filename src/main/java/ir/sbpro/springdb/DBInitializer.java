@@ -89,6 +89,10 @@ public class DBInitializer {
                 springPsnGame.setBasePrice(psnpGame.storeGame.gamePrice.basePrice);
                 springPsnGame.setDiscountedPrice(psnpGame.storeGame.gamePrice.discountedPrice);
                 springPsnGame.setDiscountText(psnpGame.storeGame.gamePrice.discountText);
+                springPsnGame.setBasePriceValue(getPriceValue(psnpGame.storeGame.gamePrice.basePrice));
+                springPsnGame.setDiscountedPriceValue(getPriceValue(psnpGame.storeGame.gamePrice.discountedPrice));
+                springPsnGame.setDiscountTextValue(
+                        getDiscountPercentValue(psnpGame.storeGame.gamePrice.discountText));
                 springPsnGame.setDiscounted(psnpGame.storeGame.gamePrice.discounted);
                 springPsnGame.setAlsoIncluded(psnpGame.storeGame.gamePrice.alsoIncluded);
             }
@@ -128,6 +132,27 @@ public class DBInitializer {
             platinumGame.setHlGame(springHLTBGame);
 
             platinumGames.add(platinumGame);
+        }
+    }
+
+    public double getPriceValue(String basePrice){
+        basePrice = basePrice.trim();
+        if(basePrice.toLowerCase().equals("free")) return 0;
+        try {
+            return Double.parseDouble(basePrice.substring(1));
+        }
+        catch (Exception ex){
+            return 0;
+        }
+    }
+
+    public double getDiscountPercentValue(String discountText){
+        discountText = discountText.trim();
+        try {
+            return Double.parseDouble(discountText.substring(1, discountText.length() - 1));
+        }
+        catch (Exception ex){
+            return 0;
         }
     }
 

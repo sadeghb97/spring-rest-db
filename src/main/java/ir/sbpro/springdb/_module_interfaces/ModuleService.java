@@ -1,6 +1,7 @@
 package ir.sbpro.springdb._module_interfaces;
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +26,7 @@ public class ModuleService<T extends ModuleEntity> {
     }
 
     public Page<T> getPagingRecords(Pageable pageable){
-        return repository.findAll(pageable);
+        return repository.findAll(PageRequest.of(pageable.getPageNumber(), pageable.getPageSize()));
     }
 
     public ResponseEntity<Object> registerRecord(T model){

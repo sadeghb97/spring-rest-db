@@ -19,6 +19,9 @@ public class PSNGame {
     private String basePrice = "";
     private String discountedPrice = "";
     private String discountText = "";
+    private double basePriceValue = 0;
+    private double discountedPriceValue = 0;
+    private double discountTextValue = 0;
     private boolean discounted = false;
 
     @ElementCollection(targetClass = String.class)
@@ -143,7 +146,29 @@ public class PSNGame {
         this.upTime = upTime;
     }
 
+    public double getBasePriceValue() {
+        return basePriceValue;
+    }
 
+    public void setBasePriceValue(double basePriceValue) {
+        this.basePriceValue = basePriceValue;
+    }
+
+    public double getDiscountedPriceValue() {
+        return discountedPriceValue;
+    }
+
+    public void setDiscountedPriceValue(double discountedPriceValue) {
+        this.discountedPriceValue = discountedPriceValue;
+    }
+
+    public double getDiscountTextValue() {
+        return discountTextValue;
+    }
+
+    public void setDiscountTextValue(double discountTextValue) {
+        this.discountTextValue = discountTextValue;
+    }
 
     @JsonIgnore
     public String getPriceSummary(){
