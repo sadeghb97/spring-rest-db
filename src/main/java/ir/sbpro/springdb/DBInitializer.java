@@ -13,12 +13,10 @@ import ir.sbpro.springdb.plat_modules.platgames.PlatGameService;
 import ir.sbpro.springdb.plat_modules.platgames.PlatinumGame;
 import ir.sbpro.springdb.plat_modules.psngames.PSNGame;
 import ir.sbpro.springdb.plat_modules.psngames.PSNGamesService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.context.ApplicationContext;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class DBInitializer {
     PSNGamesService psnGamesService;
@@ -28,20 +26,26 @@ public class DBInitializer {
     public ArrayList<PSNProfilesGame> psnpGames;
     public ArrayList<PlatinumGame> platinumGames;
 
-    public DBInitializer(PSNGamesService psnGamesService, HLTBGamesService hltbGamesService,
-                         PlatGameService platGameService) {
-        this.psnGamesService = psnGamesService;
-        this.hltbGamesService = hltbGamesService;
-        this.platGameService = platGameService;
+    public DBInitializer(){
+        ApplicationContext applicationContext = ApplicationContextHolder.getContext();
+        platGameService = applicationContext.getBean(PlatGameService.class);
+        psnGamesService = applicationContext.getBean(PSNGamesService.class);
+        hltbGamesService = applicationContext.getBean(HLTBGamesService.class);
     }
 
     public void fetchRepository(){
         try {
-            PSStoreGamesRepository psStoreGamesRepository =
-                    new PSStoreGamesRepository(Path.of("raws/repo/psngames"));
+            Path psnGamesPath = Path.of("raws/repo/psngames");
+            Path psnGamesMapPath = Path.of("raws/repo/psngames-map");
+            Path hltbGamesPath = Path.of("raws/repo/hltbgames");
+            Path hltbGamesMapPath = Path.of("raws/repo/hltbgames-map");
 
-            HLTBGamesRepository hltbGamesRepository = new HLTBGamesRepository(
-                    Path.of("raws/repo/hltbgames"));
+
+            PSStoreGamesRepository psStoreGamesRepository =
+                    new PSStoreGamesRepository(psnGamesPath, psnGamesMapPath);
+
+            HLTBGamesRepository hltbGamesRepository =
+                    new HLTBGamesRepository(hltbGamesPath, hltbGamesMapPath);
 
             HelpHLTBGamesMap helpHLTBGamesMap = new HelpHLTBGamesMap();
 
@@ -135,27 +139,6 @@ public class DBInitializer {
         }
     }
 
-    public double getPriceValue(String basePrice){
-        basePrice = basePrice.trim();
-        if(basePrice.toLowerCase().equals("free")) return 0;
-        try {
-            return Double.parseDouble(basePrice.substring(1));
-        }
-        catch (Exception ex){
-            return 0;
-        }
-    }
-
-    public double getDiscountPercentValue(String discountText){
-        discountText = discountText.trim();
-        try {
-            return Double.parseDouble(discountText.substring(1, discountText.length() - 1));
-        }
-        catch (Exception ex){
-            return 0;
-        }
-    }
-
     public int syncDB(){
         if (platinumGames.size() > 0) {
             int count = 0;
@@ -168,10 +151,36 @@ public class DBInitializer {
                     hltbGamesService.gamesRepository.save(pg.getHlGame());
                 PlatinumGame pgOut = platGameService.platGameRepository.save(pg);
                 if(pgOut.getId() != null) count++;
+
+                if((count % 50) == 0){
+                    System.out.println("Synced: " + count);
+                }
             }
 
+            System.out.println("Syncing Finished: " + count);
             return count;
         }
         return 0;
+    }
+
+    public double getPriceValue(String basePrice){
+        basePrice = basePrice.trim();
+        if(basePrice.toLowerCase().equals("free")) return 0;
+        try {
+            return Double.parseDouble(basePrice.substring(1));
+        }
+        catch (Exception ex){
+            return -1;
+        }
+    }
+
+    public double getDiscountPercentValue(String discountText){
+        discountText = discountText.trim();
+        try {
+            return Double.parseDouble(discountText.substring(1, discountText.length() - 1));
+        }
+        catch (Exception ex){
+            return 0;
+        }
     }
 }
