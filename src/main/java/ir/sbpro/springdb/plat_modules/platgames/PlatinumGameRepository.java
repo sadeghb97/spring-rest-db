@@ -25,7 +25,7 @@ public interface PlatinumGameRepository extends JpaRepository<PlatinumGame, Stri
     Page<PlatinumGame> findBySOTrophiesCount(Pageable pageable, PlatinumGame platGame);
 
     @Query("SELECT g FROM PlatinumGame g WHERE g.name LIKE concat('%', :#{#platGame.name}, '%') " +
-            "ORDER BY (CASE WHEN g.storeGame.basePriceValue >= 0 THEN g.storeGame.basePriceValue ELSE 1000000 END) ASC")
+            "ORDER BY (CASE WHEN g.storeGame.discountedPriceValue >= 0 THEN g.storeGame.discountedPriceValue ELSE 1000000 END) ASC")
     Page<PlatinumGame> findBySOPrice(Pageable pageable, PlatinumGame platGame);
 
     @Query("SELECT g FROM PlatinumGame g WHERE g.name LIKE concat('%', :#{#platGame.name}, '%') " +
@@ -43,4 +43,9 @@ public interface PlatinumGameRepository extends JpaRepository<PlatinumGame, Stri
     @Query("SELECT g FROM PlatinumGame g WHERE g.name LIKE concat('%', :#{#platGame.name}, '%') " +
             "ORDER BY (CASE WHEN g.hlGame.compDurValue > 0 THEN g.hlGame.compDurValue ELSE 1000000 END) ASC")
     Page<PlatinumGame> findBySOCompletionistDuration(Pageable pageable, PlatinumGame platGame);
+
+    @Query("SELECT g FROM UserModel u INNER JOIN u.wishlist g WHERE u.pk = :#{#userPk} AND " +
+            "g.name LIKE concat('%', :#{#platGame.name}, '%') " +
+            "ORDER BY g.allTrophiesCount ASC")
+    Page<PlatinumGame> findWishListByPrice(Pageable pageable, Long userPk, PlatinumGame platGame);
 }

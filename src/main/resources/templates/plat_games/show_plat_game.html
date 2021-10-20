@@ -13,7 +13,7 @@
 <div>
     <div th:replace="fragments/navbar::navbar"></div>
 
-    <form th:object="${record}" method="post" style="width: 80%; max-width: 650px;"
+    <div th:object="${record}" method="post" style="width: 80%; max-width: 650px;"
           class="form-style-9" enctype="multipart/form-data">
         <ul>
             <li>
@@ -22,8 +22,30 @@
             </li>
 
             <div th:each="item: ${record.getSummary()}" th:text="${item}"></div>
+
+            <li style="margin-top: 16px;">
+                <div style="display: inline-block">
+                    <div th:switch="${in_wishlist}" style="display: inline">
+                        <form th:case="false" style="display: inline" method="post"
+                              th:action="@{/platgames/showgame/{id}/add_wish/(id=${record.getId()})}">
+                            <input type="submit" value="Add To Wishlist" />
+                        </form>
+
+                        <form th:case="true" onsubmit="return areYouSure();"
+                              style="display: inline;" method="post"
+                              th:action="@{/platgames/showgame/{id}/delete_wish/(id=${record.getId()})}">
+                            <input type="submit" style="background-color: #c72479;"
+                                   value="Remove From Wishlist" />
+                        </form>
+                    </div>
+
+                    <form style="display:inline;">
+                        <input type="submit" value="Add To MyGames" />
+                    </form>
+                </div>
+            </li>
         </ul>
-    </form>
+    </div>
 </div>
 
 </body>

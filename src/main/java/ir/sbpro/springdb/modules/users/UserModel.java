@@ -5,6 +5,9 @@ import ir.sbpro.springdb.enums.Role;
 import ir.sbpro.springdb._module_interfaces.HasCover;
 import ir.sbpro.springdb._module_interfaces.HasPassword;
 import ir.sbpro.springdb._module_interfaces.ModuleEntity;
+import ir.sbpro.springdb.modules.games.GameModel;
+import ir.sbpro.springdb.plat_modules.platgames.PlatinumGame;
+import ir.sbpro.springdb.plat_modules.usergames.UserGame;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -36,6 +39,12 @@ public class UserModel extends ModuleEntity implements Serializable, HasCover, H
     @CollectionTable(name = "authorities" , joinColumns = @JoinColumn(name = "username", referencedColumnName = "username"))
     @Enumerated(EnumType.STRING)
     private List<Role> roles;
+
+    @OneToMany
+    private List<PlatinumGame> wishlist;
+
+    @OneToMany
+    private List<UserGame> psnGames;
 
     public UserModel(){
         roles = new ArrayList<>();
@@ -88,5 +97,21 @@ public class UserModel extends ModuleEntity implements Serializable, HasCover, H
 
     public void setCover(String cover) {
         this.cover = cover;
+    }
+
+    public List<PlatinumGame> getWishlist() {
+        return wishlist;
+    }
+
+    public void setWishlist(List<PlatinumGame> wishlist) {
+        this.wishlist = wishlist;
+    }
+
+    public List<UserGame> getPsnGames() {
+        return psnGames;
+    }
+
+    public void setPsnGames(List<UserGame> psnGames) {
+        this.psnGames = psnGames;
     }
 }

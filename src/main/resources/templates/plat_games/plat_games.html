@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>My Games</title>
+    <title th:text="${type.equals('plats') ? 'PlatGames' : 'WishList'}"></title>
 
     <div th:replace="fragments/header::head"></div>
 </head>
@@ -11,7 +11,7 @@
     <div th:replace="fragments/navbar::navbar"></div>
 
     <div class="container">
-        <form th:action="@{/platgames/}" method="get">
+        <form th:action="${type.equals('plats')} ? @{/platgames/} : @{/platgames/wishlist/}" method="get">
             <div class="row d-flex justify-content-center align-items-center">
                 <div class="col-md-6">
                     <div class="search">
@@ -26,7 +26,7 @@
         </form>
     </div>
 
-    <div style="margin-top: 16px;">
+    <div th:if="${type.equals('plats')}" style="margin-top: 16px;">
         <a th:href="'/platgames/?sort=owners'">
             <button type="button" class="btn btn-primary sort-button">Owners</button>
         </a>

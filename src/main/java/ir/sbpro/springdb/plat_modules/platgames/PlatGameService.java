@@ -3,10 +3,7 @@ package ir.sbpro.springdb.plat_modules.platgames;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-
-import java.util.stream.Stream;
 
 @Service
 public class PlatGameService {
@@ -15,6 +12,11 @@ public class PlatGameService {
     @Autowired
     public PlatGameService(PlatinumGameRepository platinumGameRepository) {
         this.platGameRepository = platinumGameRepository;
+    }
+
+    public Page<PlatinumGame> findWishListGameBySQ(Pageable pageable, PlatinumGame platGame, Long userPk){
+        if(platGame.getName() == null) platGame.setName("");
+        return platGameRepository.findWishListByPrice(pageable, userPk, platGame);
     }
 
     public Page<PlatinumGame> findBySearchQuery(Pageable pageable, PlatinumGame platGame, String sort){
