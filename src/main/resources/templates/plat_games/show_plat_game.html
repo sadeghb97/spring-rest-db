@@ -28,20 +28,26 @@
                     <div th:switch="${in_wishlist}" style="display: inline">
                         <form th:case="false" style="display: inline" method="post"
                               th:action="@{/platgames/showgame/{id}/add_wish/(id=${record.getId()})}">
-                            <input type="submit" value="Add To Wishlist" />
+                            <input type="submit" style="height: 45px;" value="Add To Wishlist" />
                         </form>
 
                         <form th:case="true" onsubmit="return areYouSure();"
                               style="display: inline;" method="post"
                               th:action="@{/platgames/showgame/{id}/delete_wish/(id=${record.getId()})}">
-                            <input type="submit" style="background-color: #c72479;"
+                            <input type="submit" style="background-color: #c72479; height: 45px;"
                                    value="Remove From Wishlist" />
                         </form>
                     </div>
 
-                    <form style="display:inline;">
-                        <input type="submit" value="Add To MyGames" />
-                    </form>
+                    <div th:switch="${in_psngames}" style="display: inline">
+                        <form th:case="false" style="display: inline" method="post"
+                              th:action="@{/platgames/showgame/{id}/add_user_game/(id=${record.getId()})}">
+                            <input style="height: 45px;" type="submit" value="Add To MyGames" />
+                        </form>
+
+                        <button th:case="true" style="height: 45px;"
+                                type="button" class="btn btn-success sort-button">In YourGames</button>
+                    </div>
                 </div>
             </li>
         </ul>

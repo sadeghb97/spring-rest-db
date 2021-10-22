@@ -70,7 +70,7 @@
 
         <dependency>
             <groupId>ir.sbpro</groupId>
-            <artifactId>PSEasyPlats:jar</artifactId>
+            <artifactId>pseasyplats</artifactId>
             <version>1.0</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/PSEasyPlats.jar</systemPath>

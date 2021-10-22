@@ -1,6 +1,7 @@
 package ir.sbpro.springdb.modules.users;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import ir.sbpro.springdb.enums.Role;
 import ir.sbpro.springdb._module_interfaces.HasCover;
 import ir.sbpro.springdb._module_interfaces.HasPassword;
@@ -8,6 +9,8 @@ import ir.sbpro.springdb._module_interfaces.ModuleEntity;
 import ir.sbpro.springdb.modules.games.GameModel;
 import ir.sbpro.springdb.plat_modules.platgames.PlatinumGame;
 import ir.sbpro.springdb.plat_modules.usergames.UserGame;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -44,6 +47,7 @@ public class UserModel extends ModuleEntity implements Serializable, HasCover, H
     private List<PlatinumGame> wishlist;
 
     @OneToMany
+    @JsonManagedReference
     private List<UserGame> psnGames;
 
     public UserModel(){
@@ -113,5 +117,9 @@ public class UserModel extends ModuleEntity implements Serializable, HasCover, H
 
     public void setPsnGames(List<UserGame> psnGames) {
         this.psnGames = psnGames;
+    }
+
+    public boolean hasPlatGame(String platGameId){
+        return psnGames.stream().anyMatch((game) -> game.getPlatinumGame().getId().equals(platGameId));
     }
 }

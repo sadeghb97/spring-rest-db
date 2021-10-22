@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Library Game</title>
+
+    <div th:replace="fragments/header::head"></div>
+    <link rel="stylesheet" th:href="@{/css/game_form.css}" />
+</head>
+
+<body>
+
+<div>
+    <div th:replace="fragments/navbar::navbar"></div>
+
+    <form th:action="@{/library/patch/}" th:object="${record}" method="post"
+          class="form-style-9" enctype="multipart/form-data" autocomplete="off">
+        <ul>
+            <li>
+                <img class="field-style field-full align-left" id="#coverbox"
+                     th:src="${record.platinumGame.getImage()}" />
+
+                <input type="hidden" id="id" name="id" th:field="*{id}">
+
+                <div style="margin-top: 8px;" th:text="'Game: ' + ${record.platinumGame.getName}"></div>
+
+                <input style="margin-top: 12px;" type="number" class="field-style field-full align-right"
+                       placeholder="Rate" th:field="*{rate}" />
+
+                <select th:field="*{status}" class="field-style field-full align-right">
+                    <option th:value="${null}" th:selected="true"> --- </option>
+
+                    <option th:each="status : ${statuses}" th:text="${status.key}"
+                            th:value="${status.value}"></option>
+                </select>
+            </li>
+            <li>
+                <input style="margin-top: 16px;" type="submit" th:value="'Patch Game'"/>
+            </li>
+        </ul>
+    </form>
+
+    <form class="form-style-9" method="post" th:action="@{/library/delete/{id}/(id=${record.getId()})}"
+          th:object="${record}" onsubmit="return areYouSure();">
+        <div style="color: #3d2200; font-weight: bold; margin-bottom: 8px;">Warning: Deleting Library Game!</div>
+        <input type="submit" value="Delete Game" />
+    </form>
+</div>
+
+</body>
+</html>
