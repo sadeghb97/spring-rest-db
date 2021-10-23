@@ -73,79 +73,126 @@ public class PlatGTemplateController {
 
     @GetMapping(value = "/showgame/{game_pk}/")
     public String getPlatGameView(Model model, @PathVariable("game_pk") String gamePk){
-        Optional<PlatinumGame> gameOptional = platGameService.platGameRepository.findById(gamePk);
-        if(gameOptional.isEmpty()) return "redirect:platgames/";
+        PlatinumGame platinumGame = platGameService.getPlatinumGame(gamePk);
+        if(platinumGame == null) return "redirect:/platgames/";
 
         boolean inWishlist = false;
-        PlatinumGame platinumGame = gameOptional.get();
         UserModel userModel = userService.getCurrentUser();
         if(userModel.getWishlist().contains(platinumGame)) inWishlist = true;
         boolean inPsnGames = userModel.hasPlatGame(platinumGame.getId());
 
-        model.addAttribute("record", gameOptional.get());
+        model.addAttribute("record", platinumGame);
         model.addAttribute("in_wishlist", inWishlist);
         model.addAttribute("in_psngames", inPsnGames);
+        model.addAttribute("patch_mode", true);
+        model.addAttribute("psnp", platinumGame.getLink());
+        model.addAttribute("hltb", platinumGame.getHlGame() != null ?
+                platinumGame.getHlGame().getFullLink() : null);
+        model.addAttribute("psnid", platinumGame.getStoreGame() != null ?
+                platinumGame.getStoreGame().getId() : null);
         return "plat_games/show_plat_game";
     }
 
     @GetMapping(value = "/add/")
     public String getAddPlatGameView(Model model){
+        model.addAttribute("patch_mode", false);
         return "plat_games/add_plat_game";
+    }
+
+    private String _getShowGameRedirectRoute(String psnpId){
+        return "redirect:/platgames/showgame/" + psnpId + "/";
+    }
+
+    private void _updatePSN(PlatinumGame platinumGame, String newPsnId, boolean deepMode){
+        PSNGame psnGame = null;
+        if(deepMode) psnGame = psnGamesService.save(newPsnId);
+        else psnGame = psnGamesService.update(newPsnId);
+
+        if(psnGame != null){
+            platinumGame.setStoreGame(psnGame);
+            platGameService.platGameRepository.save(platinumGame);
+        }
     }
 
     @PostMapping(value = "/update/psn/{psnpid}/")
     public String updatePSN(@PathVariable("psnpid") String psnpId){
-        Optional<PlatinumGame> gameOptional = platGameService.platGameRepository.findById(psnpId);
-        if(gameOptional.isEmpty()) return "redirect:/platgames/";
+        PlatinumGame platinumGame = platGameService.getPlatinumGame(psnpId);
+        if(platinumGame == null) return "redirect:/platgames/";
 
-        PlatinumGame platinumGame = gameOptional.get();
-        if(platinumGame.getStoreGame() != null) {
-            PSNGame psnGame = psnGamesService.update(platinumGame.getStoreGame().getId());
-            if(psnGame != null){
-                platinumGame.setStoreGame(psnGame);
-                platGameService.platGameRepository.save(platinumGame);
-            }
-        }
-
-        return "redirect:/platgames/showgame/" + psnpId + "/";
+        if(platinumGame.getStoreGame() != null)
+            _updatePSN(platinumGame, platinumGame.getStoreGame().getId(), false);
+        return _getShowGameRedirectRoute(psnpId);
     }
 
-    @PostMapping(value = "/update/psnp/{psnpid}/")
-    public String updatePSNP(@PathVariable("psnpid") String psnpId){
-        Optional<PlatinumGame> gameOptional = platGameService.platGameRepository.findById(psnpId);
-        if(gameOptional.isEmpty()) return "redirect:/platgames/";
+    @PostMapping(value = "/patch/psn/{psnpid}/")
+    public String patchPSN(@PathVariable("psnpid") String psnpId, @RequestParam("psnid") String newPsnID){
+        PlatinumGame platinumGame = platGameService.getPlatinumGame(psnpId);
+        if(platinumGame == null) return "redirect:/platgames/";
 
+        _updatePSN(platinumGame, newPsnID, true);
+        return _getShowGameRedirectRoute(psnpId);
+    }
+
+    private void _updatePSNP(PlatinumGame platinumGame, String newPsnpUrl){
         try {
-            PlatinumGame platinumGame = gameOptional.get();
             PSNProfilesGame psnpGame = new PSNProfilesGame();
-            psnpGame.update(platinumGame.getLink());
+            psnpGame.update(newPsnpUrl);
             platinumGame.load(psnpGame);
             platGameService.platGameRepository.save(platinumGame);
         }
         catch (Exception ex){}
+    }
 
-        return "redirect:/platgames/showgame/" + psnpId + "/";
+    @PostMapping(value = "/update/psnp/{psnpid}/")
+    public String updatePSNP(@PathVariable("psnpid") String psnpId){
+        PlatinumGame platinumGame = platGameService.getPlatinumGame(psnpId);
+        if(platinumGame == null) return "redirect:/platgames/";
+
+        _updatePSNP(platinumGame, platinumGame.getLink());
+        return _getShowGameRedirectRoute(psnpId);
+    }
+
+    @PostMapping(value = "/patch/psnp/{psnpid}/")
+    public String patchPSNP(@PathVariable("psnpid") String psnpId, @RequestParam("psnp") String newPsnUrl){
+        PlatinumGame platinumGame = platGameService.getPlatinumGame(psnpId);
+        if(platinumGame == null) return "redirect:/platgames/";
+
+        _updatePSNP(platinumGame, newPsnUrl);
+        return _getShowGameRedirectRoute(psnpId);
+    }
+
+    private void _updateHLTB(PlatinumGame platinumGame, String newHLTBUrl, boolean deepMode){
+        HLTBGame hltbGame = null;
+        if(deepMode) hltbGame = hltbGamesService.save(newHLTBUrl);
+        else hltbGame = hltbGamesService.update(newHLTBUrl);
+
+        if(hltbGame != null){
+            platinumGame.setHlGame(hltbGame);
+            platGameService.platGameRepository.save(platinumGame);
+        }
     }
 
     @PostMapping(value = "/update/hltb/{psnpid}/")
     public String updateHLTB(@PathVariable("psnpid") String psnpId){
-        Optional<PlatinumGame> gameOptional = platGameService.platGameRepository.findById(psnpId);
-        if(gameOptional.isEmpty()) return "redirect:/platgames/";
+        PlatinumGame platinumGame = platGameService.getPlatinumGame(psnpId);
+        if(platinumGame == null) return "redirect:/platgames/";
 
-        PlatinumGame platinumGame = gameOptional.get();
-        if(platinumGame.getHlGame() != null) {
-            HLTBGame hltbGame = hltbGamesService.update(platinumGame.getHlGame().getId());
-            if(hltbGame != null){
-                platinumGame.setHlGame(hltbGame);
-                platGameService.platGameRepository.save(platinumGame);
-            }
-        }
+        if(platinumGame.getHlGame() != null)
+            _updateHLTB(platinumGame, platinumGame.getHlGame().getFullLink(), false);
+        return _getShowGameRedirectRoute(psnpId);
+    }
 
-        return "redirect:/platgames/showgame/" + psnpId + "/";
+    @PostMapping(value = "/patch/hltb/{psnpid}/")
+    public String patchHLTB(@PathVariable("psnpid") String psnpId, @RequestParam("hltb") String newHLTBUrl){
+        PlatinumGame platinumGame = platGameService.getPlatinumGame(psnpId);
+        if(platinumGame == null) return "redirect:/platgames/";
+
+        _updateHLTB(platinumGame, newHLTBUrl, true);
+        return _getShowGameRedirectRoute(psnpId);
     }
 
     @PostMapping(value = "/insertgame/")
-    public String insertPlatGame(Model model, @RequestParam("psnp") String psnpUrl,
+    public String insertPlatGame(@RequestParam("psnp") String psnpUrl,
                                      @RequestParam("hltb") String hltbUrl,
                                      @RequestParam("psnid") String psnId){
 
@@ -161,7 +208,7 @@ public class PlatGTemplateController {
             psnpFetcher.update(psnpUrl);
             platinumGame.load(psnpFetcher, hltbGame, psnGame);
             platGameService.platGameRepository.save(platinumGame);
-            return "redirect:/platgames/showgame/" + platinumGame.getId() + "/";
+            return _getShowGameRedirectRoute(platinumGame.getId());
         }
         catch (Exception ex){
             ex.printStackTrace();
@@ -171,43 +218,40 @@ public class PlatGTemplateController {
 
     @PostMapping(value = "/showgame/{game_pk}/add_wish/")
     public String addToWishList(@PathVariable("game_pk") String gamePk){
-        Optional<PlatinumGame> gameOptional = platGameService.platGameRepository.findById(gamePk);
-        if(gameOptional.isEmpty()) return "redirect:platgames/";
+        PlatinumGame platinumGame = platGameService.getPlatinumGame(gamePk);
+        if(platinumGame == null) return "redirect:/platgames/";
 
         UserModel userModel = userService.getCurrentUser();
 
-        PlatinumGame platinumGame = gameOptional.get();
         if(!userModel.getWishlist().contains(platinumGame)){
             userModel.getWishlist().add(platinumGame);
             userService.repository.save(userModel);
         }
 
-        return "redirect:/platgames/showgame/" + gamePk + "/";
+        return _getShowGameRedirectRoute(gamePk);
     }
 
     @PostMapping(value = "/showgame/{game_pk}/delete_wish/")
     public String removeFromWishList(@PathVariable("game_pk") String gamePk){
-        Optional<PlatinumGame> gameOptional = platGameService.platGameRepository.findById(gamePk);
-        if(gameOptional.isEmpty()) return "redirect:platgames/";
+        PlatinumGame platinumGame = platGameService.getPlatinumGame(gamePk);
+        if(platinumGame == null) return "redirect:/platgames/";
 
         UserModel userModel = userService.getCurrentUser();
 
-        PlatinumGame platinumGame = gameOptional.get();
         if(userModel.getWishlist().contains(platinumGame)){
             userModel.getWishlist().remove(platinumGame);
             userService.repository.save(userModel);
         }
 
-        return "redirect:/platgames/showgame/" + gamePk + "/";
+        return _getShowGameRedirectRoute(gamePk);
     }
 
     @PostMapping(value = "/showgame/{game_pk}/add_user_game/")
     public String addToUserGames(@PathVariable("game_pk") String gamePk){
-        Optional<PlatinumGame> gameOptional = platGameService.platGameRepository.findById(gamePk);
-        if(gameOptional.isEmpty()) return "redirect:platgames/";
+        PlatinumGame platinumGame = platGameService.getPlatinumGame(gamePk);
+        if(platinumGame == null) return "redirect:/platgames/";
 
         UserModel userModel = userService.getCurrentUser();
-        PlatinumGame platinumGame = gameOptional.get();
         if(userModel.hasPlatGame(platinumGame.getId())){
             return "redirect:/platgames/showgame/" + gamePk + "/";
         }
@@ -221,6 +265,6 @@ public class PlatGTemplateController {
         userModel.getPsnGames().add(userGame);
         userService.repository.save(userModel);
 
-        return "redirect:/platgames/showgame/" + gamePk + "/";
+        return _getShowGameRedirectRoute(gamePk);
     }
 }

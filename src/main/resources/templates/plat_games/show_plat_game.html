@@ -69,6 +69,36 @@
             </li>
         </ul>
     </div>
+
+    <div class="form-style-9" enctype="multipart/form-data">
+        <ul>
+            <li>
+                <form method="post" th:action="@{/platgames/patch/psnp/{psnpid}/(psnpid = ${record.getId()})}">
+                    <input type="text" class="field-style field-full align-left"
+                           placeholder="PSNP Url" id="psnp" name="psnp" th:value="${psnp}" />
+
+                    <input style="margin-top: 6px; margin-bottom: 24px;"
+                           type="submit" value="Patch PSNP Url" />
+                </form>
+
+                <form method="post" th:action="@{/platgames/patch/hltb/{psnpid}/(psnpid = ${record.getId()})}">
+                    <input type="text" class="field-style field-full align-left"
+                           placeholder="HLTB Url" id="hltb" name="hltb" th:value="${hltb}" />
+
+                    <input style="margin-top: 6px; margin-bottom: 24px;"
+                           type="submit" value="Patch HLTB Url" />
+                </form>
+
+                <form method="post" th:action="@{/platgames/patch/psn/{psnpid}/(psnpid = ${record.getId()})}">
+                    <input type="text" class="field-style field-full align-left"
+                           placeholder="PSN ID" id="psnid" name="psnid" th:value="${psnid}" />
+
+                    <input style="margin-top: 6px; margin-bottom: 24px;"
+                           type="submit" value="Patch PSN ID" />
+                </form>
+            </li>
+        </ul>
+    </div>
 </div>
 
 </body>

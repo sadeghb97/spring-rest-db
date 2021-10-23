@@ -5,6 +5,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class PlatGameService {
     public PlatinumGameRepository platGameRepository;
@@ -33,5 +35,11 @@ public class PlatGameService {
         if(sort.equals("maindur")) return platGameRepository.findBySOMainDuration(pageable, platGame);
         if(sort.equals("compdur")) return platGameRepository.findBySOCompletionistDuration(pageable, platGame);
         return platGameRepository.findBySOOwners(pageable, platGame);
+    }
+
+    public PlatinumGame getPlatinumGame(String psnpId){
+        Optional<PlatinumGame> gameOptional = platGameRepository.findById(psnpId);
+        if(gameOptional.isEmpty()) return null;
+        return gameOptional.get();
     }
 }

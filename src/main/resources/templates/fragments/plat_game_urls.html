@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/header::head"></div>
+    <link rel="stylesheet" th:href="@{/css/game_form.css}" />
+</head>
+
+<body>
+
+<div>
+    <div th:replace="fragments/navbar::navbar"></div>
+
+    <form th:fragment="pg_urls"
+          th:action="@{/platgames/insertgame/}" method="post"
+          class="form-style-9" enctype="multipart/form-data">
+        <ul>
+            <li>
+                <input type="text" class="field-style field-full align-left"
+                       placeholder="PSNP Url" id="psnp" name="psnp" th:value="${psnp}" />
+
+                <input type="text" class="field-style field-full align-left"
+                       placeholder="HLTB Url" id="hltb" name="hltb" th:value="${hltb}" />
+
+                <input type="text" class="field-style field-full align-left"
+                       placeholder="PSN ID" id="psnid" name="psnid" th:value="${psnid}" />
+            </li>
+            <li>
+                <input style="margin-top: 8px;" type="submit"
+                       th:value="${patch_mode ? 'Patch Game' : 'Add Game'}" />
+            </li>
+        </ul>
+    </form>
+</div>
+
+</body>
+</html>
