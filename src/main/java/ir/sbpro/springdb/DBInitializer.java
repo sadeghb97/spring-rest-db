@@ -5,6 +5,7 @@ import ir.sbpro.PSStoreScrapper;
 import ir.sbpro.enums.ConnectionType;
 import ir.sbpro.games_repo.HLTBGamesRepository;
 import ir.sbpro.games_repo.HelpHLTBGamesMap;
+import ir.sbpro.games_repo.PSNPGamesRepository;
 import ir.sbpro.games_repo.PSStoreGamesRepository;
 import ir.sbpro.models.PSNProfilesGame;
 import ir.sbpro.springdb.plat_modules.hltbgames.HLTBGame;
@@ -35,6 +36,7 @@ public class DBInitializer {
 
     public void fetchRepository(){
         try {
+            Path platGamesPath = Path.of("raws/repo/platgames");
             Path psnGamesPath = Path.of("raws/repo/psngames");
             Path psnGamesMapPath = Path.of("raws/repo/psngames-map");
             Path hltbGamesPath = Path.of("raws/repo/hltbgames");
@@ -52,22 +54,19 @@ public class DBInitializer {
             psStoreGamesRepository.loadFromJsonFile();
             hltbGamesRepository.loadFromJsonFile();
 
-            PSNProfilesScrapper psnProfilesScrapper = new PSNProfilesScrapper("raws/sources/psnp/");
+            PSNPGamesRepository psnpGamesRepository = new PSNPGamesRepository(platGamesPath);
+            psnpGamesRepository.load();
 
-            for(int i=1; 40>=i; i++) {
-                psnProfilesScrapper.fetchGames(i);
-            }
-
-            psnProfilesScrapper.psnProfilesGames.forEach((psnpGame) -> {
+            psnpGamesRepository.games.forEach((psnpGame) -> {
                 psnpGame.fetchPSNStoreGame(PSStoreScrapper.DownloaderType.ScrapperDefault,
                         ConnectionType.OFFLINE, psStoreGamesRepository);
             });
 
-            psnProfilesScrapper.psnProfilesGames.forEach((psnpGame) -> {
+            psnpGamesRepository.games.forEach((psnpGame) -> {
                 psnpGame.fetchHLTBGame(null, hltbGamesRepository, helpHLTBGamesMap);
             });
 
-            this.psnpGames = psnProfilesScrapper.psnProfilesGames;
+            this.psnpGames = psnpGamesRepository.games;
         }
         catch (Exception ex){
             System.out.println("EX: " + ex.getMessage());
@@ -83,58 +82,17 @@ public class DBInitializer {
             PSNGame springPsnGame = null;
             if(psnpGame.storeGame != null) {
                 springPsnGame = new PSNGame();
-                springPsnGame.setId(psnpGame.storeGame.id);
-                springPsnGame.setName(psnpGame.storeGame.name);
-                springPsnGame.setStoreClassificationType(psnpGame.storeGame.storeClassificationType);
-                springPsnGame.setStoreClassificationDisplay(psnpGame.storeGame.storeClassificationDisplay);
-                springPsnGame.setPlatforms(psnpGame.storeGame.platforms);
-                springPsnGame.setImages(psnpGame.storeGame.images);
-                springPsnGame.setVideos(psnpGame.storeGame.videos);
-                springPsnGame.setBasePrice(psnpGame.storeGame.gamePrice.basePrice);
-                springPsnGame.setDiscountedPrice(psnpGame.storeGame.gamePrice.discountedPrice);
-                springPsnGame.setDiscountText(psnpGame.storeGame.gamePrice.discountText);
-                springPsnGame.setBasePriceValue(getPriceValue(psnpGame.storeGame.gamePrice.basePrice));
-                springPsnGame.setDiscountedPriceValue(getPriceValue(psnpGame.storeGame.gamePrice.discountedPrice));
-                springPsnGame.setDiscountTextValue(
-                        getDiscountPercentValue(psnpGame.storeGame.gamePrice.discountText));
-                springPsnGame.setDiscounted(psnpGame.storeGame.gamePrice.discounted);
-                springPsnGame.setAlsoIncluded(psnpGame.storeGame.gamePrice.alsoIncluded);
+                springPsnGame.load(psnpGame.storeGame);
             }
 
             HLTBGame springHLTBGame = null;
             if(psnpGame.hlGame != null) {
                 springHLTBGame = new HLTBGame();
-                springHLTBGame.setId(psnpGame.hlGame.id);
-                springHLTBGame.setName(psnpGame.hlGame.name);
-                springHLTBGame.setLink(psnpGame.hlGame.link);
-                springHLTBGame.setImage(psnpGame.hlGame.image);
-                springHLTBGame.setMainDuration(psnpGame.hlGame.mainDuration);
-                springHLTBGame.setMainAndExtraDuration(psnpGame.hlGame.mainAndExtraDuration);
-                springHLTBGame.setCompletionistDuration(psnpGame.hlGame.completionistDuration);
-                springHLTBGame.setMainDurValue(psnpGame.hlGame.mainDurValue);
-                springHLTBGame.setMainAndExtraDurValue(psnpGame.hlGame.mainAndExtraDurValue);
-                springHLTBGame.setCompDurValue(psnpGame.hlGame.compDurValue);
+                springHLTBGame.load(psnpGame.hlGame);
             }
 
             PlatinumGame platinumGame = new PlatinumGame();
-            platinumGame.setId(psnpGame.id);
-            platinumGame.setLink(psnpGame.link);
-            platinumGame.setImage(psnpGame.image);
-            platinumGame.setName(psnpGame.name);
-            platinumGame.setOwners(psnpGame.owners);
-            platinumGame.setRecent(psnpGame.recent);
-            platinumGame.setStore(psnpGame.store);
-            platinumGame.setPlatform(psnpGame.platform);
-            platinumGame.setPlatCount(psnpGame.platCount);
-            platinumGame.setGoldCount(psnpGame.goldCount);
-            platinumGame.setSilverCount(psnpGame.silverCount);
-            platinumGame.setBronzeCount(psnpGame.bronzeCount);
-            platinumGame.setAllTrophiesCount(psnpGame.allTrophiesCount);
-            platinumGame.setPoints(psnpGame.points);
-            platinumGame.setCompletionRate(psnpGame.completionRate);
-            platinumGame.setStoreGame(springPsnGame);
-            platinumGame.setHlGame(springHLTBGame);
-
+            platinumGame.load(psnpGame, springHLTBGame, springPsnGame);
             platinumGames.add(platinumGame);
         }
     }
@@ -161,26 +119,5 @@ public class DBInitializer {
             return count;
         }
         return 0;
-    }
-
-    public double getPriceValue(String basePrice){
-        basePrice = basePrice.trim();
-        if(basePrice.toLowerCase().equals("free")) return 0;
-        try {
-            return Double.parseDouble(basePrice.substring(1));
-        }
-        catch (Exception ex){
-            return -1;
-        }
-    }
-
-    public double getDiscountPercentValue(String discountText){
-        discountText = discountText.trim();
-        try {
-            return Double.parseDouble(discountText.substring(1, discountText.length() - 1));
-        }
-        catch (Exception ex){
-            return 0;
-        }
     }
 }

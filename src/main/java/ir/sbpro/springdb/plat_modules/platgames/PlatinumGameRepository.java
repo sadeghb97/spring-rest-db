@@ -21,6 +21,10 @@ public interface PlatinumGameRepository extends JpaRepository<PlatinumGame, Stri
     Page<PlatinumGame> findBySOCompletionRate(Pageable pageable, PlatinumGame platGame);
 
     @Query("SELECT g FROM PlatinumGame g WHERE g.name LIKE concat('%', :#{#platGame.name}, '%') " +
+            "ORDER BY g.platAchievers DESC")
+    Page<PlatinumGame> findBySOPlatAchievers(Pageable pageable, PlatinumGame platGame);
+
+    @Query("SELECT g FROM PlatinumGame g WHERE g.name LIKE concat('%', :#{#platGame.name}, '%') " +
             "ORDER BY g.allTrophiesCount DESC")
     Page<PlatinumGame> findBySOTrophiesCount(Pageable pageable, PlatinumGame platGame);
 

@@ -21,6 +21,7 @@ public class HLTBGame {
     private int mainDurValue;
     private int mainAndExtraDurValue;
     private int compDurValue;
+    private long upTime;
 
     public String getId() {
         return id;
@@ -76,6 +77,28 @@ public class HLTBGame {
 
     public void setCompletionistDuration(String completionistDuration) {
         this.completionistDuration = completionistDuration;
+    }
+
+    public long getUpTime() {
+        return upTime;
+    }
+
+    public void setUpTime(long upTime) {
+        this.upTime = upTime;
+    }
+
+    public void load(ir.sbpro.models.HLTBGame hlFetcher){
+        setId(hlFetcher.id);
+        setName(hlFetcher.name);
+        setLink(hlFetcher.link);
+        setImage(hlFetcher.image);
+        setMainDuration(hlFetcher.mainDuration);
+        setMainAndExtraDuration(hlFetcher.mainAndExtraDuration);
+        setCompletionistDuration(hlFetcher.completionistDuration);
+        setMainDurValue(hlFetcher.mainDurValue);
+        setMainAndExtraDurValue(hlFetcher.mainAndExtraDurValue);
+        setCompDurValue(hlFetcher.compDurValue);
+        setUpTime(hlFetcher.upTime);
     }
 
     public int getMainDurValue() {

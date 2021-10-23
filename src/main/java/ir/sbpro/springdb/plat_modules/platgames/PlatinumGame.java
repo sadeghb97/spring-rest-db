@@ -1,6 +1,7 @@
 package ir.sbpro.springdb.plat_modules.platgames;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import ir.sbpro.models.PSNProfilesGame;
 import ir.sbpro.springdb.plat_modules.hltbgames.HLTBGame;
 import ir.sbpro.springdb.plat_modules.psngames.PSNGame;
 
@@ -36,6 +37,8 @@ public class PlatinumGame {
     private int allTrophiesCount = 0;
     private int points = 0;
     private double completionRate = 0;
+    private double platAchievers = 0;
+    private long upTime = 0;
 
     public String getId() {
         return id;
@@ -173,6 +176,48 @@ public class PlatinumGame {
         this.completionRate = completionRate;
     }
 
+    public double getPlatAchievers() {
+        return platAchievers;
+    }
+
+    public void setPlatAchievers(double platAchievers) {
+        this.platAchievers = platAchievers;
+    }
+
+    public long getUpTime() {
+        return upTime;
+    }
+
+    public void setUpTime(long upTime) {
+        this.upTime = upTime;
+    }
+
+    public void load(PSNProfilesGame psnProfilesGame){
+        setId(psnProfilesGame.id);
+        setLink(psnProfilesGame.link);
+        setImage(psnProfilesGame.image);
+        setName(psnProfilesGame.name);
+        setOwners(psnProfilesGame.owners);
+        setRecent(psnProfilesGame.recent);
+        setStore(psnProfilesGame.store);
+        setPlatform(psnProfilesGame.platform);
+        setPlatCount(psnProfilesGame.platCount);
+        setGoldCount(psnProfilesGame.goldCount);
+        setSilverCount(psnProfilesGame.silverCount);
+        setBronzeCount(psnProfilesGame.bronzeCount);
+        setAllTrophiesCount(psnProfilesGame.allTrophiesCount);
+        setPoints(psnProfilesGame.points);
+        setCompletionRate(psnProfilesGame.completionRate);
+        setPlatAchievers(psnProfilesGame.platAchievers);
+        setUpTime(psnProfilesGame.upTime);
+    }
+
+    public void load(PSNProfilesGame psnProfilesGame, HLTBGame hltbGame, PSNGame psnGame){
+        load(psnProfilesGame);
+        setStoreGame(psnGame);
+        setHlGame(hltbGame);
+    }
+
     @JsonIgnore
     public String getTrophiesSummary(){
         StringBuilder stringBuilder = new StringBuilder();
@@ -189,6 +234,17 @@ public class PlatinumGame {
         stringBuilder.append(" (");
         stringBuilder.append(points);
         stringBuilder.append(")");
+        return stringBuilder.toString();
+    }
+
+    public String getCompletionSummary(){
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("CR: " + completionRate);
+        if(platCount > 0){
+            stringBuilder.append(" - ");
+            stringBuilder.append(platAchievers);
+        }
+
         return stringBuilder.toString();
     }
 

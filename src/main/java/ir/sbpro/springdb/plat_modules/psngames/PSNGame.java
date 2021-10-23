@@ -170,6 +170,52 @@ public class PSNGame {
         this.discountTextValue = discountTextValue;
     }
 
+    public void load(ir.sbpro.models.PSNGame psnGame){
+        setId(psnGame.id);
+        setName(psnGame.name);
+
+        if(psnGame.storeClassificationType != null && !psnGame.storeClassificationType.isEmpty())
+            setStoreClassificationType(psnGame.storeClassificationType);
+
+        if(psnGame.storeClassificationDisplay != null && !psnGame.storeClassificationDisplay.isEmpty())
+            setStoreClassificationDisplay(psnGame.storeClassificationDisplay);
+
+        setPlatforms(psnGame.platforms);
+        setImages(psnGame.images);
+        setVideos(psnGame.videos);
+        setBasePrice(psnGame.gamePrice.basePrice);
+        setDiscountedPrice(psnGame.gamePrice.discountedPrice);
+        setDiscountText(psnGame.gamePrice.discountText);
+        setBasePriceValue(getPriceValue(psnGame.gamePrice.basePrice));
+        setDiscountedPriceValue(getPriceValue(psnGame.gamePrice.discountedPrice));
+        setDiscountTextValue(
+                getDiscountPercentValue(psnGame.gamePrice.discountText));
+        setDiscounted(psnGame.gamePrice.discounted);
+        setAlsoIncluded(psnGame.gamePrice.alsoIncluded);
+        setUpTime(psnGame.upTime);
+    }
+
+    private double getPriceValue(String basePrice){
+        basePrice = basePrice.trim();
+        if(basePrice.toLowerCase().equals("free")) return 0;
+        try {
+            return Double.parseDouble(basePrice.substring(1));
+        }
+        catch (Exception ex){
+            return -1;
+        }
+    }
+
+    private double getDiscountPercentValue(String discountText){
+        discountText = discountText.trim();
+        try {
+            return Double.parseDouble(discountText.substring(1, discountText.length() - 1));
+        }
+        catch (Exception ex){
+            return 0;
+        }
+    }
+
     @JsonIgnore
     public String getPriceSummary(){
         StringBuilder stringBuilder = new StringBuilder();

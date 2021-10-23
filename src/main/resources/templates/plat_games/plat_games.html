@@ -32,23 +32,27 @@
         </a>
 
         <a th:href="'/platgames/?sort=points'">
-        <button type="button" class="btn btn-secondary sort-button">Points</button>
+            <button type="button" class="btn btn-secondary sort-button">Points</button>
         </a>
 
         <a th:href="'/platgames/?sort=cr'">
-        <button type="button" class="btn btn-success sort-button">CompletionRate</button>
+            <button type="button" class="btn btn-success sort-button">CompletionRate</button>
+        </a>
+
+        <a th:href="'/platgames/?sort=plat'">
+            <button type="button" class="btn btn-info sort-button">PlatAchievers</button>
         </a>
 
         <a th:href="'/platgames/?sort=tc'">
-        <button type="button" class="btn btn-danger sort-button">TrophiesCount</button>
+            <button type="button" class="btn btn-danger sort-button">TrophiesCount</button>
         </a>
 
         <a th:href="'/platgames/?sort=fp'">
-        <button type="button" class="btn btn-warning sort-button">FinalPrice</button>
+            <button type="button" class="btn btn-warning sort-button">FinalPrice</button>
         </a>
 
         <a th:href="'/platgames/?sort=dis'">
-        <button type="button" class="btn btn-info sort-button">Discount</button>
+            <button type="button" class="btn btn-info sort-button">Discount</button>
         </a>
 
         <a th:href="'/platgames/?sort=disper'">
@@ -84,6 +88,7 @@
                 <div th:text="${game.getOwners() + ' Owners | ' + game.getRecent() + ' Recent'}"></div>
 
                 <div th:text="${game.getTrophiesSummary()}"></div>
+                <div th:text="${game.getCompletionSummary()}"></div>
 
                 <div th:switch="${game.getStoreGame() != null}">
                     <div th:case="true" th:text="${game.getStoreGame().getPriceSummary()}"></div>

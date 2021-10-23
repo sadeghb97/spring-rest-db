@@ -49,6 +49,23 @@
                                 type="button" class="btn btn-success sort-button">In YourGames</button>
                     </div>
                 </div>
+
+                <div style="display: inline-block; margin-top: 8px;">
+                    <form style="display: inline" method="post"
+                          th:action="@{/platgames/update/psn/{psnpid}/(psnpid=${record.getId()})}">
+                        <input type="submit" value="Update Store" />
+                    </form>
+
+                    <form style="display: inline" method="post"
+                          th:action="@{/platgames/update/hltb/{psnpid}/(psnpid=${record.getId()})}">
+                        <input type="submit" value="Update HLTB" />
+                    </form>
+
+                    <form style="display: inline" method="post"
+                          th:action="@{/platgames/update/psnp/{psnpid}/(psnpid=${record.getId()})}">
+                        <input type="submit" value="Update PSNP" />
+                    </form>
+                </div>
             </li>
         </ul>
     </div>

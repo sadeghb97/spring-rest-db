@@ -25,6 +25,7 @@ public class PlatGameService {
         if(sort == null || sort.equals("owners")) return platGameRepository.findBySOOwners(pageable, platGame);
         if(sort.equals("points")) return platGameRepository.findBySOPoints(pageable, platGame);
         if(sort.equals("cr")) return platGameRepository.findBySOCompletionRate(pageable, platGame);
+        if(sort.equals("plat")) return platGameRepository.findBySOPlatAchievers(pageable, platGame);
         if(sort.equals("tc")) return platGameRepository.findBySOTrophiesCount(pageable, platGame);
         if(sort.equals("fp")) return platGameRepository.findBySOPrice(pageable, platGame);
         if(sort.equals("dis")) return platGameRepository.findBySODiscount(pageable, platGame);
