@@ -4,9 +4,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import ir.sbpro.models.PSNProfilesGame;
 import ir.sbpro.springdb.plat_modules.hltbgames.HLTBGame;
 import ir.sbpro.springdb.plat_modules.psngames.PSNGame;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
-import java.util.ArrayList;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "platinum_games")
@@ -39,6 +41,14 @@ public class PlatinumGame {
     private double completionRate = 0;
     private double platAchievers = 0;
     private long upTime = 0;
+
+    @CreationTimestamp
+    @Column(name = "created_at", updatable = false)
+    protected LocalDateTime createdAt;
+
+    @UpdateTimestamp
+    @Column(name = "updated_at")
+    protected LocalDateTime updatedAt;
 
     public String getId() {
         return id;
@@ -190,6 +200,22 @@ public class PlatinumGame {
 
     public void setUpTime(long upTime) {
         this.upTime = upTime;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     public void load(PSNProfilesGame psnProfilesGame){
