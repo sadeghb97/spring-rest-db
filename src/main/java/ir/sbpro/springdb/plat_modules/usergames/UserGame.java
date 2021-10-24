@@ -1,5 +1,6 @@
 package ir.sbpro.springdb.plat_modules.usergames;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import ir.sbpro.springdb.enums.UserGameStatus;
 import ir.sbpro.springdb.modules.users.UserModel;
 import ir.sbpro.springdb.plat_modules.platgames.PlatinumGame;
@@ -7,7 +8,11 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.lang.reflect.Array;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 @Entity
 public class UserGame {
@@ -90,5 +95,30 @@ public class UserGame {
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    @JsonIgnore
+    public String[] getShortSummary(){
+        String[] pgTexts = platinumGame.getShortSummary();
+
+        String lineDelimiter = "\n";
+        StringBuilder stringBuilder = new StringBuilder("-----");
+        stringBuilder.append(lineDelimiter);
+
+        if(rate > 0) {
+            stringBuilder.append("Rate: " + rate);
+            stringBuilder.append(lineDelimiter);
+        }
+
+        stringBuilder.append(status);
+        stringBuilder.append(lineDelimiter);
+
+        String[] ugTexts = stringBuilder.toString().split(lineDelimiter);
+        List<String> resultList = new ArrayList<>(pgTexts.length + ugTexts.length);
+        Collections.addAll(resultList, pgTexts);
+        Collections.addAll(resultList, ugTexts);
+        String[] result = new String[resultList.size()];
+        result = resultList.toArray(result);
+        return result;
     }
 }

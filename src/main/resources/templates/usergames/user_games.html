@@ -26,6 +26,9 @@
         </form>
     </div>
 
+    <div th:if="${type.equals('plats')}" th:replace="fragments/sorts::sort_options"
+         style="margin-top: 16px;"></div>
+
     <div style="padding-top: 20px; padding-bottom: 15px;">
         <div th:replace="fragments/pagination::pagination"></div>
     </div>
@@ -42,9 +45,7 @@
                 </div>
             </div>
             <div class="text-container">
-                <h3 th:text="${game.platinumGame.getName()}"></h3>
-                <div th:text="${game.status}"></div>
-                <div th:if="${game.rate > 0}" th:text="'Rate: ' + ${game.rate}"></div>
+                <div th:each="item: ${game.getShortSummary()}" th:text="${item}"></div>
             </div>
         </div>
     </div>

@@ -341,4 +341,34 @@ public class PlatinumGame {
 
         return stringBuilder.toString().split(lineDelimiter);
     }
+
+    @JsonIgnore
+    public String[] getShortSummary(){
+        String lineDelimiter = "\n";
+        StringBuilder stringBuilder = new StringBuilder();
+
+        stringBuilder.append(getName());
+        stringBuilder.append(lineDelimiter);
+
+        stringBuilder.append(getOwners() + " Owners | " + getRecent() + " Recent");
+        stringBuilder.append(lineDelimiter);
+
+        stringBuilder.append(getTrophiesSummary());
+        stringBuilder.append(lineDelimiter);
+
+        stringBuilder.append(getCompletionSummary());
+        stringBuilder.append(lineDelimiter);
+
+        if(getStoreGame() != null){
+            stringBuilder.append(getStoreGame().getPriceSummary());
+            stringBuilder.append(lineDelimiter);
+        }
+
+        if(getHlGame() != null){
+            stringBuilder.append(getHlGame().getDurationsSummary());
+            stringBuilder.append(lineDelimiter);
+        }
+
+        return stringBuilder.toString().split(lineDelimiter);
+    }
 }

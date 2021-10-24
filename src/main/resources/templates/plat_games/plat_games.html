@@ -26,53 +26,8 @@
         </form>
     </div>
 
-    <div th:if="${type.equals('plats')}" style="margin-top: 16px;">
-        <a th:href="'/platgames/?sort=owners'">
-            <button type="button" class="btn btn-primary sort-button">Owners</button>
-        </a>
-
-        <a th:href="'/platgames/?sort=creation'">
-            <button type="button" class="btn btn-danger sort-button">Creation</button>
-        </a>
-
-        <a th:href="'/platgames/?sort=points'">
-            <button type="button" class="btn btn-secondary sort-button">Points</button>
-        </a>
-
-        <a th:href="'/platgames/?sort=cr'">
-            <button type="button" class="btn btn-success sort-button">CompletionRate</button>
-        </a>
-
-        <a th:href="'/platgames/?sort=plat'">
-            <button type="button" class="btn btn-info sort-button">PlatAchievers</button>
-        </a>
-
-        <a th:href="'/platgames/?sort=tc'">
-            <button type="button" class="btn btn-danger sort-button">TrophiesCount</button>
-        </a>
-    </div>
-
-    <div th:if="${type.equals('plats')}" style="margin-top: 8px;">
-        <a th:href="'/platgames/?sort=fp'">
-            <button type="button" class="btn btn-warning sort-button">FinalPrice</button>
-        </a>
-
-        <a th:href="'/platgames/?sort=dis'">
-            <button type="button" class="btn btn-info sort-button">Discount</button>
-        </a>
-
-        <a th:href="'/platgames/?sort=disper'">
-            <button type="button" class="btn btn-light sort-button">DisPercent</button>
-        </a>
-
-        <a th:href="'/platgames/?sort=maindur'">
-            <button type="button" class="btn btn-dark sort-button">MainDuration</button>
-        </a>
-
-        <a th:href="'/platgames/?sort=compdur'">
-            <button type="button" class="btn btn-warning sort-button">CompletionistDuration</button>
-        </a>
-    </div>
+    <div th:if="${type.equals('plats')}" th:replace="fragments/sorts::sort_options"
+         style="margin-top: 16px;"></div>
 
     <div style="padding-top: 20px; padding-bottom: 15px;">
         <div th:replace="fragments/pagination::pagination"></div>
@@ -90,19 +45,7 @@
                 </div>
             </div>
             <div class="text-container">
-                <h3 th:text="${game.getName()}"></h3>
-                <div th:text="${game.getOwners() + ' Owners | ' + game.getRecent() + ' Recent'}"></div>
-
-                <div th:text="${game.getTrophiesSummary()}"></div>
-                <div th:text="${game.getCompletionSummary()}"></div>
-
-                <div th:switch="${game.getStoreGame() != null}">
-                    <div th:case="true" th:text="${game.getStoreGame().getPriceSummary()}"></div>
-                </div>
-
-                <div th:switch="${game.getHlGame() != null}">
-                    <div th:case="true" th:text="${game.getHlGame().getDurationsSummary()}"></div>
-                </div>
+                <div th:each="item: ${game.getShortSummary()}" th:text="${item}"></div>
             </div>
         </div>
     </div>

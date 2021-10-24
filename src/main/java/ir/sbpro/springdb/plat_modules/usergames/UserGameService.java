@@ -19,8 +19,20 @@ public class UserGameService {
         return repository.save(userGame);
     }
 
-    public Page<UserGame> findLibraryGames(Pageable pageable, PlatinumGame platGame, Long userPk){
+    public Page<UserGame> findLibraryGames(Pageable pageable, PlatinumGame platGame, Long userPk, String sort){
         if(platGame.getName() == null) platGame.setName("");
-        return repository.findLibraryGamesByRate(pageable, userPk, platGame);
+
+        if(sort == null || sort.equals("owners")) return repository.findBySOOwners(pageable, userPk, platGame);
+        if(sort.equals("points")) return repository.findBySOPoints(pageable, userPk, platGame);
+        if(sort.equals("creation")) return repository.findBySOCreationTime(pageable, userPk, platGame);
+        if(sort.equals("cr")) return repository.findBySOCompletionRate(pageable, userPk, platGame);
+        if(sort.equals("plat")) return repository.findBySOPlatAchievers(pageable, userPk, platGame);
+        if(sort.equals("tc")) return repository.findBySOTrophiesCount(pageable, userPk, platGame);
+        if(sort.equals("fp")) return repository.findBySOPrice(pageable, userPk, platGame);
+        if(sort.equals("rate")) return repository.findLibraryGamesByRate(pageable, userPk, platGame);
+        if(sort.equals("status")) return repository.findLibraryGamesByStatus(pageable, userPk, platGame);
+        if(sort.equals("maindur")) return repository.findBySOMainDuration(pageable, userPk, platGame);
+        if(sort.equals("compdur")) return repository.findBySOCompletionistDuration(pageable, userPk, platGame);
+        return repository.findBySOOwners(pageable, userPk, platGame);
     }
 }

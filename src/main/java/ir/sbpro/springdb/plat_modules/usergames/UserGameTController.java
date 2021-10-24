@@ -42,8 +42,8 @@ public class UserGameTController {
 
         PageRequest pageRequest = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize());
         model.addAttribute("records",
-                userGameService.findLibraryGames(pageRequest, platGame, userModel.getPk()));
-        model.addAttribute("type", "plats");
+                userGameService.findLibraryGames(pageRequest, platGame, userModel.getPk(), sort));
+        model.addAttribute("type", "library");
         return "usergames/user_games";
     }
 
