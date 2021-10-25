@@ -58,6 +58,14 @@
                 <button type="button" class="btn btn-light sort-button">Status</button>
             </a>
 
+            <a th:href="@{${url.replaceQueryParam('sort').toUriString()}(sort=${'metascore'})}">
+                <button type="button" class="btn btn-primary sort-button">MetaScore</button>
+            </a>
+
+            <a th:href="@{${url.replaceQueryParam('sort').toUriString()}(sort=${'userscore'})}">
+                <button type="button" class="btn btn-success sort-button">UserScore</button>
+            </a>
+
             <a th:href="@{${url.replaceQueryParam('sort').toUriString()}(sort=${'maindur'})}">
                 <button type="button" class="btn btn-dark sort-button">MainDuration</button>
             </a>

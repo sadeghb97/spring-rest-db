@@ -1,8 +1,10 @@
 package ir.sbpro.springdb.plat_modules.platgames;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import ir.sbpro.models.MetacriticGame;
 import ir.sbpro.models.PSNProfilesGame;
 import ir.sbpro.springdb.plat_modules.hltbgames.HLTBGame;
+import ir.sbpro.springdb.plat_modules.metacritic_games.MetaCriticGame;
 import ir.sbpro.springdb.plat_modules.psngames.PSNGame;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -24,6 +26,10 @@ public class PlatinumGame {
     @OneToOne
     @JoinColumn(referencedColumnName = "id")
     private HLTBGame hlGame;
+
+    @OneToOne
+    @JoinColumn(referencedColumnName = "id")
+    private MetaCriticGame metacriticGame;
 
     private String link;
     private String image;
@@ -218,6 +224,14 @@ public class PlatinumGame {
         this.updatedAt = updatedAt;
     }
 
+    public MetaCriticGame getMetacriticGame() {
+        return metacriticGame;
+    }
+
+    public void setMetaCriticGame(MetaCriticGame metacriticGame) {
+        this.metacriticGame = metacriticGame;
+    }
+
     public void load(PSNProfilesGame psnProfilesGame){
         setId(psnProfilesGame.id);
         setLink(psnProfilesGame.link);
@@ -238,10 +252,11 @@ public class PlatinumGame {
         setUpTime(psnProfilesGame.upTime);
     }
 
-    public void load(PSNProfilesGame psnProfilesGame, HLTBGame hltbGame, PSNGame psnGame){
+    public void load(PSNProfilesGame psnProfilesGame, HLTBGame hltbGame, PSNGame psnGame, MetaCriticGame mcGame){
         load(psnProfilesGame);
         setStoreGame(psnGame);
         setHlGame(hltbGame);
+        setMetaCriticGame(mcGame);
     }
 
     @JsonIgnore
@@ -339,6 +354,17 @@ public class PlatinumGame {
                     " (" + hlGame.getCompDurValue() + ")" + lineDelimiter);
         }
 
+        if(metacriticGame != null){
+            stringBuilder.append("-------------" + lineDelimiter);
+            stringBuilder.append("MetaCritic Slug: " + metacriticGame.getSlug() + lineDelimiter);
+            stringBuilder.append("MetaCritic Name: " + metacriticGame.getName() + lineDelimiter);
+            stringBuilder.append("MetaCritic Image: " + metacriticGame.getImage() + lineDelimiter);
+            stringBuilder.append("MetaScore: " + metacriticGame.getMetaScore() +
+                    " (" + metacriticGame.getMsCount() + ")" + lineDelimiter);
+            stringBuilder.append("UserScore: " + metacriticGame.getUserScore() +
+                    " (" + metacriticGame.getUsCount() + ")" + lineDelimiter);
+        }
+
         return stringBuilder.toString().split(lineDelimiter);
     }
 
@@ -366,6 +392,11 @@ public class PlatinumGame {
 
         if(getHlGame() != null){
             stringBuilder.append(getHlGame().getDurationsSummary());
+            stringBuilder.append(lineDelimiter);
+        }
+
+        if(getMetacriticGame() != null){
+            stringBuilder.append(getMetacriticGame().getMetaSummary());
             stringBuilder.append(lineDelimiter);
         }
 

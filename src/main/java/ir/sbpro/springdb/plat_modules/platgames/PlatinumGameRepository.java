@@ -52,6 +52,14 @@ public interface PlatinumGameRepository extends JpaRepository<PlatinumGame, Stri
             "ORDER BY (CASE WHEN g.hlGame.compDurValue > 0 THEN g.hlGame.compDurValue ELSE 1000000 END) ASC")
     Page<PlatinumGame> findBySOCompletionistDuration(Pageable pageable, PlatinumGame platGame);
 
+    @Query("SELECT g FROM PlatinumGame g WHERE g.name LIKE concat('%', :#{#platGame.name}, '%') " +
+            "ORDER BY (CASE WHEN g.metacriticGame.metaScore > 0 THEN g.metacriticGame.metaScore ELSE 0 END) DESC")
+    Page<PlatinumGame> findBySOMetaScore(Pageable pageable, PlatinumGame platGame);
+
+    @Query("SELECT g FROM PlatinumGame g WHERE g.name LIKE concat('%', :#{#platGame.name}, '%') " +
+            "ORDER BY (CASE WHEN g.metacriticGame.userScore > 0 THEN g.metacriticGame.userScore ELSE 0 END) DESC")
+    Page<PlatinumGame> findBySOUserScore(Pageable pageable, PlatinumGame platGame);
+
     @Query("SELECT g FROM UserModel u INNER JOIN u.wishlist g WHERE u.pk = :#{#userPk} AND " +
             "g.name LIKE concat('%', :#{#platGame.name}, '%') " +
             "ORDER BY g.allTrophiesCount ASC")

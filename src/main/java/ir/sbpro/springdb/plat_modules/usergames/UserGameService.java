@@ -33,6 +33,8 @@ public class UserGameService {
         if(sort.equals("status")) return repository.findLibraryGamesByStatus(pageable, userPk, platGame);
         if(sort.equals("maindur")) return repository.findBySOMainDuration(pageable, userPk, platGame);
         if(sort.equals("compdur")) return repository.findBySOCompletionistDuration(pageable, userPk, platGame);
+        if(sort.equals("metascore")) return repository.findBySOMetaScore(pageable, userPk, platGame);
+        if(sort.equals("userscore")) return repository.findBySOUserScore(pageable, userPk, platGame);
         return repository.findBySOOwners(pageable, userPk, platGame);
     }
 }

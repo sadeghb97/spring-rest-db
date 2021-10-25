@@ -1,15 +1,13 @@
 package ir.sbpro.springdb;
 
-import ir.sbpro.PSNProfilesScrapper;
 import ir.sbpro.PSStoreScrapper;
 import ir.sbpro.enums.ConnectionType;
-import ir.sbpro.games_repo.HLTBGamesRepository;
-import ir.sbpro.games_repo.HelpHLTBGamesMap;
-import ir.sbpro.games_repo.PSNPGamesRepository;
-import ir.sbpro.games_repo.PSStoreGamesRepository;
+import ir.sbpro.games_repo.*;
 import ir.sbpro.models.PSNProfilesGame;
 import ir.sbpro.springdb.plat_modules.hltbgames.HLTBGame;
 import ir.sbpro.springdb.plat_modules.hltbgames.HLTBGamesService;
+import ir.sbpro.springdb.plat_modules.metacritic_games.MetaCriticGame;
+import ir.sbpro.springdb.plat_modules.metacritic_games.MetaCriticGamesService;
 import ir.sbpro.springdb.plat_modules.platgames.PlatGameService;
 import ir.sbpro.springdb.plat_modules.platgames.PlatinumGame;
 import ir.sbpro.springdb.plat_modules.psngames.PSNGame;
@@ -23,6 +21,7 @@ public class DBInitializer {
     PSNGamesService psnGamesService;
     HLTBGamesService hltbGamesService;
     PlatGameService platGameService;
+    MetaCriticGamesService metaCriticGamesService;
 
     public ArrayList<PSNProfilesGame> psnpGames;
     public ArrayList<PlatinumGame> platinumGames;
@@ -32,6 +31,7 @@ public class DBInitializer {
         platGameService = applicationContext.getBean(PlatGameService.class);
         psnGamesService = applicationContext.getBean(PSNGamesService.class);
         hltbGamesService = applicationContext.getBean(HLTBGamesService.class);
+        metaCriticGamesService = applicationContext.getBean(MetaCriticGamesService.class);
     }
 
     public void fetchRepository(){
@@ -41,6 +41,8 @@ public class DBInitializer {
             Path psnGamesMapPath = Path.of("raws/repo/psngames-map");
             Path hltbGamesPath = Path.of("raws/repo/hltbgames");
             Path hltbGamesMapPath = Path.of("raws/repo/hltbgames-map");
+            Path mcGamesPath = Path.of("raws/repo/mcgames");
+            Path mcGamesMapPath = Path.of("raws/repo/mcgames-map");
 
 
             PSStoreGamesRepository psStoreGamesRepository =
@@ -49,10 +51,14 @@ public class DBInitializer {
             HLTBGamesRepository hltbGamesRepository =
                     new HLTBGamesRepository(hltbGamesPath, hltbGamesMapPath);
 
+            MetacriticGamesRepository metacriticGamesRepository =
+                    new MetacriticGamesRepository(mcGamesPath, mcGamesMapPath);
+
             HelpHLTBGamesMap helpHLTBGamesMap = new HelpHLTBGamesMap();
 
             psStoreGamesRepository.loadFromJsonFile();
             hltbGamesRepository.loadFromJsonFile();
+            metacriticGamesRepository.loadFromJsonFile();
 
             PSNPGamesRepository psnpGamesRepository = new PSNPGamesRepository(platGamesPath);
             psnpGamesRepository.load();
@@ -64,6 +70,10 @@ public class DBInitializer {
 
             psnpGamesRepository.games.forEach((psnpGame) -> {
                 psnpGame.fetchHLTBGame(null, hltbGamesRepository, helpHLTBGamesMap);
+            });
+
+            psnpGamesRepository.games.forEach((psnpGame) -> {
+                psnpGame.fetchMetacriticGame(metacriticGamesRepository);
             });
 
             this.psnpGames = psnpGamesRepository.games;
@@ -91,8 +101,14 @@ public class DBInitializer {
                 springHLTBGame.load(psnpGame.hlGame);
             }
 
+            MetaCriticGame springMCGame = null;
+            if(psnpGame.metacriticGame != null){
+                springMCGame = new MetaCriticGame();
+                springMCGame.load(psnpGame.metacriticGame);
+            }
+
             PlatinumGame platinumGame = new PlatinumGame();
-            platinumGame.load(psnpGame, springHLTBGame, springPsnGame);
+            platinumGame.load(psnpGame, springHLTBGame, springPsnGame, springMCGame);
             platinumGames.add(platinumGame);
         }
     }
@@ -107,6 +123,9 @@ public class DBInitializer {
                     psnGamesService.gamesRepository.save(pg.getStoreGame());
                 if (pg.getHlGame() != null)
                     hltbGamesService.gamesRepository.save(pg.getHlGame());
+                if (pg.getMetacriticGame() != null)
+                    metaCriticGamesService.gamesRepository.save(pg.getMetacriticGame());
+
                 PlatinumGame pgOut = platGameService.platGameRepository.save(pg);
                 if(pgOut.getId() != null) count++;
 

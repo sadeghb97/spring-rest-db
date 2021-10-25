@@ -6,6 +6,9 @@ import ir.sbpro.springdb.modules.users.UserModel;
 import ir.sbpro.springdb.modules.users.UserService;
 import ir.sbpro.springdb.plat_modules.hltbgames.HLTBGame;
 import ir.sbpro.springdb.plat_modules.hltbgames.HLTBGamesService;
+import ir.sbpro.springdb.plat_modules.metacritic_games.MetaCriticGame;
+import ir.sbpro.springdb.plat_modules.metacritic_games.MetaCriticGamesRepository;
+import ir.sbpro.springdb.plat_modules.metacritic_games.MetaCriticGamesService;
 import ir.sbpro.springdb.plat_modules.psngames.PSNGame;
 import ir.sbpro.springdb.plat_modules.psngames.PSNGamesService;
 import ir.sbpro.springdb.plat_modules.usergames.UserGame;
@@ -29,16 +32,18 @@ public class PlatGTemplateController {
     UserGameService userGameService;
     PSNGamesService psnGamesService;
     HLTBGamesService hltbGamesService;
+    MetaCriticGamesService metaCriticGamesService;
 
     @Autowired
     PlatGTemplateController(PlatGameService platGameService, UserService userService,
                             UserGameService userGameService, PSNGamesService psnGamesService,
-                            HLTBGamesService hltbGamesService){
+                            HLTBGamesService hltbGamesService, MetaCriticGamesService metaCriticGamesService){
         this.platGameService = platGameService;
         this.userService = userService;
         this.userGameService = userGameService;
         this.psnGamesService = psnGamesService;
         this.hltbGamesService = hltbGamesService;
+        this.metaCriticGamesService = metaCriticGamesService;
     }
 
     @GetMapping(value = {"", "/"})
@@ -88,6 +93,8 @@ public class PlatGTemplateController {
         model.addAttribute("psnp", platinumGame.getLink());
         model.addAttribute("hltb", platinumGame.getHlGame() != null ?
                 platinumGame.getHlGame().getFullLink() : null);
+        model.addAttribute("metaurl", platinumGame.getMetacriticGame() != null ?
+                platinumGame.getMetacriticGame().getLink() : null);
         model.addAttribute("psnid", platinumGame.getStoreGame() != null ?
                 platinumGame.getStoreGame().getId() : null);
         return "plat_games/show_plat_game";
@@ -191,10 +198,40 @@ public class PlatGTemplateController {
         return _getShowGameRedirectRoute(psnpId);
     }
 
+    private void _updateMetaCritic(PlatinumGame platinumGame, String newMetaUrl, boolean deepMode){
+        MetaCriticGame metaCriticGame = null;
+        if(deepMode) metaCriticGame = metaCriticGamesService.save(newMetaUrl);
+        else metaCriticGame = metaCriticGamesService.update(newMetaUrl);
+
+        if(metaCriticGame != null){
+            platinumGame.setMetaCriticGame(metaCriticGame);
+            platGameService.platGameRepository.save(platinumGame);
+        }
+    }
+
+    @PostMapping(value = "/update/metacritic/{psnpid}/")
+    public String updateMetaCritic(@PathVariable("psnpid") String psnpId){
+        PlatinumGame platinumGame = platGameService.getPlatinumGame(psnpId);
+        if(platinumGame == null) return "redirect:/platgames/";
+
+        if(platinumGame.getMetacriticGame() != null)
+            _updateMetaCritic(platinumGame, platinumGame.getMetacriticGame().getLink(), false);
+        return _getShowGameRedirectRoute(psnpId);
+    }
+
+    @PostMapping(value = "/patch/metacritic/{psnpid}/")
+    public String patchMetaCritic(@PathVariable("psnpid") String psnpId, @RequestParam("metaurl") String newMetaUrl){
+        PlatinumGame platinumGame = platGameService.getPlatinumGame(psnpId);
+        if(platinumGame == null) return "redirect:/platgames/";
+
+        _updateMetaCritic(platinumGame, newMetaUrl, true);
+        return _getShowGameRedirectRoute(psnpId);
+    }
+
     @PostMapping(value = "/insertgame/")
-    public String insertPlatGame(@RequestParam("psnp") String psnpUrl,
-                                     @RequestParam("hltb") String hltbUrl,
-                                     @RequestParam("psnid") String psnId){
+    public String insertPlatGame(@RequestParam("psnp") String psnpUrl, @RequestParam("hltb") String hltbUrl,
+                                 @RequestParam("psnid") String psnId,
+                                 @RequestParam("metaurl") String metaUrl){
 
         PSNGame psnGame = psnGamesService.save(psnId);
         if(psnGame == null) System.out.println("PSN Game Missed");
@@ -202,11 +239,14 @@ public class PlatGTemplateController {
         HLTBGame hltbGame = hltbGamesService.save(hltbUrl);
         if(hltbGame == null) System.out.println("HLTB Game Missed");
 
+        MetaCriticGame metaCriticGame = metaCriticGamesService.save(metaUrl);
+        if(metaCriticGame == null) System.out.println("MetaCritic Game Missed");
+
         try{
             PlatinumGame platinumGame = new PlatinumGame();
             PSNProfilesGame psnpFetcher = new PSNProfilesGame();
             psnpFetcher.update(psnpUrl);
-            platinumGame.load(psnpFetcher, hltbGame, psnGame);
+            platinumGame.load(psnpFetcher, hltbGame, psnGame, metaCriticGame);
             platGameService.platGameRepository.save(platinumGame);
             return _getShowGameRedirectRoute(platinumGame.getId());
         }

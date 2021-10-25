@@ -35,6 +35,8 @@ public class PlatGameService {
         if(sort.equals("disper")) return platGameRepository.findBySODiscountPercent(pageable, platGame);
         if(sort.equals("maindur")) return platGameRepository.findBySOMainDuration(pageable, platGame);
         if(sort.equals("compdur")) return platGameRepository.findBySOCompletionistDuration(pageable, platGame);
+        if(sort.equals("metascore")) return platGameRepository.findBySOMetaScore(pageable, platGame);
+        if(sort.equals("userscore")) return platGameRepository.findBySOUserScore(pageable, platGame);
         return platGameRepository.findBySOOwners(pageable, platGame);
     }
 

@@ -65,6 +65,11 @@
                           th:action="@{/platgames/update/psnp/{psnpid}/(psnpid=${record.getId()})}">
                         <input type="submit" value="Update PSNP" />
                     </form>
+
+                    <form style="display: inline" method="post"
+                          th:action="@{/platgames/update/metacritic/{psnpid}/(psnpid=${record.getId()})}">
+                        <input type="submit" value="Update MetaCritic" />
+                    </form>
                 </div>
             </li>
         </ul>
@@ -87,6 +92,14 @@
 
                     <input style="margin-top: 6px; margin-bottom: 24px;"
                            type="submit" value="Patch HLTB Url" />
+                </form>
+
+                <form method="post" th:action="@{/platgames/patch/metacritic/{psnpid}/(psnpid = ${record.getId()})}">
+                    <input type="text" class="field-style field-full align-left"
+                           placeholder="MetaCritic Url" id="metaurl" name="metaurl" th:value="${metaurl}" />
+
+                    <input style="margin-top: 6px; margin-bottom: 24px;"
+                           type="submit" value="Patch MetaCritic Url" />
                 </form>
 
                 <form method="post" th:action="@{/platgames/patch/psn/{psnpid}/(psnpid = ${record.getId()})}">
