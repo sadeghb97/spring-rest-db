@@ -22,9 +22,9 @@ public class UserGameService {
     public Page<UserGame> findLibraryGames(Pageable pageable, PlatinumGame platGame, Long userPk, String sort){
         if(platGame.getName() == null) platGame.setName("");
 
-        if(sort == null || sort.equals("owners")) return repository.findBySOOwners(pageable, userPk, platGame);
+        if(sort == null || sort.equals("creation")) return repository.findBySOCreationTime(pageable, userPk, platGame);
         if(sort.equals("points")) return repository.findBySOPoints(pageable, userPk, platGame);
-        if(sort.equals("creation")) return repository.findBySOCreationTime(pageable, userPk, platGame);
+        if(sort.equals("owners")) return repository.findBySOOwners(pageable, userPk, platGame);
         if(sort.equals("cr")) return repository.findBySOCompletionRate(pageable, userPk, platGame);
         if(sort.equals("plat")) return repository.findBySOPlatAchievers(pageable, userPk, platGame);
         if(sort.equals("tc")) return repository.findBySOTrophiesCount(pageable, userPk, platGame);

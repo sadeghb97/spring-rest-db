@@ -1,5 +1,6 @@
 package ir.sbpro.springdb.plat_modules.platgames;
 
+import ir.sbpro.models.MetacriticGame;
 import ir.sbpro.models.PSNProfilesGame;
 import ir.sbpro.springdb.enums.UserGameStatus;
 import ir.sbpro.springdb.modules.users.UserModel;
@@ -22,6 +23,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Locale;
 import java.util.Optional;
 
 @Controller
@@ -104,6 +106,11 @@ public class PlatGTemplateController {
     public String getAddPlatGameView(Model model){
         model.addAttribute("patch_mode", false);
         return "plat_games/add_plat_game";
+    }
+
+    @GetMapping(value = "/agg_add/")
+    public String getAddPlatGamesView(){
+        return "plat_games/add_plat_games";
     }
 
     private String _getShowGameRedirectRoute(String psnpId){
@@ -216,6 +223,12 @@ public class PlatGTemplateController {
 
         if(platinumGame.getMetacriticGame() != null)
             _updateMetaCritic(platinumGame, platinumGame.getMetacriticGame().getLink(), false);
+        else {
+            String mcSlugPrediction = "playstation-4/" +
+                    platinumGame.getName().toLowerCase(Locale.ROOT).replaceAll(" ", "-");
+            String finalUrl = MetaCriticGame.START_URL + mcSlugPrediction;
+            _updateMetaCritic(platinumGame, finalUrl, true);
+        }
         return _getShowGameRedirectRoute(psnpId);
     }
 
@@ -226,6 +239,40 @@ public class PlatGTemplateController {
 
         _updateMetaCritic(platinumGame, newMetaUrl, true);
         return _getShowGameRedirectRoute(psnpId);
+    }
+
+    @PostMapping(value = "/insertgames/")
+    public String insertPlatGames(@RequestParam("psnp") String psnpUrls){
+        String[] urls = psnpUrls.split("\n");
+        int sucCount = 0;
+        int erCount = 0;
+
+        for(int i=0; urls.length>i; i++) {
+            try {
+                String pUrl = urls[i];
+                int pos1 = pUrl.lastIndexOf("/");
+                int pos2 = pUrl.indexOf("-", pos1);
+                if(pos1 < 0 || pos2 < 0) continue;
+
+                String psnpId = pUrl.substring(pos1 + 1, pos2);
+                PlatinumGame platinumGame = platGameService.getPlatinumGame(psnpId);
+                if(platinumGame != null) continue;
+
+                platinumGame = new PlatinumGame();
+                PSNProfilesGame psnpFetcher = new PSNProfilesGame();
+                psnpFetcher.update(pUrl);
+                platinumGame.load(psnpFetcher);
+                platGameService.platGameRepository.save(platinumGame);
+                System.out.println("PSNP Game Fetched!");
+                sucCount++;
+            }
+            catch (Exception ex) {
+                ex.printStackTrace();
+                erCount++;
+            }
+        }
+
+        return "redirect:/platgames/";
     }
 
     @PostMapping(value = "/insertgame/")

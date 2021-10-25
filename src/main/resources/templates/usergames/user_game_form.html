@@ -17,8 +17,10 @@
           class="form-style-9" enctype="multipart/form-data" autocomplete="off">
         <ul>
             <li>
-                <img class="field-style field-full align-left" id="#coverbox"
-                     th:src="${record.platinumGame.getImage()}" />
+                <a th:href="@{/platgames/showgame/{psnpid}/(psnpid=${record.platinumGame.getId()})}">
+                    <img class="field-style field-full align-left" id="#coverbox"
+                        th:src="${record.platinumGame.getImage()}" />
+                </a>
 
                 <input type="hidden" id="id" name="id" th:field="*{id}">
 

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Game</title>
+
+    <div th:replace="fragments/header::head"></div>
+    <link rel="stylesheet" th:href="@{/css/game_form.css}" />
+</head>
+
+<body>
+
+<div>
+    <div th:replace="fragments/navbar::navbar"></div>
+
+    <form th:fragment="pg_urls" style="width: 80%; max-width: 750px;"
+          th:action="@{/platgames/insertgames/}" method="post"
+          class="form-style-9" enctype="multipart/form-data">
+        <ul>
+            <li>
+                <label for="psnp">PSNP Urls</label>
+                <textarea class="field-style field-full align-left" style="height: 400px;"
+                          id="psnp" name="psnp" ></textarea>
+            </li>
+            <li>
+                <input style="margin-top: 8px;" type="submit"
+                       value="Add Games" />
+            </li>
+        </ul>
+    </form>
+</div>
+
+</body>
+</html>

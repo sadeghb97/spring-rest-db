@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "metacritic_games")
 public class MetaCriticGame {
-    private static final String START_URL = "https://www.metacritic.com/game/";
+    public static final String START_URL = "https://www.metacritic.com/game/";
 
     @Id
     @Column(name = "id", nullable = false)
