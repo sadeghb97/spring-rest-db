@@ -1,7 +1,9 @@
 package ir.sbpro.springdb.plat_modules.platgames;
 
+import ir.sbpro.PlatPricesApi;
 import ir.sbpro.models.MetacriticGame;
 import ir.sbpro.models.PSNProfilesGame;
+import ir.sbpro.models.PlatPricesGame;
 import ir.sbpro.springdb.enums.UserGameStatus;
 import ir.sbpro.springdb.modules.users.UserModel;
 import ir.sbpro.springdb.modules.users.UserService;
@@ -128,6 +130,27 @@ public class PlatGTemplateController {
         }
     }
 
+    private void _updatePSN(PlatinumGame platinumGame){
+        try {
+            PlatPricesGame platPricesGame =
+                    PlatPricesApi.getPlatPricesGameWithName(platinumGame.getName());
+            ir.sbpro.models.PSNGame psnFetcher = new ir.sbpro.models.PSNGame();
+            psnFetcher.update(platPricesGame);
+            PSNGame springPSNGame = new PSNGame();
+            springPSNGame.load(psnFetcher);
+            springPSNGame = psnGamesService.gamesRepository.save(springPSNGame);
+
+            if (springPSNGame != null) {
+                platinumGame.setStoreGame(springPSNGame);
+                platGameService.platGameRepository.save(platinumGame);
+            }
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+            System.out.println("Ex: " + ex.getMessage());
+        }
+    }
+
     @PostMapping(value = "/update/psn/{psnpid}/")
     public String updatePSN(@PathVariable("psnpid") String psnpId){
         PlatinumGame platinumGame = platGameService.getPlatinumGame(psnpId);
@@ -135,6 +158,7 @@ public class PlatGTemplateController {
 
         if(platinumGame.getStoreGame() != null)
             _updatePSN(platinumGame, platinumGame.getStoreGame().getId(), false);
+        else _updatePSN(platinumGame);
         return _getShowGameRedirectRoute(psnpId);
     }
 
@@ -224,8 +248,7 @@ public class PlatGTemplateController {
         if(platinumGame.getMetacriticGame() != null)
             _updateMetaCritic(platinumGame, platinumGame.getMetacriticGame().getLink(), false);
         else {
-            String mcSlugPrediction = "playstation-4/" +
-                    platinumGame.getName().toLowerCase(Locale.ROOT).replaceAll(" ", "-");
+            String mcSlugPrediction = MetacriticGame.getSlugPrediction(platinumGame.getName());
             String finalUrl = MetaCriticGame.START_URL + mcSlugPrediction;
             _updateMetaCritic(platinumGame, finalUrl, true);
         }

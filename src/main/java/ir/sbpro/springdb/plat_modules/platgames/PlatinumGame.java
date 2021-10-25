@@ -312,8 +312,12 @@ public class PlatinumGame {
             stringBuilder.append("-------------" + lineDelimiter);
             stringBuilder.append("Store ID: " + storeGame.getId() + lineDelimiter);
             stringBuilder.append("Store Name: " + storeGame.getName() + lineDelimiter);
-            stringBuilder.append("Classification: " + storeGame.getStoreClassificationType() + " - " +
-                    storeGame.getStoreClassificationDisplay() + lineDelimiter);
+
+            if(storeGame.getStoreClassificationType() != null && !storeGame.getStoreClassificationType().isEmpty()) {
+                stringBuilder.append("Classification: " + storeGame.getStoreClassificationType() + " - " +
+                        storeGame.getStoreClassificationDisplay() + lineDelimiter);
+            }
+
             stringBuilder.append("Price: " + storeGame.getBasePrice());
             if(storeGame.isDiscounted()){
                 stringBuilder.append(" | " + storeGame.getDiscountedPrice() + " | " +
