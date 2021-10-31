@@ -15,6 +15,16 @@
             <a th:href="@{${url.replaceQueryParam('sort').replaceQueryParam('page').toUriString()}(sort=${'dis'}, page=${0})}">
                 <button type="button" class="btn btn-danger sort-button">Discount</button>
             </a>
+
+            <a th:if="${type == null || type.equals('game')}"
+               th:href="@{${url.replaceQueryParam('sort').replaceQueryParam('page').toUriString()}(sort=${'pgfp'}, page=${0})}">
+                <button type="button" class="btn btn-success sort-button">PGPrice</button>
+            </a>
+
+            <a th:if="${type == null || type.equals('game')}"
+               th:href="@{${url.replaceQueryParam('sort').replaceQueryParam('page').toUriString()}(sort=${'pgdis'}, page=${0})}">
+                <button type="button" class="btn btn-info sort-button">PGDiscount</button>
+            </a>
         </div>
     </div>
 

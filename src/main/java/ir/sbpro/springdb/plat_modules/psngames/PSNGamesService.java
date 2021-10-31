@@ -45,4 +45,8 @@ public class PSNGamesService {
             return null;
         }
     }
+
+    public Optional<PSNGame> getByPPID(String ppid){
+        return gamesRepository.findByPPID(ppid);
+    }
 }

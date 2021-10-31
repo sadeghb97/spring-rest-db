@@ -35,12 +35,16 @@
     <div class="container" style="margin-bottom: 32px;">
         <div class="a-box" th:each="game : ${records}">
             <div class="img-container">
-                <div class="img-inner">
-                    <!--<a th:href="'/platgames/showgame/' + ${game.getId()} + '/'" target="_blank">-->
+                <div class="img-inner" th:switch="${game.getPlatinumGame() != null}">
+                    <a th:case="true" th:href="'/platgames/showgame/' + ${game.platinumGame.getId()} + '/'" target="_blank">
                         <div class="inner-skew">
                             <img th:src="${game.getImg()}">
                         </div>
-                    <!--</a>-->
+                    </a>
+
+                    <div th:case="*" class="inner-skew">
+                        <img th:src="${game.getImg()}">
+                    </div>
                 </div>
             </div>
             <div class="text-container">
@@ -49,6 +53,11 @@
                 <div>
                     <span>Discount: </span>
                     <span style="font-weight: bold; color: #0ba691" th:text="${game.getDiscountText()}"></span>
+                </div>
+
+                <div th:if="${game.platinumGame != null}">
+                    <div>-------</div>
+                    <div th:each="item: ${game.platinumGame.getShortSummary(false)}" th:text="${item}"></div>
                 </div>
             </div>
         </div>

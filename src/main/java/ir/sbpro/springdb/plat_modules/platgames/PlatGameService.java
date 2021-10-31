@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -44,5 +45,11 @@ public class PlatGameService {
         Optional<PlatinumGame> gameOptional = platGameRepository.findById(psnpId);
         if(gameOptional.isEmpty()) return null;
         return gameOptional.get();
+    }
+
+    public Optional<PlatinumGame> getByPPID(String ppid){
+        List<PlatinumGame> pgList = platGameRepository.filterByPPID(ppid);
+        if(pgList != null && pgList.size() > 0) return Optional.ofNullable(pgList.get(0));
+        return Optional.empty();
     }
 }

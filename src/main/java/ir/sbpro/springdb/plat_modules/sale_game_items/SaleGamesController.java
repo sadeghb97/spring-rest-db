@@ -35,6 +35,7 @@ public class SaleGamesController {
         PageRequest pageRequest = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize());
         model.addAttribute("records",
                 saleGameService.findBySearchQuery(pageRequest, saleGame, sort));
+        model.addAttribute("type", "game");
         return "sale_games/sale_games";
     }
 }

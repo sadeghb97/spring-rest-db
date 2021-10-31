@@ -374,11 +374,18 @@ public class PlatinumGame {
 
     @JsonIgnore
     public String[] getShortSummary(){
+        return getShortSummary(true);
+    }
+
+    @JsonIgnore
+    public String[] getShortSummary(boolean storeDetails){
         String lineDelimiter = "\n";
         StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append(getName());
-        stringBuilder.append(lineDelimiter);
+        if(storeDetails) {
+            stringBuilder.append(getName());
+            stringBuilder.append(lineDelimiter);
+        }
 
         stringBuilder.append(getOwners() + " Owners | " + getRecent() + " Recent");
         stringBuilder.append(lineDelimiter);
@@ -389,7 +396,7 @@ public class PlatinumGame {
         stringBuilder.append(getCompletionSummary());
         stringBuilder.append(lineDelimiter);
 
-        if(getStoreGame() != null){
+        if(storeDetails && getStoreGame() != null){
             stringBuilder.append(getStoreGame().getPriceSummary());
             stringBuilder.append(lineDelimiter);
         }

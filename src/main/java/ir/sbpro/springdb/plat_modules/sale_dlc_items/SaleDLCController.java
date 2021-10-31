@@ -37,6 +37,7 @@ public class SaleDLCController {
         PageRequest pageRequest = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize());
         model.addAttribute("records",
                 saleDLCService.findBySearchQuery(pageRequest, saleDLC, sort));
+        model.addAttribute("type", "dlc");
         return "sale_dlc/sale_dlc";
     }
 }

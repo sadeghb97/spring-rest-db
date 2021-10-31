@@ -1,10 +1,14 @@
 package ir.sbpro.springdb.plat_modules.platgames;
 
+import ir.sbpro.springdb.plat_modules.psngames.PSNGame;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface PlatinumGameRepository extends JpaRepository<PlatinumGame, String> {
@@ -64,4 +68,8 @@ public interface PlatinumGameRepository extends JpaRepository<PlatinumGame, Stri
             "g.name LIKE concat('%', :#{#platGame.name}, '%') " +
             "ORDER BY g.allTrophiesCount ASC")
     Page<PlatinumGame> findWishListByPrice(Pageable pageable, Long userPk, PlatinumGame platGame);
+
+
+    @Query("SELECT pg FROM PlatinumGame pg INNER JOIN pg.storeGame g WHERE g.ppid = :#{#ppid}")
+    List<PlatinumGame> filterByPPID(String ppid);
 }

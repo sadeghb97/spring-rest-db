@@ -1,6 +1,7 @@
 package ir.sbpro.springdb.plat_modules.sale_game_items;
 
 import ir.sbpro.models.GameSaleItem;
+import ir.sbpro.springdb.plat_modules.platgames.PlatinumGame;
 import ir.sbpro.springdb.plat_modules.psngames.PSNGame;
 import ir.sbpro.springdb.plat_modules.sales.SaleItem;
 import ir.sbpro.springdb.utils.PriceUtils;
@@ -21,7 +22,7 @@ public class SaleGameItem extends SaleItem {
 
     @OneToOne
     @JoinColumn(referencedColumnName = "id")
-    private PSNGame psnGame = null;
+    private PlatinumGame platinumGame = null;
 
     public String getDifficulty() {
         return Difficulty;
@@ -87,12 +88,12 @@ public class SaleGameItem extends SaleItem {
         IsPS5 = PS5;
     }
 
-    public PSNGame getPsnGame() {
-        return psnGame;
+    public PlatinumGame getPlatinumGame() {
+        return platinumGame;
     }
 
-    public void setPsnGame(PSNGame psnGame) {
-        this.psnGame = psnGame;
+    public void setPlatinumGame(PlatinumGame platinumGame) {
+        this.platinumGame = platinumGame;
     }
 
     public void load(GameSaleItem saleGameFetcher){
