@@ -16,10 +16,10 @@ public class SaleGameService {
 
     public Page<SaleGameItem> findBySearchQuery(Pageable pageable, SaleGameItem saleGame, String sort) {
         if (saleGame.getName() == null) saleGame.setName("");
-        if(sort == null || sort.equals("fp")) return saleGameRepository.findBySOFinalPrice(pageable, saleGame);
-        if(sort.equals("dis")) return saleGameRepository.findBySODiscountPercent(pageable, saleGame);
+        if(sort == null || sort.equals("dis")) return saleGameRepository.findBySODiscountPercent(pageable, saleGame);
+        if(sort.equals("fp")) return saleGameRepository.findBySOFinalPrice(pageable, saleGame);
         if(sort.equals("pgfp")) return saleGameRepository.findPlatsBySOFinalPrice(pageable, saleGame);
         if(sort.equals("pgdis")) return saleGameRepository.findPlatsBySODiscountPercent(pageable, saleGame);
-        return saleGameRepository.findBySOFinalPrice(pageable, saleGame);
+        return saleGameRepository.findBySODiscountPercent(pageable, saleGame);
     }
 }

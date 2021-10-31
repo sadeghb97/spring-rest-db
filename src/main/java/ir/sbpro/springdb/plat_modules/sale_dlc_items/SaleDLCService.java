@@ -17,8 +17,8 @@ public class SaleDLCService {
 
     public Page<SaleDLCItem> findBySearchQuery(Pageable pageable, SaleDLCItem saleDLC, String sort) {
         if (saleDLC.getName() == null) saleDLC.setName("");
-        if(sort == null || sort.equals("fp")) return saleDLCRepository.findBySOFinalPrice(pageable, saleDLC);
-        if(sort.equals("dis")) return saleDLCRepository.findBySODiscountPercent(pageable, saleDLC);
-        return saleDLCRepository.findBySOFinalPrice(pageable, saleDLC);
+        if(sort == null || sort.equals("dis")) return saleDLCRepository.findBySODiscountPercent(pageable, saleDLC);
+        if(sort.equals("fp")) return saleDLCRepository.findBySOFinalPrice(pageable, saleDLC);
+        return saleDLCRepository.findBySODiscountPercent(pageable, saleDLC);
     }
 }
