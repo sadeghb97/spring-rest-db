@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sale Games</title>
+
+    <div th:replace="fragments/header::head"></div>
+</head>
+
+<body>
+    <div th:replace="fragments/navbar::navbar"></div>
+
+    <div class="container">
+        <form th:action="@{/salegames/}" method="get">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-md-6">
+                    <div class="search">
+                        <i class="fa fa-search"></i>
+                        <input type="text" class="form-control"
+                               placeholder="Search in games by title, ..."
+                                th:field="${gsearch.Name}">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div th:replace="fragments/sale_sorts::sort_options" style="margin-top: 16px;"></div>
+
+    <div style="padding-top: 20px; padding-bottom: 15px;">
+        <div th:replace="fragments/pagination::pagination"></div>
+    </div>
+
+    <div class="container" style="margin-bottom: 32px;">
+        <div class="a-box" th:each="game : ${records}">
+            <div class="img-container">
+                <div class="img-inner">
+                    <!--<a th:href="'/platgames/showgame/' + ${game.getId()} + '/'" target="_blank">-->
+                        <div class="inner-skew">
+                            <img th:src="${game.getImg()}">
+                        </div>
+                    <!--</a>-->
+                </div>
+            </div>
+            <div class="text-container">
+                <div th:text="${game.getName}"></div>
+                <div th:text="${game.getPriceSummary()}"></div>
+                <div>
+                    <span>Discount: </span>
+                    <span th:text="${game.getDiscountText()}"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

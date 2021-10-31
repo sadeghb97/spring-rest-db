@@ -22,6 +22,11 @@ public interface UserGameRepository extends JpaRepository<UserGame, Long> {
 
     @Query("SELECT g FROM UserModel u INNER JOIN u.psnGames g WHERE u.pk = :#{#userPk} AND " +
             "g.platinumGame.name LIKE concat('%', :#{#platGame.name}, '%') " +
+            "ORDER BY g.createdAt DESC")
+    Page<UserGame> findBySOCreationTime(Pageable pageable, Long userPk, PlatinumGame platGame);
+
+    @Query("SELECT g FROM UserModel u INNER JOIN u.psnGames g WHERE u.pk = :#{#userPk} AND " +
+            "g.platinumGame.name LIKE concat('%', :#{#platGame.name}, '%') " +
             "ORDER BY g.platinumGame.owners DESC")
     Page<UserGame> findBySOOwners(Pageable pageable, Long userPk, PlatinumGame platGame);
 
@@ -29,11 +34,6 @@ public interface UserGameRepository extends JpaRepository<UserGame, Long> {
             "g.platinumGame.name LIKE concat('%', :#{#platGame.name}, '%') " +
             "ORDER BY g.platinumGame.points DESC")
     Page<UserGame> findBySOPoints(Pageable pageable, Long userPk, PlatinumGame platGame);
-
-    @Query("SELECT g FROM UserModel u INNER JOIN u.psnGames g WHERE u.pk = :#{#userPk} AND " +
-            "g.platinumGame.name LIKE concat('%', :#{#platGame.name}, '%') " +
-            "ORDER BY g.platinumGame.createdAt DESC")
-    Page<UserGame> findBySOCreationTime(Pageable pageable, Long userPk, PlatinumGame platGame);
 
     @Query("SELECT g FROM UserModel u INNER JOIN u.psnGames g WHERE u.pk = :#{#userPk} AND " +
             "g.platinumGame.name LIKE concat('%', :#{#platGame.name}, '%') " +

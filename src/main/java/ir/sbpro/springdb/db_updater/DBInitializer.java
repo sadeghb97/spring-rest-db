@@ -1,9 +1,10 @@
-package ir.sbpro.springdb;
+package ir.sbpro.springdb.db_updater;
 
 import ir.sbpro.PSStoreScrapper;
 import ir.sbpro.enums.ConnectionType;
 import ir.sbpro.games_repo.*;
 import ir.sbpro.models.PSNProfilesGame;
+import ir.sbpro.springdb.ApplicationContextHolder;
 import ir.sbpro.springdb.plat_modules.hltbgames.HLTBGame;
 import ir.sbpro.springdb.plat_modules.hltbgames.HLTBGamesService;
 import ir.sbpro.springdb.plat_modules.metacritic_games.MetaCriticGame;

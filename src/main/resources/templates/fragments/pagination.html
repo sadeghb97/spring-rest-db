@@ -10,7 +10,8 @@
     <div th:fragment="pagination" th:switch="${records.totalPages > 0}">
         <nav th:case="true" aria-label="Page navigation" style="display: flex">
             <ul class="pagination"
-                th:with="url=${T(org.springframework.web.servlet.support.ServletUriComponentsBuilder).fromCurrentRequest()}"
+                th:with="url=${T(org.springframework.web.servlet.support.ServletUriComponentsBuilder).fromCurrentRequest()},
+                         pgvar=${T(ir.sbpro.springdb.utils.PaginationVars).getInstance(records.number, records.totalPages - 1, 25)}"
                 style="margin: auto">
 
                 <li class="page-item" th:classappend="${records.first} ? disabled">
@@ -23,7 +24,7 @@
 
                 <li class="page-item"
                     th:classappend="${records.number == i} ? active"
-                    th:each="i : ${#numbers.sequence(0, records.totalPages - 1)}">
+                    th:each="i : ${#numbers.sequence(pgvar.firstItem, pgvar.lastItem)}">
                     <a class="page-link"
                        th:href="@{${url.replaceQueryParam('page').toUriString()}(page=${i})}">[[${i + 1}]]</a></li>
 

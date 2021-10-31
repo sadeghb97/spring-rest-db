@@ -1,6 +1,7 @@
 package ir.sbpro.springdb.plat_modules.psngames;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import ir.sbpro.springdb.utils.PriceUtils;
 
 import javax.persistence.*;
 import java.util.List;
@@ -12,6 +13,7 @@ public class PSNGame {
     @Column(name = "id", nullable = false)
     private String id;
 
+    private String ppid;
     private String name;
     private String storeClassificationType = "";
     private String storeClassificationDisplay = "";
@@ -146,6 +148,14 @@ public class PSNGame {
         this.upTime = upTime;
     }
 
+    public String getPpid() {
+        return ppid;
+    }
+
+    public void setPpid(String ppid) {
+        this.ppid = ppid;
+    }
+
     public double getBasePriceValue() {
         return basePriceValue;
     }
@@ -172,6 +182,7 @@ public class PSNGame {
 
     public void load(ir.sbpro.models.PSNGame psnGame){
         setId(psnGame.id);
+        setPpid(psnGame.ppid);
         setName(psnGame.name);
 
         if(psnGame.storeClassificationType != null && !psnGame.storeClassificationType.isEmpty())
@@ -186,24 +197,13 @@ public class PSNGame {
         setBasePrice(psnGame.gamePrice.basePrice);
         setDiscountedPrice(psnGame.gamePrice.discountedPrice);
         setDiscountText(psnGame.gamePrice.discountText);
-        setBasePriceValue(getPriceValue(psnGame.gamePrice.basePrice));
-        setDiscountedPriceValue(getPriceValue(psnGame.gamePrice.discountedPrice));
+        setBasePriceValue(PriceUtils.getPriceValue(psnGame.gamePrice.basePrice));
+        setDiscountedPriceValue(PriceUtils.getPriceValue(psnGame.gamePrice.discountedPrice));
         setDiscountTextValue(
                 getDiscountPercentValue(psnGame.gamePrice.discountText));
         setDiscounted(psnGame.gamePrice.discounted);
         setAlsoIncluded(psnGame.gamePrice.alsoIncluded);
         setUpTime(psnGame.upTime);
-    }
-
-    private double getPriceValue(String basePrice){
-        basePrice = basePrice.trim();
-        if(basePrice.toLowerCase().equals("free")) return 0;
-        try {
-            return Double.parseDouble(basePrice.substring(1));
-        }
-        catch (Exception ex){
-            return -1;
-        }
     }
 
     private double getDiscountPercentValue(String discountText){

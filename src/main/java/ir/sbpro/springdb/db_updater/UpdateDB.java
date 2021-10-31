@@ -1,4 +1,4 @@
-package ir.sbpro.springdb;
+package ir.sbpro.springdb.db_updater;
 
 public class UpdateDB {
     public static void update() {

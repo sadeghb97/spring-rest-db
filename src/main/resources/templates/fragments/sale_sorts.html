@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/header::head"></div>
+</head>
+
+<body>
+    <div th:fragment="sort_options"
+         th:with="url=${T(org.springframework.web.servlet.support.ServletUriComponentsBuilder).fromCurrentRequest()}">
+        <div style="margin-top: 16px;">
+            <a th:href="@{${url.replaceQueryParam('sort').replaceQueryParam('page').toUriString()}(sort=${'fp'}, page=${0})}">
+                <button type="button" class="btn btn-primary sort-button">Price</button>
+            </a>
+
+            <a th:href="@{${url.replaceQueryParam('sort').replaceQueryParam('page').toUriString()}(sort=${'dis'}, page=${0})}">
+                <button type="button" class="btn btn-danger sort-button">Discount</button>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>

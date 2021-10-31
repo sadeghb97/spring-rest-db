@@ -1,6 +1,5 @@
 package ir.sbpro.springdb.plat_modules.hltbgames;
 
-import ir.sbpro.springdb.plat_modules.psngames.PSNGame;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
