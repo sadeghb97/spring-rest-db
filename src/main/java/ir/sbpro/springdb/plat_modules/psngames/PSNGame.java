@@ -1,6 +1,7 @@
 package ir.sbpro.springdb.plat_modules.psngames;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import ir.sbpro.models.GameSaleItem;
 import ir.sbpro.springdb.utils.PriceUtils;
 
 import javax.persistence.*;
@@ -204,6 +205,18 @@ public class PSNGame {
         setDiscounted(psnGame.gamePrice.discounted);
         setAlsoIncluded(psnGame.gamePrice.alsoIncluded);
         setUpTime(psnGame.upTime);
+    }
+
+    public void load(GameSaleItem saleGameFetcher){
+        setPpid(saleGameFetcher.PPID);
+        setBasePrice(saleGameFetcher.formattedBasePrice);
+        setDiscountedPrice(saleGameFetcher.formattedSalePrice);
+        setBasePriceValue(PriceUtils.getPriceValue(saleGameFetcher.formattedBasePrice));
+        setDiscountedPriceValue(PriceUtils.getPriceValue(saleGameFetcher.formattedSalePrice));
+
+        setDiscountTextValue((basePriceValue - discountedPriceValue) / basePriceValue * 100);
+        setDiscountText("-" + discountTextValue + "%");
+        setUpTime(System.currentTimeMillis());
     }
 
     private double getDiscountPercentValue(String discountText){

@@ -34,6 +34,7 @@ public class SaleDLCItem extends SaleItem {
         setPlusPriceValue(PriceUtils.getPriceValue(saleDLCFetcher.formattedPlusPrice));
         setPlatPricesURL(saleDLCFetcher.PlatPricesURL);
         setDiscountPercent((basePriceValue - salePriceValue) / basePriceValue * 100);
+        setPlusDiscountPercent((basePriceValue - plusPriceValue) / basePriceValue * 100);
 
         setParentGame(saleDLCFetcher.ParentGame);
     }

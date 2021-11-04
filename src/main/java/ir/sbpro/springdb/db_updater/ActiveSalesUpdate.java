@@ -11,6 +11,7 @@ import ir.sbpro.springdb.plat_modules.active_sales.ActivePSNSale;
 import ir.sbpro.springdb.plat_modules.active_sales.ActiveSalesService;
 import ir.sbpro.springdb.plat_modules.platgames.PlatGameService;
 import ir.sbpro.springdb.plat_modules.platgames.PlatinumGame;
+import ir.sbpro.springdb.plat_modules.psngames.PSNGame;
 import ir.sbpro.springdb.plat_modules.psngames.PSNGamesService;
 import ir.sbpro.springdb.plat_modules.sale_dlc_items.SaleDLCItem;
 import ir.sbpro.springdb.plat_modules.sale_dlc_items.SaleDLCService;
@@ -26,6 +27,7 @@ public class ActiveSalesUpdate {
     SaleGameService saleGameService;
     SaleDLCService saleDLCService;
     PlatGameService platGameService;
+    PSNGamesService psnGamesService;
 
     public ActiveSalesUpdate(){
         ApplicationContext applicationContext = ApplicationContextHolder.getContext();
@@ -33,6 +35,7 @@ public class ActiveSalesUpdate {
         saleGameService = applicationContext.getBean(SaleGameService.class);
         saleDLCService = applicationContext.getBean(SaleDLCService.class);
         platGameService = applicationContext.getBean(PlatGameService.class);
+        psnGamesService = applicationContext.getBean(PSNGamesService.class);
     }
 
     public void update(){
@@ -56,7 +59,14 @@ public class ActiveSalesUpdate {
 
                     Optional<PlatinumGame> pgOptional = platGameService.getByPPID(springSaleGameItem.getPPID());
                     if(pgOptional.isPresent()){
-                        springSaleGameItem.setPlatinumGame(pgOptional.get());
+                        PlatinumGame platinumGame = pgOptional.get();
+                        if(platinumGame.getStoreGame() != null){
+                            PSNGame psnGame = platinumGame.getStoreGame();
+                            psnGame.load(gsi);
+                            psnGamesService.gamesRepository.save(psnGame);
+                        }
+
+                        springSaleGameItem.setPlatinumGame(platinumGame);
                     }
 
                     springSaleGameItem = saleGameService.saleGameRepository.save(springSaleGameItem);

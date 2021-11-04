@@ -28,6 +28,7 @@ public class SaleItem {
     protected double salePriceValue;
     protected double plusPriceValue;
     protected double discountPercent;
+    protected double plusDiscountPercent;
     protected String PlatPricesURL;
 
     @ManyToOne
@@ -146,6 +147,14 @@ public class SaleItem {
         this.discountPercent = discountPercent;
     }
 
+    public double getPlusDiscountPercent() {
+        return plusDiscountPercent;
+    }
+
+    public void setPlusDiscountPercent(double plusDiscountPercent) {
+        this.plusDiscountPercent = plusDiscountPercent;
+    }
+
     public String getPlatPricesURL() {
         return PlatPricesURL;
     }
@@ -184,6 +193,12 @@ public class SaleItem {
         return dp + "%";
     }
 
+    @JsonIgnore
+    public String getPlusDiscountText(){
+        int dp = (int) Math.round(plusDiscountPercent);
+        return dp + "%";
+    }
+
     public void load(SaleItem saleFetcher){
         setPPID(saleFetcher.PPID);
         setName(saleFetcher.Name);
@@ -199,6 +214,7 @@ public class SaleItem {
         setSalePriceValue(PriceUtils.getPriceValue(saleFetcher.formattedSalePrice));
         setPlusPriceValue(PriceUtils.getPriceValue(saleFetcher.formattedPlusPrice));
         setDiscountPercent((basePriceValue - salePriceValue) / basePriceValue * 100);
+        setPlusDiscountPercent((basePriceValue - plusPriceValue) / basePriceValue * 100);
 
         setPlatPricesURL(saleFetcher.PlatPricesURL);
     }

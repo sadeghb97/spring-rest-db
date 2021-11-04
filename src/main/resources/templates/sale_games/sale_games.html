@@ -53,6 +53,10 @@
                 <div>
                     <span>Discount: </span>
                     <span style="font-weight: bold; color: #0ba691" th:text="${game.getDiscountText()}"></span>
+                    <div style="display: inline" th:if="${game.salePriceValue > game.plusPriceValue}">
+                        <span> | </span>
+                        <span style="font-weight: bold; color: #a98c00" th:text="${game.getPlusDiscountText()}"></span>
+                    </div>
                 </div>
 
                 <div th:if="${game.platinumGame != null}">

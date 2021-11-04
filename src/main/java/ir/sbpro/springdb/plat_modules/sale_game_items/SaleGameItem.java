@@ -123,6 +123,7 @@ public class SaleGameItem extends SaleItem {
         setSalePriceValue(PriceUtils.getPriceValue(saleGameFetcher.formattedSalePrice));
         setPlusPriceValue(PriceUtils.getPriceValue(saleGameFetcher.formattedPlusPrice));
         setDiscountPercent((basePriceValue - salePriceValue) / basePriceValue * 100);
+        setPlusDiscountPercent((basePriceValue - plusPriceValue) / basePriceValue * 100);
 
         setPlatPricesURL(saleGameFetcher.PlatPricesURL);
     }
