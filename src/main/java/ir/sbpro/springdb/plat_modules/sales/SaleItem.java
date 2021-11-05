@@ -7,6 +7,8 @@ import ir.sbpro.springdb.plat_modules.psngames.PSNGame;
 import ir.sbpro.springdb.utils.PriceUtils;
 
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @MappedSuperclass
 public class SaleItem {
@@ -197,6 +199,19 @@ public class SaleItem {
     public String getPlusDiscountText(){
         int dp = (int) Math.round(plusDiscountPercent);
         return dp + "%";
+    }
+
+    @JsonIgnore
+    public static long ppTimeStrToUnix(String timeStr){
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            Date date = sdf.parse(timeStr);
+            return date.getTime();
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+            return 0;
+        }
     }
 
     public void load(SaleItem saleFetcher){

@@ -25,6 +25,10 @@ public interface SaleGameRepository extends JpaRepository<SaleGameItem, Long> {
             "ORDER BY g.plusDiscountPercent DESC")
     Page<SaleGameItem> findBySOPlusDiscountPercent(Pageable pageable, SaleGameItem saleGame);
 
+    @Query("SELECT g FROM SaleGameItem g WHERE g.Name LIKE concat('%', :#{#saleGame.Name}, '%') " +
+            "ORDER BY g.discountedUntilUnix ASC")
+    Page<SaleGameItem> findBySOTimeRemained(Pageable pageable, SaleGameItem saleGame);
+
     @Query("SELECT g FROM SaleGameItem g WHERE g.Name LIKE concat('%', :#{#saleGame.Name}, '%') AND g.platinumGame IS NOT NULL " +
             "ORDER BY g.salePriceValue ASC")
     Page<SaleGameItem> findPlatsBySOFinalPrice(Pageable pageable, SaleGameItem saleGame);
@@ -43,5 +47,10 @@ public interface SaleGameRepository extends JpaRepository<SaleGameItem, Long> {
             "AND g.salePriceValue > g.plusPriceValue " +
             "ORDER BY g.plusDiscountPercent DESC")
     Page<SaleGameItem> findPlatsBySOPlusDiscountPercent(Pageable pageable, SaleGameItem saleGame);
+
+    @Query("SELECT g FROM SaleGameItem g " +
+            "WHERE g.Name LIKE concat('%', :#{#saleGame.Name}, '%') AND g.platinumGame IS NOT NULL " +
+            "ORDER BY g.discountedUntilUnix ASC")
+    Page<SaleGameItem> findPlatsBySOTimeRemained(Pageable pageable, SaleGameItem saleGame);
 
 }

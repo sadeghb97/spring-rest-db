@@ -1,10 +1,12 @@
 package ir.sbpro.springdb.plat_modules.sale_game_items;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import ir.sbpro.models.GameSaleItem;
 import ir.sbpro.springdb.plat_modules.platgames.PlatinumGame;
 import ir.sbpro.springdb.plat_modules.psngames.PSNGame;
 import ir.sbpro.springdb.plat_modules.sales.SaleItem;
 import ir.sbpro.springdb.utils.PriceUtils;
+import ir.sbpro.springdb.utils.TimeUtils;
 
 import javax.persistence.*;
 
@@ -18,6 +20,7 @@ public class SaleGameItem extends SaleItem {
     private boolean IsPS5;
     private String LastDiscounted;
     private String DiscountedUntil;
+    private long discountedUntilUnix;
     private String PlatPricesURL;
 
     @OneToOne
@@ -64,6 +67,14 @@ public class SaleGameItem extends SaleItem {
         DiscountedUntil = discountedUntil;
     }
 
+    public void setDiscountedUntilUnix(long discountedUntilUnix) {
+        this.discountedUntilUnix = discountedUntilUnix;
+    }
+
+    public long getDiscountedUntilUnix(){
+        return ppTimeStrToUnix(getDiscountedUntil());
+    }
+
     public String getPlatPricesURL() {
         return PlatPricesURL;
     }
@@ -96,6 +107,13 @@ public class SaleGameItem extends SaleItem {
         this.platinumGame = platinumGame;
     }
 
+    @JsonIgnore
+    public String getDiscountedUntilSummary(){
+        long duration = getDiscountedUntilUnix() - System.currentTimeMillis();
+        if(duration <= 0) return "Expired";
+        return TimeUtils.getDuration(duration, false);
+    }
+
     public void load(GameSaleItem saleGameFetcher){
         setPPID(saleGameFetcher.PPID);
         setName(saleGameFetcher.Name);
@@ -112,6 +130,7 @@ public class SaleGameItem extends SaleItem {
 
         setLastDiscounted(saleGameFetcher.LastDiscounted);
         setDiscountedUntil(saleGameFetcher.DiscountedUntil);
+        setDiscountedUntilUnix(ppTimeStrToUnix(saleGameFetcher.DiscountedUntil));
         setBasePrice(saleGameFetcher.BasePrice);
         setSalePrice(saleGameFetcher.SalePrice);
         setPlusPrice(saleGameFetcher.PlusPrice);

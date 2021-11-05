@@ -57,6 +57,9 @@
                         <span> | </span>
                         <span style="font-weight: bold; color: #a98c00" th:text="${game.getPlusDiscountText()}"></span>
                     </div>
+                    <div>
+                        <span th:text="${game.getDiscountedUntilSummary()}"></span>
+                    </div>
                 </div>
 
                 <div th:if="${game.platinumGame != null}">

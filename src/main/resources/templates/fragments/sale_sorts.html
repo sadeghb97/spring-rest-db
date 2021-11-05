@@ -24,6 +24,10 @@
                 <button type="button" class="btn btn-info sort-button">PlusDiscount</button>
             </a>
 
+            <a th:href="@{${url.replaceQueryParam('sort').replaceQueryParam('page').toUriString()}(sort=${'timerem'}, page=${0})}">
+                <button type="button" class="btn btn-danger sort-button">TimeRem</button>
+            </a>
+
             <div style="display: inline" th:if="${type == null || type.equals('game')}">
                 <a th:href="@{${url.replaceQueryParam('sort').replaceQueryParam('page').toUriString()}(sort=${'pgfp'}, page=${0})}">
                     <button type="button" class="btn btn-primary sort-button">PGPrice</button>
@@ -39,6 +43,10 @@
 
                 <a th:href="@{${url.replaceQueryParam('sort').replaceQueryParam('page').toUriString()}(sort=${'pgplusdis'}, page=${0})}">
                     <button type="button" class="btn btn-info sort-button">PGPlusDiscount</button>
+                </a>
+
+                <a th:href="@{${url.replaceQueryParam('sort').replaceQueryParam('page').toUriString()}(sort=${'pgtimerem'}, page=${0})}">
+                    <button type="button" class="btn btn-danger sort-button">PGTimeRem</button>
                 </a>
             </div>
         </div>
