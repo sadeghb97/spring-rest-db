@@ -1,5 +1,8 @@
 package ir.sbpro.springdb.utils;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class TimeUtils {
     public static double getSepHours(long smallTime, long bigTime){
         long sep = bigTime - smallTime;
@@ -101,5 +104,17 @@ public class TimeUtils {
         }
 
         return sb.toString();
+    }
+
+    public static long ppTimeStrToUnix(String timeStr){
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            Date date = sdf.parse(timeStr);
+            return date.getTime();
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+            return 0;
+        }
     }
 }

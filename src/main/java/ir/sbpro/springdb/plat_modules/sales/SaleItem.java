@@ -201,19 +201,6 @@ public class SaleItem {
         return dp + "%";
     }
 
-    @JsonIgnore
-    public static long ppTimeStrToUnix(String timeStr){
-        try {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            Date date = sdf.parse(timeStr);
-            return date.getTime();
-        }
-        catch (Exception ex){
-            ex.printStackTrace();
-            return 0;
-        }
-    }
-
     public void load(SaleItem saleFetcher){
         setPPID(saleFetcher.PPID);
         setName(saleFetcher.Name);

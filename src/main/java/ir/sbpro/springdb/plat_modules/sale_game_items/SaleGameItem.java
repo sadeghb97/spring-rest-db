@@ -3,7 +3,6 @@ package ir.sbpro.springdb.plat_modules.sale_game_items;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import ir.sbpro.models.GameSaleItem;
 import ir.sbpro.springdb.plat_modules.platgames.PlatinumGame;
-import ir.sbpro.springdb.plat_modules.psngames.PSNGame;
 import ir.sbpro.springdb.plat_modules.sales.SaleItem;
 import ir.sbpro.springdb.utils.PriceUtils;
 import ir.sbpro.springdb.utils.TimeUtils;
@@ -72,7 +71,7 @@ public class SaleGameItem extends SaleItem {
     }
 
     public long getDiscountedUntilUnix(){
-        return ppTimeStrToUnix(getDiscountedUntil());
+        return TimeUtils.ppTimeStrToUnix(getDiscountedUntil());
     }
 
     public String getPlatPricesURL() {
@@ -130,7 +129,7 @@ public class SaleGameItem extends SaleItem {
 
         setLastDiscounted(saleGameFetcher.LastDiscounted);
         setDiscountedUntil(saleGameFetcher.DiscountedUntil);
-        setDiscountedUntilUnix(ppTimeStrToUnix(saleGameFetcher.DiscountedUntil));
+        setDiscountedUntilUnix(TimeUtils.ppTimeStrToUnix(saleGameFetcher.DiscountedUntil));
         setBasePrice(saleGameFetcher.BasePrice);
         setSalePrice(saleGameFetcher.SalePrice);
         setPlusPrice(saleGameFetcher.PlusPrice);
