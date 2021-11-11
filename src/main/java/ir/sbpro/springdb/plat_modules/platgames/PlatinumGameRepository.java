@@ -41,6 +41,11 @@ public interface PlatinumGameRepository extends JpaRepository<PlatinumGame, Stri
     Page<PlatinumGame> findBySOPrice(Pageable pageable, PlatinumGame platGame);
 
     @Query("SELECT g FROM PlatinumGame g WHERE g.name LIKE concat('%', :#{#platGame.name}, '%') " +
+            "AND g.storeGame IS NOT NULL AND g.gbStoreGame IS NOT NULL AND g.storeGame.saleToman > g.gbStoreGame.saleToman " +
+            "ORDER BY (CASE WHEN g.storeGame.discountedPriceValue >= 0 THEN g.storeGame.discountedPriceValue ELSE 1000000 END) ASC")
+    Page<PlatinumGame> findBySOGBPrice(Pageable pageable, PlatinumGame platGame);
+
+    @Query("SELECT g FROM PlatinumGame g WHERE g.name LIKE concat('%', :#{#platGame.name}, '%') " +
             "ORDER BY g.storeGame.discountTextValue DESC")
     Page<PlatinumGame> findBySODiscountPercent(Pageable pageable, PlatinumGame platGame);
 

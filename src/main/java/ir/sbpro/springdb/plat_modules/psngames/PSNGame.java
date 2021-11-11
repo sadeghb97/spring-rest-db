@@ -6,6 +6,7 @@ import ir.sbpro.springdb.utils.PriceUtils;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Locale;
 
 @Entity
 @Table(name = "psngames")
@@ -19,12 +20,17 @@ public class PSNGame {
     private String storeClassificationType = "";
     private String storeClassificationDisplay = "";
 
+    private String region;
     private String basePrice = "";
     private String discountedPrice = "";
+    private String plusPrice = "";
     private String discountText = "";
     private double basePriceValue = 0;
     private double discountedPriceValue = 0;
+    private double plusPriceValue = 0;
     private double discountTextValue = 0;
+    private double saleToman;
+    private double plusToman;
     private boolean discounted = false;
 
     @ElementCollection(targetClass = String.class)
@@ -75,6 +81,14 @@ public class PSNGame {
 
     public void setStoreClassificationDisplay(String storeClassificationDisplay) {
         this.storeClassificationDisplay = storeClassificationDisplay;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
     }
 
     public String getBasePrice() {
@@ -173,12 +187,44 @@ public class PSNGame {
         this.discountedPriceValue = discountedPriceValue;
     }
 
+    public String getPlusPrice() {
+        return plusPrice;
+    }
+
+    public void setPlusPrice(String plusPrice) {
+        this.plusPrice = plusPrice;
+    }
+
+    public double getPlusPriceValue() {
+        return plusPriceValue;
+    }
+
+    public void setPlusPriceValue(double plusPriceValue) {
+        this.plusPriceValue = plusPriceValue;
+    }
+
     public double getDiscountTextValue() {
         return discountTextValue;
     }
 
     public void setDiscountTextValue(double discountTextValue) {
         this.discountTextValue = discountTextValue;
+    }
+
+    public double getSaleToman() {
+        return saleToman;
+    }
+
+    public void setSaleToman(double saleToman) {
+        this.saleToman = saleToman;
+    }
+
+    public double getPlusToman() {
+        return plusToman;
+    }
+
+    public void setPlusToman(double plusToman) {
+        this.plusToman = plusToman;
     }
 
     public void load(ir.sbpro.models.PSNGame psnGame){
@@ -195,13 +241,26 @@ public class PSNGame {
         setPlatforms(psnGame.platforms);
         setImages(psnGame.images);
         setVideos(psnGame.videos);
+        setRegion(psnGame.gamePrice.region);
         setBasePrice(psnGame.gamePrice.basePrice);
         setDiscountedPrice(psnGame.gamePrice.discountedPrice);
+        setPlusPrice(psnGame.gamePrice.plusPrice);
         setDiscountText(psnGame.gamePrice.discountText);
         setBasePriceValue(PriceUtils.getPriceValue(psnGame.gamePrice.basePrice));
         setDiscountedPriceValue(PriceUtils.getPriceValue(psnGame.gamePrice.discountedPrice));
+        setPlusPriceValue(PriceUtils.getPriceValue(psnGame.gamePrice.plusPrice));
         setDiscountTextValue(
                 getDiscountPercentValue(psnGame.gamePrice.discountText));
+
+        if(region.toLowerCase().equals("gb")){
+            setSaleToman(PriceUtils.poundToToman(psnGame.gamePrice.getDiscountedPriceValue()));
+            setPlusToman(PriceUtils.poundToToman(psnGame.gamePrice.getPlusPriceValue()));
+        }
+        else {
+            setSaleToman(PriceUtils.dollarToToman(psnGame.gamePrice.getDiscountedPriceValue()));
+            setPlusToman(PriceUtils.dollarToToman(psnGame.gamePrice.getPlusPriceValue()));
+        }
+
         setDiscounted(psnGame.gamePrice.discounted);
         setAlsoIncluded(psnGame.gamePrice.alsoIncluded);
         setUpTime(psnGame.upTime);
@@ -211,12 +270,27 @@ public class PSNGame {
         setPpid(saleGameFetcher.PPID);
         setBasePrice(saleGameFetcher.formattedBasePrice);
         setDiscountedPrice(saleGameFetcher.formattedSalePrice);
+        setPlusPrice(saleGameFetcher.formattedPlusPrice);
         setBasePriceValue(PriceUtils.getPriceValue(saleGameFetcher.formattedBasePrice));
         setDiscountedPriceValue(PriceUtils.getPriceValue(saleGameFetcher.formattedSalePrice));
+        setPlusPriceValue(PriceUtils.getPriceValue(saleGameFetcher.formattedPlusPrice));
+
+
 
         setDiscountTextValue((basePriceValue - discountedPriceValue) / basePriceValue * 100);
         setDiscountText("-" + discountTextValue + "%");
         setUpTime(System.currentTimeMillis());
+    }
+
+    public void upTomanPrices(){
+        if(region != null && region.toLowerCase().equals("gb")){
+            setSaleToman(getDiscountedPriceValue() >= 0 ? PriceUtils.poundToToman(getDiscountedPriceValue()) : -1);
+            setPlusToman(getPlusPriceValue() >= 0 ? PriceUtils.poundToToman(getPlusPriceValue()) : -1);
+        }
+        else {
+            setSaleToman(getDiscountedPriceValue() >= 0 ? PriceUtils.dollarToToman(getDiscountedPriceValue()) : -1);
+            setPlusToman(getPlusPriceValue() >= 0 ? PriceUtils.dollarToToman(getPlusPriceValue()) : -1);
+        }
     }
 
     private double getDiscountPercentValue(String discountText){
@@ -232,6 +306,7 @@ public class PSNGame {
     @JsonIgnore
     public String getPriceSummary(){
         StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(region + " ");
         stringBuilder.append("Price: ");
         stringBuilder.append(basePrice);
 

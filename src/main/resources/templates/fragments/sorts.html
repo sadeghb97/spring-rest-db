@@ -38,6 +38,10 @@
                 <button type="button" class="btn btn-warning sort-button">FinalPrice</button>
             </a>
 
+            <a th:href="@{${url.replaceQueryParam('sort').replaceQueryParam('page').toUriString()}(sort=${'gbp'}, page=${0})}">
+                <button type="button" class="btn btn-warning sort-button">GBPrice</button>
+            </a>
+
             <a th:href="@{${url.replaceQueryParam('sort').replaceQueryParam('page').toUriString()}(sort=${'dis'}, page=${0})}"
                th:if="${type == null || type.equals('plats')}">
                 <button type="button" class="btn btn-info sort-button">Discount</button>

@@ -1,6 +1,7 @@
 package ir.sbpro.springdb;
 
 import ir.sbpro.springdb.db_updater.ActiveSalesUpdate;
+import ir.sbpro.springdb.db_updater.PSNStoreUpdate;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -10,5 +11,8 @@ public class SpringdbApplication {
         SpringApplication.run(SpringdbApplication.class, args);
         /*ActiveSalesUpdate activeSalesUpdate = new ActiveSalesUpdate();
         activeSalesUpdate.update();*/
+
+        /*PSNStoreUpdate psnStoreUpdate = new PSNStoreUpdate();
+        psnStoreUpdate.updatePlatGamesTomanPrices();*/
     }
 }

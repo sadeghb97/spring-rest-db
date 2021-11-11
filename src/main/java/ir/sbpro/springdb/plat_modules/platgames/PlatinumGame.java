@@ -6,6 +6,7 @@ import ir.sbpro.models.PSNProfilesGame;
 import ir.sbpro.springdb.plat_modules.hltbgames.HLTBGame;
 import ir.sbpro.springdb.plat_modules.metacritic_games.MetaCriticGame;
 import ir.sbpro.springdb.plat_modules.psngames.PSNGame;
+import ir.sbpro.springdb.utils.PriceUtils;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -22,6 +23,10 @@ public class PlatinumGame {
     @OneToOne
     @JoinColumn(referencedColumnName = "id")
     private PSNGame storeGame;
+
+    @OneToOne
+    @JoinColumn(referencedColumnName = "id")
+    private PSNGame gbStoreGame;
 
     @OneToOne
     @JoinColumn(referencedColumnName = "id")
@@ -118,6 +123,18 @@ public class PlatinumGame {
 
     public void setRecent(int recent) {
         this.recent = recent;
+    }
+
+    public PSNGame getGbStoreGame() {
+        return gbStoreGame;
+    }
+
+    public void setGbStoreGame(PSNGame gbStoreGame) {
+        this.gbStoreGame = gbStoreGame;
+    }
+
+    public void setMetacriticGame(MetaCriticGame metacriticGame) {
+        this.metacriticGame = metacriticGame;
     }
 
     public String getStore() {
@@ -398,6 +415,20 @@ public class PlatinumGame {
 
         if(storeDetails && getStoreGame() != null){
             stringBuilder.append(getStoreGame().getPriceSummary());
+            stringBuilder.append(lineDelimiter);
+
+            double usSale = PriceUtils.dollarToToman(getStoreGame().getDiscountedPriceValue());
+            double usPlus = PriceUtils.dollarToToman(getStoreGame().getPlusPriceValue());
+            double gbSale = PriceUtils.poundToToman(getGbStoreGame().getDiscountedPriceValue());
+            double gbPlus = PriceUtils.poundToToman(getGbStoreGame().getPlusPriceValue());
+
+            if(usSale > gbSale || usPlus > gbPlus){
+                stringBuilder.append(getGbStoreGame().getPriceSummary());
+                stringBuilder.append(lineDelimiter);
+            }
+
+            double bestTomanPrice = Math.min(usSale, gbSale);
+            stringBuilder.append("IR Price: " + ((int)(bestTomanPrice / 1000)) + "T");
             stringBuilder.append(lineDelimiter);
         }
 
