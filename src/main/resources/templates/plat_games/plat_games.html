@@ -26,6 +26,10 @@
         </form>
     </div>
 
+    <div style="margin-top: 16px;">
+        <div th:replace="fragments/libincluded::libinc"></div>
+    </div>
+
     <div th:if="${type.equals('plats')}" th:replace="fragments/sorts::sort_options"
          style="margin-top: 16px;"></div>
 

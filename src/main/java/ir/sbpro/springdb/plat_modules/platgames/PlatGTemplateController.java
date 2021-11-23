@@ -53,6 +53,7 @@ public class PlatGTemplateController {
     @GetMapping(value = {"", "/"})
     public String getPlatGamesView(Model model,
                                @ModelAttribute("gsearch") PlatinumGame platGame,
+                               @RequestParam(value = "libincluded", defaultValue = "0") Integer libIncluded,
                                @PageableDefault(size = 20) Pageable pageable){
 
         String sort = null;
@@ -60,8 +61,13 @@ public class PlatGTemplateController {
         if(orderOptional.isPresent()) sort = orderOptional.get().getProperty();
 
         PageRequest pageRequest = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize());
+        UserModel userModel = userService.getCurrentUser();
+        PlatGamesFilter platGamesFilter = new PlatGamesFilter().setLibIncluded(libIncluded > 0);
+        platGamesFilter.userPk = userModel.getPk();
+
         model.addAttribute("records",
-                platGameService.findBySearchQuery(pageRequest, platGame, sort));
+                platGameService.findBySearchQuery(pageRequest, platGame, sort, platGamesFilter));
+        model.addAttribute("filters", platGamesFilter);
         model.addAttribute("type", "plats");
         return "plat_games/plat_games";
     }

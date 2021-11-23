@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/header::head"></div>
+</head>
+
+<body>
+    <div th:fragment="libinc"
+         th:with="url=${T(org.springframework.web.servlet.support.ServletUriComponentsBuilder).fromCurrentRequest()}">
+
+        <div th:switch="${filters.libIncluded}">
+            <a th:case="true" th:href="@{${url.replaceQueryParam('libincluded').replaceQueryParam('page').toUriString()}(libincluded=${0}, page=${0})}">
+                <button style="min-width: 200px;" type="button" class="btn btn-success sort-button">Library Included</button>
+            </a>
+            <a th:case="*" th:href="@{${url.replaceQueryParam('libincluded').replaceQueryParam('page').toUriString()}(libincluded=${1}, page=${0})}">
+                <button style="min-width: 200px;" type="button" class="btn btn-primary sort-button">Library Excluded</button>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

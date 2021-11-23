@@ -275,10 +275,10 @@ public class PSNGame {
         setDiscountedPriceValue(PriceUtils.getPriceValue(saleGameFetcher.formattedSalePrice));
         setPlusPriceValue(PriceUtils.getPriceValue(saleGameFetcher.formattedPlusPrice));
 
-
-
         setDiscountTextValue((basePriceValue - discountedPriceValue) / basePriceValue * 100);
-        setDiscountText("-" + discountTextValue + "%");
+        setDiscountText("-" + ((int) Math.round(discountTextValue)) + "%");
+        setDiscounted(basePriceValue > discountedPriceValue || basePriceValue > plusPriceValue);
+
         setUpTime(System.currentTimeMillis());
     }
 

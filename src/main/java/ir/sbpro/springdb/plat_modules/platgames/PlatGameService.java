@@ -22,24 +22,26 @@ public class PlatGameService {
         return platGameRepository.findWishListByPrice(pageable, userPk, platGame);
     }
 
-    public Page<PlatinumGame> findBySearchQuery(Pageable pageable, PlatinumGame platGame, String sort){
+    public Page<PlatinumGame> findBySearchQuery(Pageable pageable, PlatinumGame platGame, String sort,
+                                                PlatGamesFilter platGamesFilter){
         if(platGame.getName() == null) platGame.setName("");
 
-        if(sort == null || sort.equals("creation")) return platGameRepository.findBySOCreationTime(pageable, platGame);
-        if(sort.equals("points")) return platGameRepository.findBySOPoints(pageable, platGame);
-        if(sort.equals("owners")) return platGameRepository.findBySOOwners(pageable, platGame);
-        if(sort.equals("cr")) return platGameRepository.findBySOCompletionRate(pageable, platGame);
-        if(sort.equals("plat")) return platGameRepository.findBySOPlatAchievers(pageable, platGame);
-        if(sort.equals("tc")) return platGameRepository.findBySOTrophiesCount(pageable, platGame);
-        if(sort.equals("fp")) return platGameRepository.findBySOPrice(pageable, platGame);
-        if(sort.equals("gbp")) return platGameRepository.findBySOGBPrice(pageable, platGame);
-        if(sort.equals("dis")) return platGameRepository.findBySODiscount(pageable, platGame);
-        if(sort.equals("disper")) return platGameRepository.findBySODiscountPercent(pageable, platGame);
-        if(sort.equals("maindur")) return platGameRepository.findBySOMainDuration(pageable, platGame);
-        if(sort.equals("compdur")) return platGameRepository.findBySOCompletionistDuration(pageable, platGame);
-        if(sort.equals("metascore")) return platGameRepository.findBySOMetaScore(pageable, platGame);
-        if(sort.equals("userscore")) return platGameRepository.findBySOUserScore(pageable, platGame);
-        return platGameRepository.findBySOOwners(pageable, platGame);
+        if(sort == null || sort.equals("creation"))
+            return platGameRepository.findBySOCreationTime(pageable, platGame, platGamesFilter);
+        if(sort.equals("points")) return platGameRepository.findBySOPoints(pageable, platGame, platGamesFilter);
+        if(sort.equals("owners")) return platGameRepository.findBySOOwners(pageable, platGame, platGamesFilter);
+        if(sort.equals("cr")) return platGameRepository.findBySOCompletionRate(pageable, platGame, platGamesFilter);
+        if(sort.equals("plat")) return platGameRepository.findBySOPlatAchievers(pageable, platGame, platGamesFilter);
+        if(sort.equals("tc")) return platGameRepository.findBySOTrophiesCount(pageable, platGame, platGamesFilter);
+        if(sort.equals("fp")) return platGameRepository.findBySOPrice(pageable, platGame, platGamesFilter);
+        if(sort.equals("gbp")) return platGameRepository.findBySOGBPrice(pageable, platGame, platGamesFilter);
+        if(sort.equals("dis")) return platGameRepository.findBySODiscount(pageable, platGame, platGamesFilter);
+        if(sort.equals("disper")) return platGameRepository.findBySODiscountPercent(pageable, platGame, platGamesFilter);
+        if(sort.equals("maindur")) return platGameRepository.findBySOMainDuration(pageable, platGame, platGamesFilter);
+        if(sort.equals("compdur")) return platGameRepository.findBySOCompletionistDuration(pageable, platGame, platGamesFilter);
+        if(sort.equals("metascore")) return platGameRepository.findBySOMetaScore(pageable, platGame, platGamesFilter);
+        if(sort.equals("userscore")) return platGameRepository.findBySOUserScore(pageable, platGame, platGamesFilter);
+        return platGameRepository.findBySOOwners(pageable, platGame, platGamesFilter);
     }
 
     public PlatinumGame getPlatinumGame(String psnpId){
