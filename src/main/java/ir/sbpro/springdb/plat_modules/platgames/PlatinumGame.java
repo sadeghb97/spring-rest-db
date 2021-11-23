@@ -307,9 +307,8 @@ public class PlatinumGame {
     }
 
     @JsonIgnore
-    public String[] getSummary(){
+    public String[] getPsnpSummary(){
         String lineDelimiter = "\n";
-
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("PSNP Link: " + link + lineDelimiter);
         stringBuilder.append("PSNP Name: " + name);
@@ -324,68 +323,77 @@ public class PlatinumGame {
         stringBuilder.append("Trophies Points: " + points + " (" + allTrophiesCount + ")" + lineDelimiter);
         stringBuilder.append("PSNP Platform: " + platform + lineDelimiter);
         stringBuilder.append("Completion Rate: " + completionRate + lineDelimiter);
+        return stringBuilder.toString().split(lineDelimiter);
+    }
 
-        if(storeGame != null) {
-            stringBuilder.append("-------------" + lineDelimiter);
-            stringBuilder.append("Store ID: " + storeGame.getId() + lineDelimiter);
-            stringBuilder.append("Store Name: " + storeGame.getName() + lineDelimiter);
+    @JsonIgnore
+    public String[] getMetacriticSummary(){
+        String lineDelimiter = "\n";
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("MetaCritic Slug: " + metacriticGame.getSlug() + lineDelimiter);
+        stringBuilder.append("MetaCritic Name: " + metacriticGame.getName() + lineDelimiter);
+        stringBuilder.append("MetaCritic Image: " + metacriticGame.getImage() + lineDelimiter);
+        stringBuilder.append("MetaScore: " + metacriticGame.getMetaScore() +
+                " (" + metacriticGame.getMsCount() + ")" + lineDelimiter);
+        stringBuilder.append("UserScore: " + metacriticGame.getUserScore() +
+                " (" + metacriticGame.getUsCount() + ")" + lineDelimiter);
+        return stringBuilder.toString().split(lineDelimiter);
+    }
 
-            if(storeGame.getStoreClassificationType() != null && !storeGame.getStoreClassificationType().isEmpty()) {
-                stringBuilder.append("Classification: " + storeGame.getStoreClassificationType() + " - " +
-                        storeGame.getStoreClassificationDisplay() + lineDelimiter);
-            }
+    @JsonIgnore
+    public String[] getHltbSummary(){
+        String lineDelimiter = "\n";
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("HLTB ID: " + hlGame.getId() + lineDelimiter);
+        stringBuilder.append("HLTB Name: " + hlGame.getName() + lineDelimiter);
+        stringBuilder.append("HLTB Link: " + hlGame.getFullLink() + lineDelimiter);
+        stringBuilder.append("HLTB Image: " + hlGame.getFullImage() + lineDelimiter);
+        stringBuilder.append("Main Duration: " + hlGame.getMainDuration() +
+                " (" + hlGame.getMainDurValue() + ")" + lineDelimiter);
+        stringBuilder.append("Main And Extra Duration: " + hlGame.getMainAndExtraDuration() +
+                " (" + hlGame.getMainAndExtraDurValue() + ")" + lineDelimiter);
+        stringBuilder.append("Completionist Duration: " + hlGame.getCompletionistDuration() +
+                " (" + hlGame.getCompDurValue() + ")" + lineDelimiter);
+        return stringBuilder.toString().split(lineDelimiter);
+    }
 
-            stringBuilder.append("Price: " + storeGame.getBasePrice());
-            if(storeGame.isDiscounted()){
-                stringBuilder.append(" | " + storeGame.getDiscountedPrice() + " | " +
-                        storeGame.getDiscountText());
-            }
-            stringBuilder.append(lineDelimiter);
+    @JsonIgnore
+    public String[] getStoreSummary(){
+        String lineDelimiter = "\n";
+        StringBuilder stringBuilder = new StringBuilder();
 
-            if(storeGame.getPlatforms().size() > 0){
-                stringBuilder.append("Platforms: [");
-                for(int i=0; storeGame.getPlatforms().size() > i; i++){
-                    if(i != 0) stringBuilder.append(", ");
-                    stringBuilder.append(storeGame.getPlatforms().get(i));
-                }
-                stringBuilder.append("]" + lineDelimiter);
-            }
+        stringBuilder.append("Store ID: " + storeGame.getId() + lineDelimiter);
+        stringBuilder.append("Store Name: " + storeGame.getName() + lineDelimiter);
 
-            if(storeGame.getAlsoIncluded().size() > 0){
-                stringBuilder.append("Also Included: [");
-                for(int i=0; storeGame.getAlsoIncluded().size() > i; i++){
-                    if(i != 0) stringBuilder.append(", ");
-                    stringBuilder.append(storeGame.getAlsoIncluded().get(i));
-                }
-                stringBuilder.append("]" + lineDelimiter);
-            }
+        if(storeGame.getStoreClassificationType() != null && !storeGame.getStoreClassificationType().isEmpty()) {
+            stringBuilder.append("Classification: " + storeGame.getStoreClassificationType() + " - " +
+                    storeGame.getStoreClassificationDisplay() + lineDelimiter);
         }
 
-        if(hlGame != null){
-            stringBuilder.append("-------------" + lineDelimiter);
-            stringBuilder.append("HLTB ID: " + hlGame.getId() + lineDelimiter);
-            stringBuilder.append("HLTB Name: " + hlGame.getName() + lineDelimiter);
-            stringBuilder.append("HLTB Link: " + hlGame.getFullLink() + lineDelimiter);
-            stringBuilder.append("HLTB Image: " + hlGame.getFullImage() + lineDelimiter);
-            stringBuilder.append("Main Duration: " + hlGame.getMainDuration() +
-                    " (" + hlGame.getMainDurValue() + ")" + lineDelimiter);
-            stringBuilder.append("Main And Extra Duration: " + hlGame.getMainAndExtraDuration() +
-                    " (" + hlGame.getMainAndExtraDurValue() + ")" + lineDelimiter);
-            stringBuilder.append("Completionist Duration: " + hlGame.getCompletionistDuration() +
-                    " (" + hlGame.getCompDurValue() + ")" + lineDelimiter);
+        stringBuilder.append("Price: " + storeGame.getBasePrice());
+        if(storeGame.isDiscounted()){
+            stringBuilder.append(" | " + storeGame.getDiscountedPrice() + " | " +
+                    storeGame.getDiscountText());
+        }
+        stringBuilder.append(lineDelimiter);
+
+        if(storeGame.getPlatforms().size() > 0){
+            stringBuilder.append("Platforms: [");
+            for(int i=0; storeGame.getPlatforms().size() > i; i++){
+                if(i != 0) stringBuilder.append(", ");
+                stringBuilder.append(storeGame.getPlatforms().get(i));
+            }
+            stringBuilder.append("]" + lineDelimiter);
         }
 
-        if(metacriticGame != null){
-            stringBuilder.append("-------------" + lineDelimiter);
-            stringBuilder.append("MetaCritic Slug: " + metacriticGame.getSlug() + lineDelimiter);
-            stringBuilder.append("MetaCritic Name: " + metacriticGame.getName() + lineDelimiter);
-            stringBuilder.append("MetaCritic Image: " + metacriticGame.getImage() + lineDelimiter);
-            stringBuilder.append("MetaScore: " + metacriticGame.getMetaScore() +
-                    " (" + metacriticGame.getMsCount() + ")" + lineDelimiter);
-            stringBuilder.append("UserScore: " + metacriticGame.getUserScore() +
-                    " (" + metacriticGame.getUsCount() + ")" + lineDelimiter);
+        if(storeGame.getAlsoIncluded().size() > 0){
+            stringBuilder.append("Also Included: [");
+            for(int i=0; storeGame.getAlsoIncluded().size() > i; i++){
+                if(i != 0) stringBuilder.append(", ");
+                stringBuilder.append(storeGame.getAlsoIncluded().get(i));
+            }
+            stringBuilder.append("]" + lineDelimiter);
         }
-
         return stringBuilder.toString().split(lineDelimiter);
     }
 

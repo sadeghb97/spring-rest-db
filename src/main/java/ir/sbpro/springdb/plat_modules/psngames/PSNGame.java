@@ -282,6 +282,10 @@ public class PSNGame {
         setUpTime(System.currentTimeMillis());
     }
 
+    public String getFullLink(){
+        return "https://store.playstation.com/en-us/product/" + id + "/";
+    }
+
     public void upTomanPrices(){
         if(region != null && region.toLowerCase().equals("gb")){
             setSaleToman(getDiscountedPriceValue() >= 0 ? PriceUtils.poundToToman(getDiscountedPriceValue()) : -1);

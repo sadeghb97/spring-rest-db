@@ -21,7 +21,37 @@
                      th:src="${record.getImage()}" />
             </li>
 
-            <div th:each="item: ${record.getSummary()}" th:text="${item}"></div>
+            <div>
+                <a th:href="${record.getLink()}" target="_blank">
+                    <img th:src="@{/img/ic_psnp.png}" class="source-logo" />
+                </a>
+                <div th:each="item: ${record.getPsnpSummary()}" th:text="${item}"></div>
+                <div>---------------</div>
+            </div>
+
+            <div style="margin-top: 12px;" th:if="${record.storeGame != null}">
+                <a th:href="${record.getStoreGame().getFullLink()}" target="_blank">
+                    <img th:src="@{/img/ic_store.png}" class="source-logo" />
+                </a>
+                <div th:each="item: ${record.getStoreSummary()}" th:text="${item}"></div>
+                <div>---------------</div>
+            </div>
+
+            <div style="margin-top: 12px;" th:if="${record.hlGame != null}">
+                <a th:href="${record.hlGame.getFullLink()}" target="_blank">
+                    <img th:src="@{/img/ic_hltb.png}" class="source-logo" />
+                </a>
+                <div th:each="item: ${record.getHltbSummary()}" th:text="${item}"></div>
+                <div>---------------</div>
+            </div>
+
+            <div style="margin-top: 12px;" th:if="${record.metacriticGame != null}">
+                <a th:href="${record.metacriticGame.getLink()}" target="_blank">
+                    <img th:src="@{/img/ic_metacritic.png}" class="source-logo" />
+                </a>
+                <div th:each="item: ${record.getMetacriticSummary()}" th:text="${item}"></div>
+                <div>---------------</div>
+            </div>
 
             <li style="margin-top: 16px;">
                 <div style="display: inline-block">

@@ -112,3 +112,15 @@ body {
     margin-left: 3px;
     margin-right: 3px;
 }
+
+.source-logo {
+    height: 64px;
+    width: auto;
+}
+
+.tiny-source-logo {
+    height: 24px;
+    width: auto;
+    margin-left: 2px;
+    margin-right: 2px;
+}

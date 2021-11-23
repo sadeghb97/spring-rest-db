@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/header::head"></div>
+</head>
+
+<body>
+    <div th:fragment="links">
+        <a th:href="${game.getLink()}" target="_blank">
+            <img th:src="@{/img/ic_psnp.png}" class="tiny-source-logo" />
+        </a>
+
+        <a th:if="${game.storeGame != null}" th:href="${game.getStoreGame().getFullLink()}" target="_blank">
+            <img th:src="@{/img/ic_store.png}" class="tiny-source-logo" />
+        </a>
+
+        <a th:if="${game.metacriticGame != null}" th:href="${game.metacriticGame.getLink()}" target="_blank">
+            <img th:src="@{/img/ic_metacritic.png}" class="tiny-source-logo" />
+        </a>
+
+        <a th:if="${game.hlGame != null}" th:href="${game.hlGame.getFullLink()}" target="_blank">
+            <img th:src="@{/img/ic_hltb.png}" class="tiny-source-logo" />
+        </a>
+    </div>
+</body>
+</html>
