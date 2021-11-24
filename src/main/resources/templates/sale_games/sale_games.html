@@ -66,6 +66,15 @@
                     <div>-------</div>
                     <div th:each="item: ${game.platinumGame.getShortSummary(false)}" th:text="${item}"></div>
                 </div>
+
+                <div style="margin-top: 12px;">
+                    <form style="display: inline;" method="post" target="_blank"
+                          th:action="@{/platgames/insertgame_ppid/}">
+
+                        <input type="hidden" id="ppid" name="ppid" th:value="${game.PPID}" />
+                        <input type="submit" class="btn-sm btn-primary" value="Add PG" />
+                    </form>
+                </div>
             </div>
         </div>
     </div>

@@ -332,6 +332,42 @@ public class PlatGTemplateController {
         }
     }
 
+    @PostMapping(value = "/insertgame_psnid/")
+    public String insertPlatGameWithPSNID(@RequestParam("psnid") String psnID){
+        Optional<PlatinumGame> pgOptional = platGameService.initPlatinumGameWithPSNID(
+                psnGamesService, metaCriticGamesService, psnID);
+
+        if(pgOptional.isPresent()){
+            return _getShowGameRedirectRoute(pgOptional.get().getId());
+        }
+
+        return "redirect:/platgames/add/";
+    }
+
+    @PostMapping(value = "/insertgame_ppid/")
+    public String insertPlatGameWithPPID(@RequestParam("ppid") String ppid){
+        Optional<PlatinumGame> pgOptional = platGameService.initPlatinumGameWithPPID(
+                psnGamesService, metaCriticGamesService, ppid);
+
+        if(pgOptional.isPresent()){
+            return _getShowGameRedirectRoute(pgOptional.get().getId());
+        }
+
+        return "redirect:/platgames/add/";
+    }
+
+    @PostMapping(value = "/insertgame_name/")
+    public String insertPlatGameWithName(@RequestParam("game_name") String gameName){
+        Optional<PlatinumGame> pgOptional = platGameService.initPlatinumGameWithName(
+                psnGamesService, metaCriticGamesService, gameName);
+
+        if(pgOptional.isPresent()){
+            return _getShowGameRedirectRoute(pgOptional.get().getId());
+        }
+
+        return "redirect:/platgames/add/";
+    }
+
     @PostMapping(value = "/showgame/{game_pk}/add_wish/")
     public String addToWishList(@PathVariable("game_pk") String gamePk){
         PlatinumGame platinumGame = platGameService.getPlatinumGame(gamePk);

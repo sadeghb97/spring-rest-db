@@ -13,6 +13,42 @@
 <div>
     <div th:replace="fragments/navbar::navbar"></div>
     <div th:replace="fragments/plat_game_urls::pg_urls"></div>
+
+    <form th:action="@{/platgames/insertgame_name/}" method="post" class="form-style-9" >
+        <ul>
+            <li>
+                <input type="text" class="field-style field-full align-left"
+                       placeholder="Game Name" id="game_name" name="game_name" />
+            </li>
+            <li>
+                <input style="margin-top: 8px;" type="submit" value="Add Game" />
+            </li>
+        </ul>
+    </form>
+
+    <form th:action="@{/platgames/insertgame_psnid/}" method="post" class="form-style-9" >
+        <ul>
+            <li>
+                <input type="text" class="field-style field-full align-left"
+                       placeholder="PSN ID" id="psnid" name="psnid" />
+            </li>
+            <li>
+                <input style="margin-top: 8px;" type="submit" value="Add Game" />
+            </li>
+        </ul>
+    </form>
+
+    <form th:action="@{/platgames/insertgame_ppid/}" method="post" class="form-style-9" >
+        <ul>
+            <li>
+                <input type="text" class="field-style field-full align-left"
+                       placeholder="PPID" id="ppid" name="ppid" />
+            </li>
+            <li>
+                <input style="margin-top: 8px;" type="submit" value="Add Game" />
+            </li>
+        </ul>
+    </form>
 </div>
 
 </body>

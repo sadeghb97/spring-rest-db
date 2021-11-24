@@ -3,6 +3,7 @@ package ir.sbpro.springdb.plat_modules.platgames;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import ir.sbpro.models.MetacriticGame;
 import ir.sbpro.models.PSNProfilesGame;
+import ir.sbpro.models.PlatPricesGame;
 import ir.sbpro.springdb.plat_modules.hltbgames.HLTBGame;
 import ir.sbpro.springdb.plat_modules.metacritic_games.MetaCriticGame;
 import ir.sbpro.springdb.plat_modules.psngames.PSNGame;
@@ -304,6 +305,15 @@ public class PlatinumGame {
         }
 
         return stringBuilder.toString();
+    }
+
+    @JsonIgnore
+    public String getPredictedPlatPricesUrl(){
+        if(storeGame == null || storeGame.getPpid() == null) return "";
+        int pos = link.lastIndexOf(id);
+        pos += id.length() + 1;
+        String psnpSlug = link.substring(pos);
+        return "https://platprices.com/game/" + storeGame.getPpid() + "-" + psnpSlug;
     }
 
     @JsonIgnore

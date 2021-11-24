@@ -21,6 +21,11 @@
         <a th:if="${game.hlGame != null}" th:href="${game.hlGame.getFullLink()}" target="_blank">
             <img th:src="@{/img/ic_hltb.png}" class="tiny-source-logo" />
         </a>
+
+        <a th:if="${game.storeGame != null && game.storeGame.getPpid() != null}"
+           th:href="${game.getPredictedPlatPricesUrl()}" target="_blank">
+            <img th:src="@{/img/ic_platprices.png}" class="tiny-source-logo" />
+        </a>
     </div>
 </body>
 </html>

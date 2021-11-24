@@ -1,5 +1,13 @@
 package ir.sbpro.springdb.plat_modules.platgames;
 
+import ir.sbpro.PlatPricesApi;
+import ir.sbpro.Scrapper;
+import ir.sbpro.models.PSNProfilesGame;
+import ir.sbpro.models.PlatPricesGame;
+import ir.sbpro.springdb.plat_modules.metacritic_games.MetaCriticGame;
+import ir.sbpro.springdb.plat_modules.metacritic_games.MetaCriticGamesService;
+import ir.sbpro.springdb.plat_modules.psngames.PSNGame;
+import ir.sbpro.springdb.plat_modules.psngames.PSNGamesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -54,5 +62,82 @@ public class PlatGameService {
         List<PlatinumGame> pgList = platGameRepository.filterByPPID(ppid);
         if(pgList != null && pgList.size() > 0) return Optional.ofNullable(pgList.get(0));
         return Optional.empty();
+    }
+
+    public Optional<PlatinumGame> initPlatinumGameWithName(PSNGamesService psnGamesService,
+                                                   MetaCriticGamesService metaCriticGamesService, String name){
+        try {
+            PlatPricesGame platPricesGame = PlatPricesApi.getPlatPricesGameWithName(name);
+            return initPlatinumGame(psnGamesService, metaCriticGamesService, platPricesGame);
+        }
+        catch (Exception ex){
+            return Optional.empty();
+        }
+    }
+
+    public Optional<PlatinumGame> initPlatinumGameWithPPID(PSNGamesService psnGamesService,
+                                                           MetaCriticGamesService metaCriticGamesService, String ppid){
+        try {
+            PlatPricesGame platPricesGame = PlatPricesApi.getPlatPricesGameWithPPID(ppid);
+            return initPlatinumGame(psnGamesService, metaCriticGamesService, platPricesGame);
+        }
+        catch (Exception ex){
+            return Optional.empty();
+        }
+    }
+
+    public Optional<PlatinumGame> initPlatinumGameWithPSNID(PSNGamesService psnGamesService,
+                                                           MetaCriticGamesService metaCriticGamesService, String psnId){
+        try {
+            PlatPricesGame platPricesGame = PlatPricesApi.getPlatPricesGame(psnId);
+            return initPlatinumGame(psnGamesService, metaCriticGamesService, platPricesGame);
+        }
+        catch (Exception ex){
+            return Optional.empty();
+        }
+    }
+
+    public Optional<PlatinumGame> initPlatinumGame(PSNGamesService psnGamesService,
+                                                   MetaCriticGamesService metaCriticGamesService,
+                                                   PlatPricesGame platPricesGame){
+
+        if(platPricesGame == null) return Optional.empty();
+        String psnpUrl = platPricesGame.TrophyListURL;
+        if(psnpUrl == null || psnpUrl.isEmpty()) return Optional.empty();
+
+        Scrapper idScrapper = new Scrapper(psnpUrl);
+        idScrapper.find("/trophies/", "-");
+        if(!idScrapper.found) return Optional.empty();
+        String psnpId = idScrapper.scrapped;
+        String metacriticURL = platPricesGame.MetacriticURL;
+
+        Optional<PlatinumGame> pgOptional = platGameRepository.findById(psnpId);
+        if(pgOptional.isPresent()) return pgOptional;
+
+        PlatinumGame platinumGame = new PlatinumGame();
+
+        try {
+            ir.sbpro.models.PSNGame psnGameFetcher = new ir.sbpro.models.PSNGame();
+            psnGameFetcher.update(platPricesGame);
+            PSNGame psnGame = new PSNGame();
+            psnGame.load(psnGameFetcher);
+            psnGamesService.gamesRepository.save(psnGame);
+
+            MetaCriticGame metaCriticGame = null;
+            if(metacriticURL != null && !metacriticURL.isEmpty()){
+                metaCriticGame = metaCriticGamesService.save(metacriticURL);
+            }
+
+            PSNProfilesGame psnpFetcher = new PSNProfilesGame();
+            psnpFetcher.update(psnpUrl);
+            platinumGame.load(psnpFetcher);
+            platinumGame.setStoreGame(psnGame);
+            if(metaCriticGame != null) platinumGame.setMetaCriticGame(metaCriticGame);
+            platinumGame = platGameRepository.save(platinumGame);
+            return Optional.of(platinumGame);
+        }
+        catch (Exception ex){
+            return Optional.empty();
+        }
     }
 }

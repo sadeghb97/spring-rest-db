@@ -43,12 +43,12 @@
             </a>
 
             <a th:href="@{${url.replaceQueryParam('sort').replaceQueryParam('page').toUriString()}(sort=${'dis'}, page=${0})}"
-               th:if="${type == null || type.equals('plats')}">
+               th:if="${type == null || !type.equals('library')}">
                 <button type="button" class="btn btn-info sort-button">Discount</button>
             </a>
 
             <a th:href="@{${url.replaceQueryParam('sort').replaceQueryParam('page').toUriString()}(sort=${'disper'}, page=${0})}"
-               th:if="${type == null || type.equals('plats')}">
+               th:if="${type == null || !type.equals('library')}">
                 <button type="button" class="btn btn-light sort-button">DisPercent</button>
             </a>
 
