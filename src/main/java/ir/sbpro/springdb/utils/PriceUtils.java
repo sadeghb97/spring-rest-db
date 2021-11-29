@@ -1,8 +1,8 @@
 package ir.sbpro.springdb.utils;
 
 public class PriceUtils {
-    public static final int dollarVal = 28000;
-    public static final int poundVal = 40000;
+    public static final double dollarVal = 28;
+    public static final double poundVal = 40;
 
     public static double getPriceValue(String basePrice){
         basePrice = basePrice.trim();

@@ -387,6 +387,11 @@ public class PlatinumGame {
         }
         stringBuilder.append(lineDelimiter);
 
+        stringBuilder.append("IR Price: ");
+        stringBuilder.append(getRoundIRPrice());
+        stringBuilder.append("T");
+        stringBuilder.append(lineDelimiter);
+
         if(storeGame.getPlatforms().size() > 0){
             stringBuilder.append("Platforms: [");
             for(int i=0; storeGame.getPlatforms().size() > i; i++){
@@ -431,27 +436,6 @@ public class PlatinumGame {
         stringBuilder.append(getCompletionSummary());
         stringBuilder.append(lineDelimiter);
 
-        if(storeDetails && getStoreGame() != null){
-            stringBuilder.append(getStoreGame().getPriceSummary());
-            stringBuilder.append(lineDelimiter);
-
-            if(getGbStoreGame() != null) {
-                double usSale = PriceUtils.dollarToToman(getStoreGame().getDiscountedPriceValue());
-                double usPlus = PriceUtils.dollarToToman(getStoreGame().getPlusPriceValue());
-                double gbSale = PriceUtils.poundToToman(getGbStoreGame().getDiscountedPriceValue());
-                double gbPlus = PriceUtils.poundToToman(getGbStoreGame().getPlusPriceValue());
-
-                if (usSale > gbSale || usPlus > gbPlus) {
-                    stringBuilder.append(getGbStoreGame().getPriceSummary());
-                    stringBuilder.append(lineDelimiter);
-                }
-
-                double bestTomanPrice = Math.min(usSale, gbSale);
-                stringBuilder.append("IR Price: " + ((int)(bestTomanPrice / 1000)) + "T");
-                stringBuilder.append(lineDelimiter);
-            }
-        }
-
         if(getHlGame() != null){
             stringBuilder.append(getHlGame().getDurationsSummary());
             stringBuilder.append(lineDelimiter);
@@ -463,5 +447,27 @@ public class PlatinumGame {
         }
 
         return stringBuilder.toString().split(lineDelimiter);
+    }
+
+    public double getBestIRPrice(){
+        if(getStoreGame() == null) return 0;
+
+        double usSale = PriceUtils.dollarToToman(getStoreGame().getDiscountedPriceValue());
+        double usPlus = PriceUtils.dollarToToman(getStoreGame().getPlusPriceValue());
+        if(usPlus <= 0) return usSale;
+        if(getGbStoreGame() == null) return Math.min(usSale, usPlus);
+
+        double gbSale = PriceUtils.poundToToman(getGbStoreGame().getDiscountedPriceValue());
+        double gbPlus = PriceUtils.poundToToman(getGbStoreGame().getPlusPriceValue());
+
+        double bestTomanPrice = Math.min(usSale, gbSale);
+        if(usPlus > 0) bestTomanPrice = Math.min(bestTomanPrice, usPlus);
+        if(gbPlus > 0) bestTomanPrice = Math.min(bestTomanPrice, gbPlus);
+
+        return (bestTomanPrice);
+    }
+
+    public int getRoundIRPrice(){
+        return ((int) getBestIRPrice());
     }
 }

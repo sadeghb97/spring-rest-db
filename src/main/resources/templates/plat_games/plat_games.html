@@ -51,7 +51,29 @@
             <div class="text-container">
                 <div th:each="item: ${game.getShortSummary()}" th:text="${item}"></div>
 
-                <div th:if="${type.equals('plats')}" style="margin-top: 6px;">
+                <div th:if="${game.getStoreGame() != null}" th:switch="${game.getStoreGame().isDiscounted()}">
+                    <div th:case="true">
+                        <div style="background-color: #15b73b" th:if="${game.getStoreGame().getDiscountTextValue() >= 80}" th:text="${game.getStoreGame().getPriceSummary()}"></div>
+                        <div style="background-color: #0ba691" th:if="${game.getStoreGame().getDiscountTextValue() >= 70 && game.getStoreGame().getDiscountTextValue() < 80}" th:text="${game.getStoreGame().getPriceSummary()}"></div>
+                        <div style="background-color: #84a2c4" th:if="${game.getStoreGame().getDiscountTextValue() >= 50 && game.getStoreGame().getDiscountTextValue() < 70}" th:text="${game.getStoreGame().getPriceSummary()}"></div>
+                        <div style="background-color: #c0f3ca" th:if="${game.getStoreGame().getDiscountTextValue() < 50}" th:text="${game.getStoreGame().getPriceSummary()}"></div>
+                    </div>
+                    <div th:case="*" th:text="${game.getStoreGame().getPriceSummary()}"></div>
+                </div>
+
+                <div th:if="${game.getGbStoreGame() != null}" th:switch="${game.getGbStoreGame().isDiscounted()}">
+                    <div th:case="true">
+                        <div style="background-color: #15b73b" th:if="${game.getGbStoreGame().getDiscountTextValue() >= 80}" th:text="${game.getGbStoreGame().getPriceSummary()}"></div>
+                        <div style="background-color: #0ba691" th:if="${game.getGbStoreGame().getDiscountTextValue() >= 70 && game.getGbStoreGame().getDiscountTextValue() < 80}" th:text="${game.getGbStoreGame().getPriceSummary()}"></div>
+                        <div style="background-color: #84a2c4" th:if="${game.getGbStoreGame().getDiscountTextValue() >= 50 && game.getGbStoreGame().getDiscountTextValue() < 70}" th:text="${game.getGbStoreGame().getPriceSummary()}"></div>
+                        <div style="background-color: #c0f3ca" th:if="${game.getGbStoreGame().getDiscountTextValue() < 50}" th:text="${game.getGbStoreGame().getPriceSummary()}"></div>
+                    </div>
+                    <div th:case="*" th:text="${game.getGbStoreGame().getPriceSummary()}"></div>
+                </div>
+
+                <div th:if="${game.getStoreGame() != null}" th:text="${'IR Price: ' + game.getRoundIRPrice()} + 'T'"></div>
+
+                <div th:if="${type.equals('plats') || type.equals('wishlist')}" style="margin-top: 6px;">
                     <div th:replace="fragments/sources_links::links"></div>
                 </div>
             </div>

@@ -43,7 +43,7 @@ public class UserModel extends ModuleEntity implements Serializable, HasCover, H
     @Enumerated(EnumType.STRING)
     private List<Role> roles;
 
-    @OneToMany
+    @ManyToMany
     private List<PlatinumGame> wishlist;
 
     @OneToMany
