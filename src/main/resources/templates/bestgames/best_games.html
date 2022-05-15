@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Games Ranking</title>
+
+    <div th:replace="fragments/header::head"></div>
+    <link th:href="@{/css/bestgames.css}" rel="stylesheet" />
+    <script th:src="@{/js/Sortable.js}" type="text/javascript"></script>
+</head>
+
+<body>
+    <div th:replace="fragments/navbar::navbar"></div>
+
+    <form th:action="@{/library/uptopgames/}" th:object="${games}" method="post">
+        <button type="submit" class="btn btn-primary" onclick="return checkSubmit()">Update</button>
+
+        <div class="container">
+            <div id="grid" class="row">
+                <div id="ranked_list" class="col">
+                    <div class="grid-square" th:id="${game.getId()}" th:each="game : ${games.getRankedGames()}">
+                        <a th:href="'/library/' + ${game.getId()} + '/'" target="_blank">
+                            <div>
+                                <img th:src="${game.platinumGame.getImage()}"
+                                     style="width: 130px; height: 110px; object-fit: cover;">
+                            </div>
+                        </a>
+                        <div th:text="${game.getShortSummary()[0]}" style="font-size: 11px;"></div>
+                    </div>
+                </div>
+
+                <div id="unranked_list" class="col">
+                    <div class="grid-square" th:id="${game.getId()}" th:each="game : ${games.getUnrankedGames()}">
+                        <a th:href="'/library/' + ${game.getId()} + '/'" target="_blank">
+                            <div>
+                                <img th:src="${game.platinumGame.getImage()}"
+                                     style="width: 130px; height: 110px; object-fit: cover;">
+                            </div>
+                        </a>
+                        <div th:text="${game.getShortSummary()[0]}" style="font-size: 11px;"></div>
+                    </div>
+                </div>
+
+                <input type="hidden" id="ranked_ids" name="ranked_ids" >
+                <input type="hidden" id="unranked_ids" name="unranked_ids" >
+            </div>
+            <hr />
+        </div>
+    </form>
+
+    <script th:src="@{/js/bestgames.js}" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        function checkSubmit(){
+            const list = document.getElementById("ranked_list")
+            const altList = document.getElementById("unranked_list")
+
+            let rankedIds = ""
+            let unrankedIds = ""
+
+            for(let i=0; list.children.length > i; i++){
+                if(rankedIds) rankedIds += ","
+                rankedIds += list.children[i].id
+            }
+
+            for(let i=0; altList.children.length > i; i++){
+                if(unrankedIds) unrankedIds += ","
+                unrankedIds += altList.children[i].id
+            }
+
+            const rankedIdsElement = document.getElementById("ranked_ids")
+            const unrankedIdsElement = document.getElementById("unranked_ids")
+
+            rankedIdsElement.value = rankedIds
+            unrankedIdsElement.value = unrankedIds
+            return true;
+        }
+    </script>
+</body>
+</html>

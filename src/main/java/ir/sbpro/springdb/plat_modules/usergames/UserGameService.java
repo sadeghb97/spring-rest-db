@@ -6,6 +6,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
 @Service
 public class UserGameService {
     UserGameRepository repository;
@@ -36,5 +38,9 @@ public class UserGameService {
         if(sort.equals("metascore")) return repository.findBySOMetaScore(pageable, userPk, platGame);
         if(sort.equals("userscore")) return repository.findBySOUserScore(pageable, userPk, platGame);
         return repository.findBySOOwners(pageable, userPk, platGame);
+    }
+
+    public ArrayList<UserGame> getUserRankedGames(Long userPk){
+        return repository.findUserRankedGames(userPk);
     }
 }

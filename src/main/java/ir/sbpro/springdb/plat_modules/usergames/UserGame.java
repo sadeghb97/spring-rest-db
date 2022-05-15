@@ -22,6 +22,8 @@ public class UserGame {
 
     private double rate;
 
+    private int rank;
+
     private UserGameStatus status;
 
     @OneToOne
@@ -54,6 +56,14 @@ public class UserGame {
 
     public void setRate(double rate) {
         this.rate = rate;
+    }
+
+    public int getRank() {
+        return rank;
+    }
+
+    public void setRank(int rank) {
+        this.rank = rank;
     }
 
     public PlatinumGame getPlatinumGame() {

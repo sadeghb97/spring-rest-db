@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.websocket.server.PathParam;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Optional;
@@ -45,6 +46,77 @@ public class UserGameTController {
                 userGameService.findLibraryGames(pageRequest, platGame, userModel.getPk(), sort));
         model.addAttribute("type", "library");
         return "usergames/user_games";
+    }
+
+    @GetMapping(value = { "/bestgames"})
+    public String getBestGamesView(Model model){
+        UserModel userModel = userService.getCurrentUser();
+        ArrayList<UserGame> allGames = userGameService.getUserRankedGames(userModel.getPk());
+        BestGamesOrders bestGamesOrders = new BestGamesOrders();
+        bestGamesOrders.load(allGames);
+
+        model.addAttribute("games", bestGamesOrders);
+        return "bestgames/best_games";
+    }
+
+    @GetMapping(value = { "/bestgames_ranking"})
+    public String getBestGamesRankingView(Model model){
+        UserModel userModel = userService.getCurrentUser();
+        ArrayList<UserGame> allGames = userGameService.getUserRankedGames(userModel.getPk());
+        BestGamesOrders bestGamesOrders = new BestGamesOrders();
+        bestGamesOrders.load(allGames);
+
+        model.addAttribute("games", bestGamesOrders);
+        return "bestgames/best_games_ranking";
+    }
+
+    @PostMapping(value = "/uptopgames")
+    public String updateBestGames(@RequestParam("ranked_ids") String rankedIds,
+                                  @RequestParam("unranked_ids") String unrankedIds){
+
+        return _getBestGamesView(rankedIds, unrankedIds, false);
+    }
+
+    @PostMapping(value = "/uptopgames_sp")
+    public String updateBestGamesSpread(@RequestParam("ranked_ids") String rankedIds,
+                                  @RequestParam("unranked_ids") String unrankedIds){
+
+        return _getBestGamesView(rankedIds, unrankedIds, true);
+    }
+
+    public String _getBestGamesView(String rankedIds, String unrankedIds, boolean spreadMode){
+        if(!rankedIds.isEmpty()) {
+            String[] rankedIdsArray = rankedIds.split(",");
+            for (int i = 0; rankedIdsArray.length > i; i++) {
+                long gameId = Long.parseLong(rankedIdsArray[i]);
+                int order = i + 1;
+
+                Optional<UserGame> userGameOptional = userGameService.repository.findById(gameId);
+                if (userGameOptional.isPresent()) {
+                    UserGame userGame = userGameOptional.get();
+                    userGame.setRank(order);
+                    userGameService.save(userGame);
+                }
+            }
+        }
+
+        if(!unrankedIds.isEmpty()) {
+            String[] unrankedIdsArray = unrankedIds.split(",");
+            for (int i = 0; unrankedIdsArray.length > i; i++) {
+                long gameId = Long.parseLong(unrankedIdsArray[i]);
+                int order = (unrankedIdsArray.length * -1) + i;
+
+                Optional<UserGame> userGameOptional = userGameService.repository.findById(gameId);
+                if (userGameOptional.isPresent()) {
+                    UserGame userGame = userGameOptional.get();
+                    userGame.setRank(order);
+                    userGameService.save(userGame);
+                }
+            }
+        }
+
+        if(!spreadMode) return "redirect:/library/bestgames";
+        else return "redirect:/library/bestgames_ranking";
     }
 
     @GetMapping(value = "/{game_id}/")

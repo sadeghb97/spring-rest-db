@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
+
 @Repository
 public interface UserGameRepository extends JpaRepository<UserGame, Long> {
 
@@ -74,5 +76,9 @@ public interface UserGameRepository extends JpaRepository<UserGame, Long> {
             "g.platinumGame.name LIKE concat('%', :#{#platGame.name}, '%') " +
             "ORDER BY (CASE WHEN g.platinumGame.metacriticGame.userScore > 0 THEN g.platinumGame.metacriticGame.userScore ELSE 0 END) DESC")
     Page<UserGame> findBySOUserScore(Pageable pageable, Long userPk, PlatinumGame platGame);
+
+    @Query("SELECT g FROM UserModel u INNER JOIN u.psnGames g WHERE u.pk = :#{#userPk} " +
+            "ORDER BY g.rank ASC")
+    ArrayList<UserGame> findUserRankedGames(Long userPk);
 }
 
