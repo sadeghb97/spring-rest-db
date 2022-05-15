@@ -1,5 +1,3 @@
-import Sortable, {Auto}
-
 var gridDemo = document.getElementById('ranked_list'),
     gridDemo2 = document.getElementById('unranked_list');
 
