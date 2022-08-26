@@ -437,8 +437,12 @@ public class PlatinumGame {
         stringBuilder.append(lineDelimiter);
 
         if(getHlGame() != null){
-            stringBuilder.append(getHlGame().getDurationsSummary());
-            stringBuilder.append(lineDelimiter);
+            String hlSummary = getHlGame().getDurationsSummary();
+
+            if(!hlSummary.isEmpty()) {
+                stringBuilder.append(hlSummary);
+                stringBuilder.append(lineDelimiter);
+            }
         }
 
         if(getMetacriticGame() != null){

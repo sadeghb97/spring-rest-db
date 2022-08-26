@@ -148,9 +148,9 @@ public class HLTBGame {
     public String getDurationsSummary(){
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(mainDuration);
-        stringBuilder.append(" | ");
+        if(!stringBuilder.toString().isEmpty()) stringBuilder.append(" | ");
         stringBuilder.append(mainAndExtraDuration);
-        stringBuilder.append(" | ");
+        if(!stringBuilder.toString().isEmpty()) stringBuilder.append(" | ");
         stringBuilder.append(completionistDuration);
         return stringBuilder.toString();
     }

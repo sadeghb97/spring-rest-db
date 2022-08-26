@@ -13,6 +13,10 @@ body {
     text-align: center;
 }
 
+.container {
+    max-width: 1800px;
+}
+
 .img-container {
     height: 230px;
     width: 200px;
