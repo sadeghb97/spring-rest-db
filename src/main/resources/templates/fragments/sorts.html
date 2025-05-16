@@ -7,12 +7,35 @@
 <body>
     <div th:fragment="sort_options"
          th:with="url=${T(org.springframework.web.servlet.support.ServletUriComponentsBuilder).fromCurrentRequest()}">
-        <div style="margin-top: 16px;">
+        <div style="margin-top: 16px;" th:if="${type == null || type.equals('library')}">
+            <a th:href="@{${url.replaceQueryParam('sort').replaceQueryParam('page').toUriString()}(sort=${'creation'}, page=${0})}">
+                <button type="button" class="btn btn-danger sort-button">Creation</button>
+            </a>
+
+            <a th:href="@{${url.replaceQueryParam('sort').replaceQueryParam('page').toUriString()}(sort=${'rate'}, page=${0})}">
+                <button type="button" class="btn btn-info sort-button">Rate</button>
+            </a>
+
+            <a th:href="@{${url.replaceQueryParam('sort').replaceQueryParam('page').toUriString()}(sort=${'status'}, page=${0})}">
+                <button type="button" class="btn btn-light sort-button">Status</button>
+            </a>
+
+            <a th:href="@{${url.replaceQueryParam('sort').replaceQueryParam('page').toUriString()}(sort=${'playtime'}, page=${0})}">
+                <button type="button" class="btn btn-primary sort-button">Playtime</button>
+            </a>
+
+            <a th:href="@{${url.replaceQueryParam('sort').replaceQueryParam('page').toUriString()}(sort=${'progress'}, page=${0})}">
+                <button type="button" class="btn btn-dark sort-button">Progress</button>
+            </a>
+        </div>
+
+        <div style="margin-top: 8px;">
             <a th:href="@{${url.replaceQueryParam('sort').replaceQueryParam('page').toUriString()}(sort=${'owners'}, page=${0})}">
                 <button type="button" class="btn btn-primary sort-button">Owners</button>
             </a>
 
-            <a th:href="@{${url.replaceQueryParam('sort').replaceQueryParam('page').toUriString()}(sort=${'creation'}, page=${0})}">
+            <a th:href="@{${url.replaceQueryParam('sort').replaceQueryParam('page').toUriString()}(sort=${'creation'}, page=${0})}"
+               th:if="${type == null || type.equals('plats')}">
                 <button type="button" class="btn btn-danger sort-button">Creation</button>
             </a>
 
@@ -50,16 +73,6 @@
             <a th:href="@{${url.replaceQueryParam('sort').replaceQueryParam('page').toUriString()}(sort=${'disper'}, page=${0})}"
                th:if="${type == null || !type.equals('library')}">
                 <button type="button" class="btn btn-light sort-button">DisPercent</button>
-            </a>
-
-            <a th:href="@{${url.replaceQueryParam('sort').replaceQueryParam('page').toUriString()}(sort=${'rate'}, page=${0})}"
-               th:if="${type == null || type.equals('library')}">
-                <button type="button" class="btn btn-info sort-button">Rate</button>
-            </a>
-
-            <a th:href="@{${url.replaceQueryParam('sort').replaceQueryParam('page').toUriString()}(sort=${'status'}, page=${0})}"
-               th:if="${type == null || type.equals('library')}">
-                <button type="button" class="btn btn-light sort-button">Status</button>
             </a>
 
             <a th:href="@{${url.replaceQueryParam('sort').replaceQueryParam('page').toUriString()}(sort=${'metascore'}, page=${0})}">

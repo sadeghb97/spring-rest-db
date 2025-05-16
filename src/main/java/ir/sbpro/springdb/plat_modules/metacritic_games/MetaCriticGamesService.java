@@ -1,6 +1,7 @@
 package ir.sbpro.springdb.plat_modules.metacritic_games;
 
 import ir.sbpro.games_repo.MetacriticGamesRepository;
+import ir.sbpro.springdb.AppSingleton;
 import ir.sbpro.springdb.plat_modules.hltbgames.HLTBGame;
 import ir.sbpro.springdb.plat_modules.hltbgames.HLTBGamesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class MetaCriticGamesService {
         if(mcUrl != null && !mcUrl.isEmpty()) {
             try {
                 ir.sbpro.models.MetacriticGame mcFetcher = new ir.sbpro.models.MetacriticGame();
-                mcFetcher.update(mcUrl);
+                mcFetcher.update(mcUrl, AppSingleton.getInstance().networkConnection);
                 MetaCriticGame metaCriticGame = new MetaCriticGame();
                 metaCriticGame.load(mcFetcher);
                 return gamesRepository.save(metaCriticGame);
@@ -39,7 +40,7 @@ public class MetaCriticGamesService {
             MetaCriticGame metaCriticGame = mcOptional.get();
 
             ir.sbpro.models.MetacriticGame mcFetcher = new ir.sbpro.models.MetacriticGame();
-            mcFetcher.update(metaCriticGame.getLink());
+            mcFetcher.update(metaCriticGame.getLink(), AppSingleton.getInstance().networkConnection);
 
             metaCriticGame.load(mcFetcher);
             return gamesRepository.save(metaCriticGame);

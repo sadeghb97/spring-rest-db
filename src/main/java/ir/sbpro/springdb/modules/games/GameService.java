@@ -45,9 +45,8 @@ public class GameService extends ModuleService<GameModel> {
 
         try {
             GameModel game = gameOptional.get();
-            String coverFileName = EntityUtils.saveCover(file, game.getCover());
-
-            game.setCover(coverFileName);
+            String coverFileName = EntityUtils.saveCover(file, game.getPk().toString(),
+                    "gamemodel", game.getPk().toString());
             return new ResponseEntity<Object>(repository.save(game), HttpStatus.ACCEPTED);
         }
         catch (Exception e) {

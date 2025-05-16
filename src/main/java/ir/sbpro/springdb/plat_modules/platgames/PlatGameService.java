@@ -4,6 +4,7 @@ import ir.sbpro.PlatPricesApi;
 import ir.sbpro.Scrapper;
 import ir.sbpro.models.PSNProfilesGame;
 import ir.sbpro.models.PlatPricesGame;
+import ir.sbpro.springdb.AppSingleton;
 import ir.sbpro.springdb.plat_modules.metacritic_games.MetaCriticGame;
 import ir.sbpro.springdb.plat_modules.metacritic_games.MetaCriticGamesService;
 import ir.sbpro.springdb.plat_modules.psngames.PSNGame;
@@ -67,7 +68,8 @@ public class PlatGameService {
     public Optional<PlatinumGame> initPlatinumGameWithName(PSNGamesService psnGamesService,
                                                    MetaCriticGamesService metaCriticGamesService, String name){
         try {
-            PlatPricesGame platPricesGame = PlatPricesApi.getPlatPricesGameWithName(name);
+            PlatPricesGame platPricesGame = PlatPricesApi.getPlatPricesGameWithName(name,
+                    AppSingleton.getInstance().networkConnection);
             return initPlatinumGame(psnGamesService, metaCriticGamesService, platPricesGame);
         }
         catch (Exception ex){
@@ -78,7 +80,8 @@ public class PlatGameService {
     public Optional<PlatinumGame> initPlatinumGameWithPPID(PSNGamesService psnGamesService,
                                                            MetaCriticGamesService metaCriticGamesService, String ppid){
         try {
-            PlatPricesGame platPricesGame = PlatPricesApi.getPlatPricesGameWithPPID(ppid);
+            PlatPricesGame platPricesGame = PlatPricesApi.getPlatPricesGameWithPPID(ppid,
+                    AppSingleton.getInstance().networkConnection);
             return initPlatinumGame(psnGamesService, metaCriticGamesService, platPricesGame);
         }
         catch (Exception ex){
@@ -89,7 +92,8 @@ public class PlatGameService {
     public Optional<PlatinumGame> initPlatinumGameWithPSNID(PSNGamesService psnGamesService,
                                                            MetaCriticGamesService metaCriticGamesService, String psnId){
         try {
-            PlatPricesGame platPricesGame = PlatPricesApi.getPlatPricesGame(psnId);
+            PlatPricesGame platPricesGame = PlatPricesApi.getPlatPricesGame(psnId,
+                    AppSingleton.getInstance().networkConnection);
             return initPlatinumGame(psnGamesService, metaCriticGamesService, platPricesGame);
         }
         catch (Exception ex){
@@ -129,7 +133,8 @@ public class PlatGameService {
             }
 
             PSNProfilesGame psnpFetcher = new PSNProfilesGame();
-            psnpFetcher.update(psnpUrl);
+            psnpFetcher.update(psnpUrl,
+                    AppSingleton.getInstance().networkConnection);
             platinumGame.load(psnpFetcher);
             platinumGame.setStoreGame(psnGame);
             if(metaCriticGame != null) platinumGame.setMetaCriticGame(metaCriticGame);

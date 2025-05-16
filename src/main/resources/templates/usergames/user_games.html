@@ -39,7 +39,10 @@
                 <div class="img-inner">
                     <a th:href="'/library/' + ${game.getId()} + '/'" target="_blank">
                         <div class="inner-skew">
-                            <img th:src="${game.platinumGame.getImage()}">
+                            <div th:switch="${game.getPlatinumGame() != null}">
+                                <img th:case="true" th:src="${game.getImage()}">
+                                <img th:case="*" th:src="'../' + ${game.getImage()}">
+                            </div>
                         </div>
                     </a>
                 </div>

@@ -1,5 +1,6 @@
 package ir.sbpro.springdb.plat_modules.psngames;
 
+import ir.sbpro.springdb.AppSingleton;
 import ir.sbpro.springdb.plat_modules.hltbgames.HLTBGame;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +20,7 @@ public class PSNGamesService {
         if(psnId != null && !psnId.isEmpty()) {
             try {
                 ir.sbpro.models.PSNGame psnGameFetcher = new ir.sbpro.models.PSNGame();
-                psnGameFetcher.update(psnId);
+                psnGameFetcher.update(psnId, AppSingleton.getInstance().networkConnection);
                 PSNGame psnGame = new PSNGame();
                 psnGame.load(psnGameFetcher);
                 return gamesRepository.save(psnGame);
@@ -37,7 +38,7 @@ public class PSNGamesService {
             PSNGame psnGame = psnOptional.get();
 
             ir.sbpro.models.PSNGame psnGameFetcher = new ir.sbpro.models.PSNGame();
-            psnGameFetcher.update(psnGame.getId());
+            psnGameFetcher.update(psnGame.getId(), AppSingleton.getInstance().networkConnection);
             psnGame.load(psnGameFetcher);
 
             return gamesRepository.save(psnGame);

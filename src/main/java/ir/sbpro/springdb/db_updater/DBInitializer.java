@@ -4,6 +4,7 @@ import ir.sbpro.PSStoreScrapper;
 import ir.sbpro.enums.ConnectionType;
 import ir.sbpro.games_repo.*;
 import ir.sbpro.models.PSNProfilesGame;
+import ir.sbpro.springdb.AppSingleton;
 import ir.sbpro.springdb.ApplicationContextHolder;
 import ir.sbpro.springdb.plat_modules.hltbgames.HLTBGame;
 import ir.sbpro.springdb.plat_modules.hltbgames.HLTBGamesService;
@@ -47,13 +48,13 @@ public class DBInitializer {
 
 
             PSStoreGamesRepository psStoreGamesRepository =
-                    new PSStoreGamesRepository(psnGamesPath, psnGamesMapPath);
+                    new PSStoreGamesRepository(AppSingleton.getInstance().networkConnection, psnGamesPath, psnGamesMapPath);
 
             HLTBGamesRepository hltbGamesRepository =
-                    new HLTBGamesRepository(hltbGamesPath, hltbGamesMapPath);
+                    new HLTBGamesRepository(AppSingleton.getInstance().networkConnection, hltbGamesPath, hltbGamesMapPath);
 
             MetacriticGamesRepository metacriticGamesRepository =
-                    new MetacriticGamesRepository(mcGamesPath, mcGamesMapPath);
+                    new MetacriticGamesRepository(AppSingleton.getInstance().networkConnection, mcGamesPath, mcGamesMapPath);
 
             HelpHLTBGamesMap helpHLTBGamesMap = new HelpHLTBGamesMap();
 
@@ -61,12 +62,12 @@ public class DBInitializer {
             hltbGamesRepository.loadFromJsonFile();
             metacriticGamesRepository.loadFromJsonFile();
 
-            PSNPGamesRepository psnpGamesRepository = new PSNPGamesRepository(platGamesPath);
+            PSNPGamesRepository psnpGamesRepository = new PSNPGamesRepository(AppSingleton.getInstance().networkConnection);
             psnpGamesRepository.load();
 
             psnpGamesRepository.games.forEach((psnpGame) -> {
                 psnpGame.fetchPSNStoreGame(PSStoreScrapper.DownloaderType.ScrapperDefault,
-                        ConnectionType.OFFLINE, psStoreGamesRepository);
+                        ConnectionType.OFFLINE, psStoreGamesRepository, AppSingleton.getInstance().networkConnection);
             });
 
             psnpGamesRepository.games.forEach((psnpGame) -> {

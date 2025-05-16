@@ -18,10 +18,9 @@
         <ul>
             <li>
                 <input type="hidden" id="pk" name="pk" th:field="*{pk}">
-                <input type="hidden" id="cover" name="cover" th:field="*{cover}">
 
                 <img class="field-style field-full align-left" id="#coverbox"
-                     th:src="'/img/covers/' + ${gameObject.getCover()}" />
+                     th:src="'/img/covers/gamemodel/' + ${gameObject.getPk()}" />
 
                 <div th:switch="${access}">
                     <input th:case="'yes'" type="text" class="field-style field-full align-left"
@@ -30,6 +29,22 @@
 
                     <input th:case="'no'" type="text" class="field-style field-full align-left"
                            placeholder="Name" th:value="${gameObject.getName()}" readonly />
+                </div>
+
+                <div th:switch="${access}">
+                    <input th:case="'yes'" type="text" class="field-style field-full align-left"
+                           placeholder="Link" th:field="*{link}" />
+
+                    <input th:case="'no'" type="text" class="field-style field-full align-left"
+                           placeholder="Link" th:value="${gameObject.getLink()}" readonly />
+                </div>
+
+                <div th:switch="${access}">
+                    <input th:case="'yes'" type="text" class="field-style field-full align-left"
+                           placeholder="Price" th:field="*{price}" />
+
+                    <input th:case="'no'" type="text" class="field-style field-full align-left"
+                           placeholder="Price" th:value="${gameObject.getPrice()}" readonly />
                 </div>
 
                 <div th:switch="${access}">
@@ -81,13 +96,28 @@
         </ul>
     </form>
 
-    <div th:switch="${access}">
-        <form th:case="'yes'" class="form-style-9" method="post" th:action="@{/delgame}" th:object="${gameObject}"
-              onsubmit="return areYouSure();">
-            <div style="color: #3d2200; font-weight: bold; margin-bottom: 8px;">Warning: Deleting Game!</div>
-            <input type="hidden" name="delpk" id="delpk" th:value="${gameObject.getPk()}">
-            <input type="submit" value="Delete Game" />
-        </form>
+    <div th:switch="${access}" class="form-style-9" >
+        <ul>
+            <li style="margin-top: 8px; margin-bottom: 32px;">
+                <div style="display: inline-block">
+                    <div th:switch="${in_psngames}" style="display: inline">
+                        <form th:case="false" style="display: inline" method="post"
+                              th:action="@{/showgame/{pk}/add_user_game/(pk=${gameObject.getPk()})}">
+                            <input style="height: 45px;" type="submit" value="Add To MyGames" />
+                        </form>
+
+                        <button th:case="true" style="height: 45px;"
+                                type="button" class="btn btn-success sort-button">In YourGames</button>
+                    </div>
+                </div>
+            </li>
+
+            <form th:case="'yes'" method="post" th:action="@{/delgame}" th:object="${gameObject}">
+                <div style="color: #3d2200; font-weight: bold; margin-bottom: 8px;">Warning: Deleting Game!</div>
+                <input type="hidden" name="delpk" id="delpk" th:value="${gameObject.getPk()}">
+                <input type="submit" value="Delete Game" />
+            </form>
+        </ul>
     </div>
 </div>
 

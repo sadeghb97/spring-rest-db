@@ -4,6 +4,7 @@ import ir.sbpro.PlatPricesApi;
 import ir.sbpro.models.MetacriticGame;
 import ir.sbpro.models.PSNProfilesGame;
 import ir.sbpro.models.PlatPricesGame;
+import ir.sbpro.springdb.AppSingleton;
 import ir.sbpro.springdb.enums.UserGameStatus;
 import ir.sbpro.springdb.modules.users.UserModel;
 import ir.sbpro.springdb.modules.users.UserService;
@@ -139,7 +140,8 @@ public class PlatGTemplateController {
     private void _updatePSN(PlatinumGame platinumGame){
         try {
             PlatPricesGame platPricesGame =
-                    PlatPricesApi.getPlatPricesGameWithName(platinumGame.getName());
+                    PlatPricesApi.getPlatPricesGameWithName(platinumGame.getName(),
+                            AppSingleton.getInstance().networkConnection);
             ir.sbpro.models.PSNGame psnFetcher = new ir.sbpro.models.PSNGame();
             psnFetcher.update(platPricesGame);
             PSNGame springPSNGame = new PSNGame();
@@ -180,7 +182,7 @@ public class PlatGTemplateController {
     private void _updatePSNP(PlatinumGame platinumGame, String newPsnpUrl){
         try {
             PSNProfilesGame psnpGame = new PSNProfilesGame();
-            psnpGame.update(newPsnpUrl);
+            psnpGame.update(newPsnpUrl, AppSingleton.getInstance().networkConnection);
             platinumGame.load(psnpGame);
             platGameService.platGameRepository.save(platinumGame);
         }
@@ -289,7 +291,7 @@ public class PlatGTemplateController {
 
                 platinumGame = new PlatinumGame();
                 PSNProfilesGame psnpFetcher = new PSNProfilesGame();
-                psnpFetcher.update(pUrl);
+                psnpFetcher.update(pUrl, AppSingleton.getInstance().networkConnection);
                 platinumGame.load(psnpFetcher);
                 platGameService.platGameRepository.save(platinumGame);
                 System.out.println("PSNP Game Fetched!");
@@ -321,7 +323,7 @@ public class PlatGTemplateController {
         try{
             PlatinumGame platinumGame = new PlatinumGame();
             PSNProfilesGame psnpFetcher = new PSNProfilesGame();
-            psnpFetcher.update(psnpUrl);
+            psnpFetcher.update(psnpUrl, AppSingleton.getInstance().networkConnection);
             platinumGame.load(psnpFetcher, hltbGame, psnGame, metaCriticGame);
             platGameService.platGameRepository.save(platinumGame);
             return _getShowGameRedirectRoute(platinumGame.getId());

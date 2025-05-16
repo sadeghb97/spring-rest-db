@@ -306,13 +306,13 @@
 					<div class="no-shrink">
 
 						<div class="dropdown buttons" style="margin-right: 0;">
-							<a class="dropdown-toggle platform" data-toggle="dropdown" href="">Platform (All)</a>
+							<a class="dropdown-toggle userGamePlatform" data-toggle="dropdown" href="">Platform (All)</a>
 							<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-								<li><a href="/games?order=average&amp;platform=ps5" rel="nofollow">PlayStation 5</a></li>
-								<li><a href="/games?order=average&amp;platform=ps4" rel="nofollow">PlayStation 4</a></li>
-								<li><a href="/games?order=average&amp;platform=ps3" rel="nofollow">PlayStation 3</a></li>
-								<li><a href="/games?order=average&amp;platform=psvita" rel="nofollow">PlayStation Vita</a></li>
-								<li><a href="/games?order=average&amp;platform=psvr" rel="nofollow">PlayStation VR</a></li>
+								<li><a href="/games?order=average&amp;userGamePlatform=ps5" rel="nofollow">PlayStation 5</a></li>
+								<li><a href="/games?order=average&amp;userGamePlatform=ps4" rel="nofollow">PlayStation 4</a></li>
+								<li><a href="/games?order=average&amp;userGamePlatform=ps3" rel="nofollow">PlayStation 3</a></li>
+								<li><a href="/games?order=average&amp;userGamePlatform=psvita" rel="nofollow">PlayStation Vita</a></li>
+								<li><a href="/games?order=average&amp;userGamePlatform=psvr" rel="nofollow">PlayStation VR</a></li>
 								<li><a href="/games?order=average" rel="nofollow">All</a></li>
 							</ul>
 						</div>
@@ -407,7 +407,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps4">PS4</span></div>
 			</span>
 			</td>
 
@@ -457,7 +457,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform psvita">Vita</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform psvita">Vita</span></div>
 			</span>
 			</td>
 
@@ -508,7 +508,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps4">PS4</span></div>
 			</span>
 			</td>
 
@@ -559,7 +559,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span><span class="tag platform psvita">Vita</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps4">PS4</span><span class="tag userGamePlatform psvita">Vita</span></div>
 			</span>
 			</td>
 
@@ -610,7 +610,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps4">PS4</span></div>
 			</span>
 			</td>
 
@@ -661,7 +661,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps3">PS3</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps3">PS3</span></div>
 			</span>
 			</td>
 
@@ -711,7 +711,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform psvita">Vita</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform psvita">Vita</span></div>
 			</span>
 			</td>
 
@@ -762,7 +762,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform psvita">Vita</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform psvita">Vita</span></div>
 			</span>
 			</td>
 
@@ -813,7 +813,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform psvita">Vita</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform psvita">Vita</span></div>
 			</span>
 			</td>
 
@@ -864,7 +864,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform psvita">Vita</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform psvita">Vita</span></div>
 			</span>
 			</td>
 
@@ -915,7 +915,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps4">PS4</span></div>
 			</span>
 			</td>
 
@@ -966,7 +966,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps4">PS4</span></div>
 			</span>
 			</td>
 
@@ -1017,7 +1017,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform psvita">Vita</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform psvita">Vita</span></div>
 			</span>
 			</td>
 
@@ -1068,7 +1068,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform psvita">Vita</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform psvita">Vita</span></div>
 			</span>
 			</td>
 
@@ -1119,7 +1119,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform psvita">Vita</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform psvita">Vita</span></div>
 			</span>
 			</td>
 
@@ -1170,7 +1170,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps5">PS5</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps5">PS5</span></div>
 			</span>
 			</td>
 
@@ -1221,7 +1221,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform psvita">Vita</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform psvita">Vita</span></div>
 			</span>
 			</td>
 
@@ -1272,7 +1272,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps4">PS4</span></div>
 			</span>
 			</td>
 
@@ -1323,7 +1323,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps4">PS4</span></div>
 			</span>
 			</td>
 
@@ -1374,7 +1374,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps4">PS4</span></div>
 			</span>
 			</td>
 
@@ -1425,7 +1425,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps4">PS4</span></div>
 			</span>
 			</td>
 
@@ -1476,7 +1476,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps5">PS5</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps5">PS5</span></div>
 			</span>
 			</td>
 
@@ -1527,7 +1527,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps5">PS5</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps5">PS5</span></div>
 			</span>
 			</td>
 
@@ -1578,7 +1578,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps4">PS4</span></div>
 			</span>
 			</td>
 
@@ -1629,7 +1629,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps4">PS4</span></div>
 			</span>
 			</td>
 
@@ -1679,7 +1679,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform psvita">Vita</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform psvita">Vita</span></div>
 			</span>
 			</td>
 
@@ -1730,7 +1730,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps4">PS4</span></div>
 			</span>
 			</td>
 
@@ -1781,7 +1781,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps4">PS4</span></div>
 			</span>
 			</td>
 
@@ -1832,7 +1832,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps4">PS4</span></div>
 			</span>
 			</td>
 
@@ -1883,7 +1883,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span><span class="tag platform psvita">Vita</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps4">PS4</span><span class="tag userGamePlatform psvita">Vita</span></div>
 			</span>
 			</td>
 
@@ -1934,7 +1934,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps5">PS5</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps5">PS5</span></div>
 			</span>
 			</td>
 
@@ -1985,7 +1985,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform psvita">Vita</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform psvita">Vita</span></div>
 			</span>
 			</td>
 
@@ -2036,7 +2036,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps4">PS4</span></div>
 			</span>
 			</td>
 
@@ -2087,7 +2087,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps4">PS4</span></div>
 			</span>
 			</td>
 
@@ -2138,7 +2138,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps4">PS4</span></div>
 			</span>
 			</td>
 
@@ -2189,7 +2189,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps4">PS4</span></div>
 			</span>
 			</td>
 
@@ -2240,7 +2240,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps4">PS4</span></div>
 			</span>
 			</td>
 
@@ -2291,7 +2291,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps4">PS4</span></div>
 			</span>
 			</td>
 
@@ -2342,7 +2342,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform psvita">Vita</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform psvita">Vita</span></div>
 			</span>
 			</td>
 
@@ -2393,7 +2393,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps5">PS5</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps5">PS5</span></div>
 			</span>
 			</td>
 
@@ -2444,7 +2444,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps5">PS5</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps5">PS5</span></div>
 			</span>
 			</td>
 
@@ -2494,7 +2494,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps4">PS4</span></div>
 			</span>
 			</td>
 
@@ -2544,7 +2544,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps4">PS4</span></div>
 			</span>
 			</td>
 
@@ -2595,7 +2595,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform psvita">Vita</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform psvita">Vita</span></div>
 			</span>
 			</td>
 
@@ -2646,7 +2646,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps4">PS4</span></div>
 			</span>
 			</td>
 
@@ -2697,7 +2697,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps4">PS4</span></div>
 			</span>
 			</td>
 
@@ -2748,7 +2748,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps5">PS5</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps5">PS5</span></div>
 			</span>
 			</td>
 
@@ -2799,7 +2799,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps4">PS4</span></div>
 			</span>
 			</td>
 
@@ -2850,7 +2850,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps4">PS4</span></div>
 			</span>
 			</td>
 
@@ -2901,7 +2901,7 @@
 
 	<td>
 					<span class="separator right">
-				<div class="platforms" style="width:100%"><span class="tag platform ps4">PS4</span><span class="tag platform psvita">Vita</span></div>		
+				<div class="userGamePlatforms" style="width:100%"><span class="tag userGamePlatform ps4">PS4</span><span class="tag userGamePlatform psvita">Vita</span></div>
 			</span>
 			</td>
 
@@ -2978,7 +2978,7 @@
 								<div class="ellipsis">
 									<a class="small-title" href="/trophies/436-call-of-duty-black-ops" title="Call of Duty: Black Ops">Call of Duty: Black Ops</a>
 								</div>
-								<div class="platforms" ><span class="tag platform ps3">PS3</span></div>				
+								<div class="userGamePlatforms" ><span class="tag userGamePlatform ps3">PS3</span></div>
 							</td>
 
 							<td style="width: 1%; padding: 5px 10px;">
@@ -2999,7 +2999,7 @@
 								<div class="ellipsis">
 									<a class="small-title" href="/trophies/3147-grand-theft-auto-v" title="Grand Theft Auto V">Grand Theft Auto V</a>
 								</div>
-								<div class="platforms" ><span class="tag platform ps4">PS4</span></div>				
+								<div class="userGamePlatforms" ><span class="tag userGamePlatform ps4">PS4</span></div>
 							</td>
 
 							<td style="width: 1%; padding: 5px 10px;">
@@ -3020,7 +3020,7 @@
 								<div class="ellipsis">
 									<a class="small-title" href="/trophies/2093-grand-theft-auto-v" title="Grand Theft Auto V">Grand Theft Auto V</a>
 								</div>
-								<div class="platforms" ><span class="tag platform ps3">PS3</span></div>				
+								<div class="userGamePlatforms" ><span class="tag userGamePlatform ps3">PS3</span></div>
 							</td>
 
 							<td style="width: 1%; padding: 5px 10px;">
@@ -3041,7 +3041,7 @@
 								<div class="ellipsis">
 									<a class="small-title" href="/trophies/175-call-of-duty-modern-warfare-2" title="Call of Duty: Modern Warfare 2">Call of Duty: Modern Warfare 2</a>
 								</div>
-								<div class="platforms" ><span class="tag platform ps3">PS3</span></div>				
+								<div class="userGamePlatforms" ><span class="tag userGamePlatform ps3">PS3</span></div>
 							</td>
 
 							<td style="width: 1%; padding: 5px 10px;">
@@ -3062,7 +3062,7 @@
 								<div class="ellipsis">
 									<a class="small-title" href="/trophies/2166-the-playroom" title="The Playroom">The Playroom</a>
 								</div>
-								<div class="platforms" ><span class="tag platform ps4">PS4</span></div>				
+								<div class="userGamePlatforms" ><span class="tag userGamePlatform ps4">PS4</span></div>
 							</td>
 
 							<td style="width: 1%; padding: 5px 10px;">
@@ -3095,7 +3095,7 @@
 								<div class="ellipsis">
 									<a class="small-title" href="/trophies/14136-bff-or-die" title="BFF or Die">BFF or Die</a>
 								</div>
-								<div class="platforms" ><span class="tag platform ps4">PS4</span></div>				
+								<div class="userGamePlatforms" ><span class="tag userGamePlatform ps4">PS4</span></div>
 							</td>
 
 							<td style="width: 1%; padding: 5px 10px;">
@@ -3116,7 +3116,7 @@
 								<div class="ellipsis">
 									<a class="small-title" href="/trophies/14005-delicious-pretty-girls-mahjong-solitaire" title="Delicious! Pretty Girls Mahjong Solitaire">Delicious! Pretty Girls Mahjong Solitaire</a>
 								</div>
-								<div class="platforms" ><span class="tag platform ps5">PS5</span></div>				
+								<div class="userGamePlatforms" ><span class="tag userGamePlatform ps5">PS5</span></div>
 							</td>
 
 							<td style="width: 1%; padding: 5px 10px;">
@@ -3137,7 +3137,7 @@
 								<div class="ellipsis">
 									<a class="small-title" href="/trophies/13992-アママネ2" title="アママネ2">アママネ2</a>
 								</div>
-								<div class="platforms" ><span class="tag platform ps4">PS4</span></div>				
+								<div class="userGamePlatforms" ><span class="tag userGamePlatform ps4">PS4</span></div>
 							</td>
 
 							<td style="width: 1%; padding: 5px 10px;">
@@ -3158,7 +3158,7 @@
 								<div class="ellipsis">
 									<a class="small-title" href="/trophies/13648-zero-strain" title="Zero Strain">Zero Strain</a>
 								</div>
-								<div class="platforms" ><span class="tag platform ps5">PS5</span></div>				
+								<div class="userGamePlatforms" ><span class="tag userGamePlatform ps5">PS5</span></div>
 							</td>
 
 							<td style="width: 1%; padding: 5px 10px;">
@@ -3179,7 +3179,7 @@
 								<div class="ellipsis">
 									<a class="small-title" href="/trophies/13253-サクラサキュバス３-魔性の支配者" title="サクラ･サキュバス３ ～魔性の支配者～">サクラ･サキュバス３ ～魔性の支配者～</a>
 								</div>
-								<div class="platforms" ><span class="tag platform ps5">PS5</span></div>				
+								<div class="userGamePlatforms" ><span class="tag userGamePlatform ps5">PS5</span></div>
 							</td>
 
 							<td style="width: 1%; padding: 5px 10px;">
@@ -3208,7 +3208,7 @@
 								<div class="ellipsis">
 									<a class="small-title" href="/trophies/5578-attacking-zegeta-2" title="Attacking Zegeta 2">Attacking Zegeta 2</a>
 								</div>
-								<div class="platforms" ><span class="tag platform ps4">PS4</span></div>				
+								<div class="userGamePlatforms" ><span class="tag userGamePlatform ps4">PS4</span></div>
 							</td>
 
 							<td style="width: 1%; padding: 5px 10px;">
@@ -3229,7 +3229,7 @@
 								<div class="ellipsis">
 									<a class="small-title" href="/trophies/7039-audio-beats" title="Audio Beats">Audio Beats</a>
 								</div>
-								<div class="platforms" ><span class="tag platform ps4">PS4</span><span class="tag platform psvr">VR</span></div>				
+								<div class="userGamePlatforms" ><span class="tag userGamePlatform ps4">PS4</span><span class="tag userGamePlatform psvr">VR</span></div>
 							</td>
 
 							<td style="width: 1%; padding: 5px 10px;">
@@ -3250,7 +3250,7 @@
 								<div class="ellipsis">
 									<a class="small-title" href="/trophies/11973-nostos" title="Nostos">Nostos</a>
 								</div>
-								<div class="platforms" ><span class="tag platform ps4">PS4</span></div>				
+								<div class="userGamePlatforms" ><span class="tag userGamePlatform ps4">PS4</span></div>
 							</td>
 
 							<td style="width: 1%; padding: 5px 10px;">
@@ -3271,7 +3271,7 @@
 								<div class="ellipsis">
 									<a class="small-title" href="/trophies/12704-atomicrops" title="Atomicrops">Atomicrops</a>
 								</div>
-								<div class="platforms" ><span class="tag platform ps4">PS4</span></div>				
+								<div class="userGamePlatforms" ><span class="tag userGamePlatform ps4">PS4</span></div>
 							</td>
 
 							<td style="width: 1%; padding: 5px 10px;">
@@ -3292,7 +3292,7 @@
 								<div class="ellipsis">
 									<a class="small-title" href="/trophies/5581-virzoom-arcade" title="VirZOOM Arcade">VirZOOM Arcade</a>
 								</div>
-								<div class="platforms" ><span class="tag platform ps4">PS4</span><span class="tag platform psvr">VR</span></div>				
+								<div class="userGamePlatforms" ><span class="tag userGamePlatform ps4">PS4</span><span class="tag userGamePlatform psvr">VR</span></div>
 							</td>
 
 							<td style="width: 1%; padding: 5px 10px;">
@@ -3325,7 +3325,7 @@
 								<div class="ellipsis">
 									<a class="small-title" href="/trophies/13711-train-sim-world-2" title="Train Sim World 2">Train Sim World 2</a>
 								</div>
-								<div class="platforms" ><span class="tag platform ps5">PS5</span></div>				
+								<div class="userGamePlatforms" ><span class="tag userGamePlatform ps5">PS5</span></div>
 							</td>
 
 							<td style="width: 1%; padding: 5px 10px;">
@@ -3346,7 +3346,7 @@
 								<div class="ellipsis">
 									<a class="small-title" href="/trophies/13184-the-elder-scrolls-online" title="The Elder Scrolls Online">The Elder Scrolls Online</a>
 								</div>
-								<div class="platforms" ><span class="tag platform ps5">PS5</span></div>				
+								<div class="userGamePlatforms" ><span class="tag userGamePlatform ps5">PS5</span></div>
 							</td>
 
 							<td style="width: 1%; padding: 5px 10px;">
@@ -3367,7 +3367,7 @@
 								<div class="ellipsis">
 									<a class="small-title" href="/trophies/2924-driveclub" title="Driveclub">Driveclub</a>
 								</div>
-								<div class="platforms" ><span class="tag platform ps4">PS4</span></div>				
+								<div class="userGamePlatforms" ><span class="tag userGamePlatform ps4">PS4</span></div>
 							</td>
 
 							<td style="width: 1%; padding: 5px 10px;">
@@ -3388,7 +3388,7 @@
 								<div class="ellipsis">
 									<a class="small-title" href="/trophies/3620-payday-2-crimewave-edition" title="Payday 2: Crimewave Edition">Payday 2: Crimewave Edition</a>
 								</div>
-								<div class="platforms" ><span class="tag platform ps4">PS4</span></div>				
+								<div class="userGamePlatforms" ><span class="tag userGamePlatform ps4">PS4</span></div>
 							</td>
 
 							<td style="width: 1%; padding: 5px 10px;">
@@ -3409,7 +3409,7 @@
 								<div class="ellipsis">
 									<a class="small-title" href="/trophies/3610-the-elder-scrolls-online" title="The Elder Scrolls Online">The Elder Scrolls Online</a>
 								</div>
-								<div class="platforms" ><span class="tag platform ps4">PS4</span></div>				
+								<div class="userGamePlatforms" ><span class="tag userGamePlatform ps4">PS4</span></div>
 							</td>
 
 							<td style="width: 1%; padding: 5px 10px;">
@@ -3439,7 +3439,7 @@
 								<div class="ellipsis">
 									<a class="small-title" href="/trophies/10675-nekketsu-renegade-kunio-kun" title="Nekketsu Renegade Kunio-kun">Nekketsu Renegade Kunio-kun</a>
 								</div>
-								<div class="platforms" ><span class="tag platform ps4">PS4</span></div>				
+								<div class="userGamePlatforms" ><span class="tag userGamePlatform ps4">PS4</span></div>
 							</td>
 
 							<td style="width: 1%; padding: 5px 10px;">
@@ -3460,7 +3460,7 @@
 								<div class="ellipsis">
 									<a class="small-title" href="/trophies/10679-double-dragon-ii-the-revenge" title="Double Dragon II: The Revenge">Double Dragon II: The Revenge</a>
 								</div>
-								<div class="platforms" ><span class="tag platform ps4">PS4</span></div>				
+								<div class="userGamePlatforms" ><span class="tag userGamePlatform ps4">PS4</span></div>
 							</td>
 
 							<td style="width: 1%; padding: 5px 10px;">
@@ -3481,7 +3481,7 @@
 								<div class="ellipsis">
 									<a class="small-title" href="/trophies/10680-nekketsu-high-school-dodgeball-club" title="Nekketsu High School Dodgeball Club">Nekketsu High School Dodgeball Club</a>
 								</div>
-								<div class="platforms" ><span class="tag platform ps4">PS4</span></div>				
+								<div class="userGamePlatforms" ><span class="tag userGamePlatform ps4">PS4</span></div>
 							</td>
 
 							<td style="width: 1%; padding: 5px 10px;">
@@ -3502,7 +3502,7 @@
 								<div class="ellipsis">
 									<a class="small-title" href="/trophies/10683-crashn-the-boys-street-challenge" title="Crash&#039;n the Boys Street Challenge">Crash&#039;n the Boys Street Challenge</a>
 								</div>
-								<div class="platforms" ><span class="tag platform ps4">PS4</span></div>				
+								<div class="userGamePlatforms" ><span class="tag userGamePlatform ps4">PS4</span></div>
 							</td>
 
 							<td style="width: 1%; padding: 5px 10px;">
@@ -3523,7 +3523,7 @@
 								<div class="ellipsis">
 									<a class="small-title" href="/trophies/10684-double-dragon-iii-the-sacred-stones" title="Double Dragon III: The Sacred Stones">Double Dragon III: The Sacred Stones</a>
 								</div>
-								<div class="platforms" ><span class="tag platform ps4">PS4</span></div>				
+								<div class="userGamePlatforms" ><span class="tag userGamePlatform ps4">PS4</span></div>
 							</td>
 
 							<td style="width: 1%; padding: 5px 10px;">

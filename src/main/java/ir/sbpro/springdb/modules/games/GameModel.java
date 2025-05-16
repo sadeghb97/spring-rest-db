@@ -10,7 +10,7 @@ import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "games")
-public class GameModel extends ModuleEntity implements HasCover {
+public class GameModel extends ModuleEntity {
     @Column(nullable = false)
     private int year;
 
@@ -18,7 +18,8 @@ public class GameModel extends ModuleEntity implements HasCover {
     @Column(nullable = false)
     private String name;
 
-    private String cover;
+    private String link;
+    private String price;
 
     private String description;
 
@@ -61,14 +62,6 @@ public class GameModel extends ModuleEntity implements HasCover {
         this.studio = studio;
     }
 
-    public String getCover() {
-        return cover;
-    }
-
-    public void setCover(String cover) {
-        this.cover = cover;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -79,5 +72,21 @@ public class GameModel extends ModuleEntity implements HasCover {
 
     public Long getStudioPk(){
         return studio != null ? studio.getPk() : null;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 }

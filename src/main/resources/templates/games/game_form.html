@@ -21,6 +21,12 @@
                        placeholder="Name" th:field="*{name}" />
                 <p class="validation" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
 
+                <input type="text" class="field-style field-full align-left"
+                       placeholder="Link" th:field="*{link}" />
+
+                <input type="text" class="field-style field-full align-left"
+                       placeholder="Price" th:field="*{price}" />
+
                 <!--
                  az th field estefade nakardim ta meghdare sefr darune input gharar nagirad
                  set kardane name va id mesle estefade haman estefade az th field hast

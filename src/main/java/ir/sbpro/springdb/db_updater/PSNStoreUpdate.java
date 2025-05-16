@@ -5,6 +5,7 @@ import com.google.gson.reflect.TypeToken;
 import ir.sbpro.PlatPricesApi;
 import ir.sbpro.SBProIO.StylishPrinter;
 import ir.sbpro.models.PlatPricesGame;
+import ir.sbpro.springdb.AppSingleton;
 import ir.sbpro.springdb.ApplicationContextHolder;
 import ir.sbpro.springdb.plat_modules.platgames.PlatGameService;
 import ir.sbpro.springdb.plat_modules.platgames.PlatinumGame;
@@ -81,7 +82,8 @@ public class PSNStoreUpdate {
             try {
                 ir.sbpro.models.PSNGame psnFetcher = new ir.sbpro.models.PSNGame();
                 PlatPricesGame platPricesGame =
-                        PlatPricesApi.getPlatPricesGameWithName(psnGame.getName(), "GB");
+                        PlatPricesApi.getPlatPricesGameWithName(psnGame.getName(), "GB",
+                                AppSingleton.getInstance().networkConnection);
                 psnFetcher.update(platPricesGame);
 
                 gbGame = new PSNGame();

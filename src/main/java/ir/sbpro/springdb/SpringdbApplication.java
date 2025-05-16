@@ -10,9 +10,9 @@ public class SpringdbApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringdbApplication.class, args);
         /*ActiveSalesUpdate activeSalesUpdate = new ActiveSalesUpdate();
-        activeSalesUpdate.update();*/
+        activeSalesUpdate.update();
 
-        /*PSNStoreUpdate psnStoreUpdate = new PSNStoreUpdate();
+        PSNStoreUpdate psnStoreUpdate = new PSNStoreUpdate();
         psnStoreUpdate.updatePlatGamesTomanPrices();*/
     }
 }

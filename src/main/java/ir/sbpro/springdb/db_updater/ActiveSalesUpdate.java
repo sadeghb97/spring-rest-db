@@ -6,6 +6,7 @@ import ir.sbpro.models.ActiveSales;
 import ir.sbpro.models.DLCSaleItem;
 import ir.sbpro.models.GameSaleItem;
 import ir.sbpro.models.StoreSale;
+import ir.sbpro.springdb.AppSingleton;
 import ir.sbpro.springdb.ApplicationContextHolder;
 import ir.sbpro.springdb.plat_modules.active_sales.ActivePSNSale;
 import ir.sbpro.springdb.plat_modules.active_sales.ActiveSalesService;
@@ -39,7 +40,7 @@ public class ActiveSalesUpdate {
     }
 
     public void update(){
-        StoreSalesRepository salesFetcher = new StoreSalesRepository();
+        StoreSalesRepository salesFetcher = new StoreSalesRepository(AppSingleton.getInstance().networkConnection);
         try{
             salesFetcher.update();
             activeSalesService.activeSalesRepository.deleteAll();

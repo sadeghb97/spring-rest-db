@@ -120,6 +120,10 @@ public class UserModel extends ModuleEntity implements Serializable, HasCover, H
     }
 
     public boolean hasPlatGame(String platGameId){
-        return psnGames.stream().anyMatch((game) -> game.getPlatinumGame().getId().equals(platGameId));
+        return psnGames.stream().anyMatch((game) -> game.getPlatinumGame() != null && game.getPlatinumGame().getId().equals(platGameId));
+    }
+
+    public boolean hasIndieGame(Long indieGamePk){
+        return psnGames.stream().anyMatch((game) -> game.getIndieGame() != null && game.getIndieGame().getPk() == indieGamePk);
     }
 }

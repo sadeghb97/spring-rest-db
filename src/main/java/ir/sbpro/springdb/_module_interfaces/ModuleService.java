@@ -39,7 +39,7 @@ public class ModuleService<T extends ModuleEntity> {
 
     public ResponseEntity<Object> registerRecord(T model, MultipartFile file, boolean duplicateAllowed){
         EntityUtils<T, JpaRepository<T, Long>> entityUtils =
-                new EntityUtils(repository, model, "user");
+                new EntityUtils(repository, model);
 
         return entityUtils.patchEntity(file, duplicateAllowed);
     }

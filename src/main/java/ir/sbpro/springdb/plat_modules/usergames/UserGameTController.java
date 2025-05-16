@@ -1,5 +1,7 @@
 package ir.sbpro.springdb.plat_modules.usergames;
 
+import ir.sbpro.springdb.enums.UserGamePlatform;
+import ir.sbpro.springdb.enums.PurchaseType;
 import ir.sbpro.springdb.enums.UserGameStatus;
 import ir.sbpro.springdb.modules.users.UserModel;
 import ir.sbpro.springdb.modules.users.UserService;
@@ -13,11 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.websocket.server.PathParam;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Optional;
+import java.util.*;
 
 @Controller
 @RequestMapping("/library")
@@ -34,7 +32,7 @@ public class UserGameTController {
     @GetMapping(value = {"", "/"})
     public String getLibraryGamesView(Model model,
                                    @ModelAttribute("gsearch") PlatinumGame platGame,
-                                   @PageableDefault(size = 20) Pageable pageable){
+                                   @PageableDefault(size = 24) Pageable pageable){
 
         String sort = null;
         Optional<Sort.Order> orderOptional = pageable.getSort().get().findFirst();
@@ -130,13 +128,15 @@ public class UserGameTController {
             return "redirect:/library/";
         }
 
-        HashMap<String, UserGameStatus> statuses = new HashMap<>();
-        Arrays.stream(UserGameStatus.values()).forEach((st) -> {
-            statuses.put(st.name(), st);
-        });
+        UserGameStatus[] ugsValues = UserGameStatus.values();
+        PurchaseType[] ptValues = PurchaseType.values();
+        UserGamePlatform[] platforms = UserGamePlatform.values();
 
         model.addAttribute("record", userGame);
-        model.addAttribute("statuses", statuses.entrySet());
+        model.addAttribute("statuses", ugsValues);
+        model.addAttribute("ptlist", ptValues);
+        model.addAttribute("platforms", platforms);
+
         return "usergames/user_game_form";
     }
 
@@ -148,7 +148,12 @@ public class UserGameTController {
 
         UserGame regUserGame = userGameService.repository.getById(userGame.getId());
         regUserGame.setRate(userGame.getRate());
+        regUserGame.setProgress(userGame.getProgress());
+        regUserGame.setPlaytime(userGame.getPlaytime());
         regUserGame.setStatus(userGame.getStatus());
+        regUserGame.setPurchaseType(userGame.getPurchaseType());
+        regUserGame.setPlatform(userGame.getPlatform());
+
         userGameService.repository.save(regUserGame);
 
         return "redirect:/library/" + regUserGame.getId() + "/";

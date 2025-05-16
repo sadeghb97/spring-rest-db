@@ -26,7 +26,7 @@ public class StudioTemplateController {
     }
 
     @GetMapping(value = "/studios")
-    public String getRecordsView(Model model, @PageableDefault(size = 5) Pageable pageable){
+    public String getRecordsView(Model model, @PageableDefault(size = 50) Pageable pageable){
         templateUtils.bindPagingRecords(model, pageable);
         return "studios/studios";
     }

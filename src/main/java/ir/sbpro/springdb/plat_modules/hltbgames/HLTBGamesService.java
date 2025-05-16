@@ -1,6 +1,8 @@
 package ir.sbpro.springdb.plat_modules.hltbgames;
 
+import ir.sbpro.springdb.AppSingleton;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -18,7 +20,7 @@ public class HLTBGamesService {
         if(hltbUrl != null && !hltbUrl.isEmpty()) {
             try {
                 ir.sbpro.models.HLTBGame hltbGameFetcher = new ir.sbpro.models.HLTBGame();
-                hltbGameFetcher.update(hltbUrl);
+                hltbGameFetcher.update(hltbUrl, AppSingleton.getInstance().networkConnection);
                 HLTBGame hltbGame = new HLTBGame();
                 hltbGame.load(hltbGameFetcher);
                 return gamesRepository.save(hltbGame);
@@ -36,7 +38,7 @@ public class HLTBGamesService {
             HLTBGame hltbGame = hltbOptional.get();
 
             ir.sbpro.models.HLTBGame hltbGameFetcher = new ir.sbpro.models.HLTBGame();
-            hltbGameFetcher.update(hltbGame.getFullLink());
+            hltbGameFetcher.update(hltbGame.getFullLink(), AppSingleton.getInstance().networkConnection);
 
             hltbGame.load(hltbGameFetcher);
             return gamesRepository.save(hltbGame);

@@ -22,6 +22,7 @@ public interface GameRepository extends JpaRepository<GameModel, Long> {
             "group by p.id having count (p.id) >= :num")
     Page<Posts> findBySearch(Posts posts, @Param("num") Long size, Pageable pageable);*/
 
-    @Query("SELECT g FROM GameModel g WHERE g.name LIKE concat('%', :#{#gameModel.name}, '%')")
+    @Query("SELECT g FROM GameModel g WHERE g.name LIKE concat('%', :#{#gameModel.name}, '%') " +
+            "ORDER BY g.createdAt DESC")
     Page<GameModel> findBySearchQuery(Pageable pageable, GameModel gameModel);
 }

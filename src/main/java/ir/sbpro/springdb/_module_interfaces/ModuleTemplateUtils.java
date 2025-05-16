@@ -1,12 +1,17 @@
 package ir.sbpro.springdb._module_interfaces;
 
+import ir.sbpro.springdb.AppSingleton;
+import ir.sbpro.springdb.modules.games.GameModel;
+import ir.sbpro.springdb.utils.FileUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 
 public class ModuleTemplateUtils<T extends ModuleEntity> {
@@ -56,12 +61,24 @@ public class ModuleTemplateUtils<T extends ModuleEntity> {
 
         if(modelOptional.isPresent()) {
             T model = modelOptional.get();
+            String tmp = model.getClass().getName();
+            String entityName = tmp.substring(tmp.lastIndexOf(".") + 1).toLowerCase(Locale.ROOT);
 
             if(model instanceof HasCover) {
                 String coverFileName = ((HasCover) model).getCover();
 
                 try {
-                    EntityUtils.deleteCover(coverFileName);
+                    EntityUtils.deleteCover(entityName, coverFileName);
+                }catch (Exception ex){}
+            }
+            if(model instanceof GameModel) {
+                String coverFileName = model.getPk().toString();
+                try {
+                    EntityUtils.deleteCover(entityName, coverFileName);
+                    FileUtils.deleteFile(
+                            new File(AppSingleton.GAME_AVATARS_ALT_PATH),
+                            coverFileName
+                    );
                 }catch (Exception ex){}
             }
 

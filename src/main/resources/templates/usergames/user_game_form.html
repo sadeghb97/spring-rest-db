@@ -17,23 +17,64 @@
           class="form-style-9" enctype="multipart/form-data" autocomplete="off">
         <ul>
             <li>
-                <a th:href="@{/platgames/showgame/{psnpid}/(psnpid=${record.platinumGame.getId()})}">
-                    <img class="field-style field-full align-left" id="#coverbox"
-                        th:src="${record.platinumGame.getImage()}" />
-                </a>
+                <div th:switch="${record.getPlatinumGame() != null}">
+                    <a th:case="true" th:href="@{/platgames/showgame/{psnpid}/(psnpid=${record.platinumGame.getId()})}">
+                        <img class="field-style field-full align-left" id="#coverbox"
+                             th:src="${record.getImage()}" />
+                    </a>
+
+                    <a th:case="*" th:href="@{/showgame/{gpk}/(gpk=${record.indieGame.getPk()})}">
+                        <img class="field-style field-full align-left" id="#coverbox"
+                             th:src="${'../../' + record.getImage()}" />
+                    </a>
+                </div>
 
                 <input type="hidden" id="id" name="id" th:field="*{id}">
 
-                <div style="margin-top: 8px;" th:text="'Game: ' + ${record.platinumGame.getName}"></div>
+                <div style="margin-top: 8px;" th:text="'Game: ' + ${record.getName()}"></div>
 
                 <input style="margin-top: 12px;" type="number" class="field-style field-full align-right"
                        placeholder="Rate" th:field="*{rate}" />
 
+                <input type="number" class="field-style field-full align-right"
+                       placeholder="Progress" th:field="*{progress}" />
+
+                <input type="number" class="field-style field-full align-right"
+                       placeholder="Playtime" th:field="*{playtime}" />
+
                 <select th:field="*{status}" class="field-style field-full align-right">
                     <option th:value="${null}" th:selected="true"> --- </option>
 
-                    <option th:each="status : ${statuses}" th:text="${status.key}"
-                            th:value="${status.value}"></option>
+                    <option th:text="Queue" th:value="${statuses[0]}"></option>
+                    <option th:text="Playlist" th:value="${statuses[1]}"></option>
+                    <option th:text="Just_Started" th:value="${statuses[2]}"></option>
+                    <option th:text="Main_Story_Finished" th:value="${statuses[3]}"></option>
+                    <option th:text="Completed" th:value="${statuses[4]}"></option>
+                </select>
+
+                <select th:field="*{purchaseType}" class="field-style field-full align-right">
+                    <option th:value="${null}" th:selected="true"> --- </option>
+
+                    <option th:text="Disk" th:value="${ptlist[0]}"></option>
+                    <option th:text="Digital_UK" th:value="${ptlist[1]}"></option>
+                    <option th:text="Digital_USA" th:value="${ptlist[2]}"></option>
+                    <option th:text="Plus_UK" th:value="${ptlist[3]}"></option>
+                    <option th:text="Plus_USA" th:value="${ptlist[4]}"></option>
+                    <option th:text="Digital_Other" th:value="${ptlist[5]}"></option>
+                    <option th:text="Plus_Other" th:value="${ptlist[6]}"></option>
+                    <option th:text="EA_Play" th:value="${ptlist[7]}"></option>
+                    <option th:text="Steam_TUR" th:value="${ptlist[8]}"></option>
+                    <option th:text="Nintendo_US" th:value="${ptlist[9]}"></option>
+                </select>
+
+                <select th:field="*{platform}" class="field-style field-full align-right">
+                    <option th:value="${null}" th:selected="true"> --- </option>
+
+                    <option th:text="PS4" th:value="${platforms[0]}"></option>
+                    <option th:text="PS5" th:value="${platforms[1]}"></option>
+                    <option th:text="PS4_And_PS5" th:value="${platforms[2]}"></option>
+                    <option th:text="PC" th:value="${platforms[3]}"></option>
+                    <option th:text="Nintendo_Switch" th:value="${platforms[4]}"></option>
                 </select>
             </li>
             <li>

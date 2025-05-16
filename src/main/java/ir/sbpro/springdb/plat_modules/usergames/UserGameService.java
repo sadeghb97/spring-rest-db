@@ -25,6 +25,8 @@ public class UserGameService {
         if(platGame.getName() == null) platGame.setName("");
 
         if(sort == null || sort.equals("creation")) return repository.findBySOCreationTime(pageable, userPk, platGame);
+        if(sort.equals("playtime")) return repository.findBySOPlaytime(pageable, userPk, platGame);
+        if(sort.equals("progress")) return repository.findBySOProgress(pageable, userPk, platGame);
         if(sort.equals("points")) return repository.findBySOPoints(pageable, userPk, platGame);
         if(sort.equals("owners")) return repository.findBySOOwners(pageable, userPk, platGame);
         if(sort.equals("cr")) return repository.findBySOCompletionRate(pageable, userPk, platGame);

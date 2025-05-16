@@ -11,21 +11,27 @@ import java.util.ArrayList;
 
 @Repository
 public interface UserGameRepository extends JpaRepository<UserGame, Long> {
+    public static String USER_GAME_QUERY = "SELECT * FROM users u INNER JOIN user_game g ON u.pk = g.user_pk " +
+            "LEFT JOIN platinum_games pg ON g.platinum_game_id = pg.id " +
+            "LEFT JOIN games ig ON g.indie_game_pk = ig.pk " +
+            "WHERE g.user_pk = :#{#userPk} AND " +
+            "(pg.name LIKE concat('%', :#{#platGame.name}, '%') OR ig.name LIKE concat('%', :#{#platGame.name}, '%')) " +
+            "ORDER BY g.";
 
-    @Query("SELECT g FROM UserModel u INNER JOIN u.psnGames g WHERE u.pk = :#{#userPk} AND " +
-            "g.platinumGame.name LIKE concat('%', :#{#platGame.name}, '%') " +
-            "ORDER BY g.rate ASC")
+    @Query(value = USER_GAME_QUERY + "rate DESC", nativeQuery = true)
     Page<UserGame> findLibraryGamesByRate(Pageable pageable, Long userPk, PlatinumGame platGame);
 
-    @Query("SELECT g FROM UserModel u INNER JOIN u.psnGames g WHERE u.pk = :#{#userPk} AND " +
-            "g.platinumGame.name LIKE concat('%', :#{#platGame.name}, '%') " +
-            "ORDER BY g.status DESC")
+    @Query(value = USER_GAME_QUERY + "status DESC", nativeQuery = true)
     Page<UserGame> findLibraryGamesByStatus(Pageable pageable, Long userPk, PlatinumGame platGame);
 
-    @Query("SELECT g FROM UserModel u INNER JOIN u.psnGames g WHERE u.pk = :#{#userPk} AND " +
-            "g.platinumGame.name LIKE concat('%', :#{#platGame.name}, '%') " +
-            "ORDER BY g.createdAt DESC")
+    @Query(value = USER_GAME_QUERY + "created_at DESC", nativeQuery = true)
     Page<UserGame> findBySOCreationTime(Pageable pageable, Long userPk, PlatinumGame platGame);
+
+    @Query(value = USER_GAME_QUERY + "playtime DESC", nativeQuery = true)
+    Page<UserGame> findBySOPlaytime(Pageable pageable, Long userPk, PlatinumGame platGame);
+
+    @Query(value = USER_GAME_QUERY + "progress DESC", nativeQuery = true)
+    Page<UserGame> findBySOProgress(Pageable pageable, Long userPk, PlatinumGame platGame);
 
     @Query("SELECT g FROM UserModel u INNER JOIN u.psnGames g WHERE u.pk = :#{#userPk} AND " +
             "g.platinumGame.name LIKE concat('%', :#{#platGame.name}, '%') " +
